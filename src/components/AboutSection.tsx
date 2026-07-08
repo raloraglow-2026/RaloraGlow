@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import Image from "next/image";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -163,8 +164,8 @@ export default function AboutSection() {
                   <p className="font-body text-[9px] tracking-[0.3em] uppercase text-[#C9A86A]">Featured Product</p>
                   <p className="font-heading text-base text-[#111111] mt-0.5">SPCL Tan Care Body Scrub</p>
                 </div>
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#D4B97E] to-[#C9A86A] flex items-center justify-center shadow-md">
-                  <span className="text-white text-xs">RG</span>
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#D4B97E] to-[#C9A86A] flex items-center justify-center shadow-md overflow-hidden relative">
+                  <Image src="/logo.png" alt="RALORA GLOW" fill className="object-contain p-1" />
                 </div>
               </div>
             </div>

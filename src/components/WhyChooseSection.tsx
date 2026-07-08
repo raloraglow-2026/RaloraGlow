@@ -60,7 +60,7 @@ export default function WhyChooseSection() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section className="relative py-24 md:py-36 bg-[#FCFBF8] overflow-hidden">
+    <section id="why" className="relative py-24 md:py-36 bg-[#FCFBF8] overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#C9A86A]/20 to-transparent" />
       <div className="absolute inset-0 opacity-[0.02]" style={{
         backgroundImage: `radial-gradient(circle at 1px 1px, #C9A86A 1px, transparent 0)`,

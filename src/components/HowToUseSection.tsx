@@ -69,7 +69,7 @@ export default function HowToUseSection() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section className="relative py-24 md:py-36 bg-white overflow-hidden">
+    <section id="howtouse" className="relative py-24 md:py-36 bg-white overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#C9A86A]/20 to-transparent" />
       <div className="absolute bottom-0 right-0 w-96 h-96 rounded-full bg-[#EFE8DD]/15 translate-x-1/2 translate-y-1/2 blur-[100px] pointer-events-none" />
 
