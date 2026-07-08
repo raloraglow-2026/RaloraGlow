@@ -2,14 +2,19 @@
 import { motion } from "framer-motion";
 import { ArrowRight, MessageCircle, Sparkles } from "lucide-react";
 
-const particles = Array.from({ length: 10 }, (_, i) => ({
-  id: i,
-  x: Math.random() * 100,
-  y: Math.random() * 100,
-  size: Math.random() * 2.5 + 1,
-  delay: Math.random() * 4,
-  duration: Math.random() * 4 + 5,
-}));
+// Fixed particle positions — no Math.random() to avoid hydration mismatch
+const particles = [
+  { id: 0, x: 12, y: 18, size: 2.2, delay: 0,   duration: 6.5 },
+  { id: 1, x: 28, y: 72, size: 1.6, delay: 1.2, duration: 7.0 },
+  { id: 2, x: 45, y: 35, size: 2.8, delay: 0.6, duration: 5.8 },
+  { id: 3, x: 62, y: 88, size: 1.4, delay: 2.0, duration: 8.0 },
+  { id: 4, x: 75, y: 15, size: 2.0, delay: 0.3, duration: 6.2 },
+  { id: 5, x: 88, y: 55, size: 2.5, delay: 1.8, duration: 7.5 },
+  { id: 6, x: 8,  y: 62, size: 1.8, delay: 2.5, duration: 5.5 },
+  { id: 7, x: 52, y: 8,  size: 1.2, delay: 0.9, duration: 9.0 },
+  { id: 8, x: 92, y: 42, size: 2.3, delay: 3.0, duration: 6.8 },
+  { id: 9, x: 35, y: 95, size: 1.5, delay: 1.5, duration: 7.2 },
+];
 
 export default function HeroSection() {
   const scrollToProduct = () => {
