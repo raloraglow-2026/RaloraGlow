@@ -6,32 +6,32 @@ import { Plus, Minus } from "lucide-react";
 
 const faqs = [
   {
-    q: "How often should I use the SPCL Tan Removal Body Scrub?",
-    a: "We recommend using the scrub 2–3 times per week for optimal results. Consistent use helps reveal smoother, more radiant skin. For sensitive skin, start with once a week and gradually increase as your skin adjusts.",
+    q: "How often should I use the SPCL Tan Care Body Scrub?",
+    a: "We recommend using the scrub 2–3 times per week for best results. Consistent use helps reveal smoother, more radiant skin. For sensitive skin, begin with once a week and gradually increase as your skin adjusts.",
   },
   {
     q: "Who can use RALORA GLOW's body scrub?",
-    a: "The SPCL Tan Removal Body Scrub is designed for everyone — men and women of all ages and skin types. The formula is gentle enough for most users while being effective for the entire body.",
+    a: "The SPCL Tan Care Body Scrub is designed for everyone — men and women of all ages and skin types. The formula is gentle enough for most users while being effective for the whole body.",
   },
   {
     q: "How should I store the product?",
-    a: "Store the scrub in a cool, dry place away from direct sunlight and excessive heat. Ensure the lid is firmly closed after each use to maintain freshness. Avoid contact with water inside the jar.",
+    a: "Store in a cool, dry place away from direct sunlight. Keep the container tightly closed after each use. Always use a dry spoon to scoop out the product — avoid introducing water into the container.",
   },
   {
     q: "How long does one jar last?",
-    a: "With regular use of 2–3 times per week, one 200g jar typically lasts approximately 4–6 weeks. This may vary depending on the amount applied per use.",
+    a: "With regular use of 2–3 times per week, one jar typically lasts approximately 4–6 weeks. This may vary based on the amount used per application.",
   },
   {
     q: "Is it suitable for sensitive skin?",
-    a: "We always recommend performing a patch test before first use, especially for sensitive skin. Apply a small amount to your inner arm and wait 24 hours. If no reaction occurs, the product should be safe for your use. Discontinue immediately if irritation develops.",
+    a: "We always recommend performing a patch test before first use. Apply a small amount to your inner arm and wait 24 hours. If no irritation occurs, it should be safe to use. Discontinue immediately if any irritation develops.",
   },
   {
-    q: "How do I order RALORA GLOW products?",
-    a: "You can order directly through WhatsApp by messaging us at +91 7416751547. Our team will guide you through the ordering process, answer any questions, and ensure your order is handled with care.",
+    q: "How do I place an order?",
+    a: "Simply message us on WhatsApp at +91 7416751547. Our team will guide you through the ordering process, answer any questions, and ensure your order is handled with care and dispatched promptly.",
   },
   {
     q: "What makes RALORA GLOW different from other scrubs?",
-    a: "RALORA GLOW combines premium natural ingredients with a luxury formula crafted for both men and women. We focus on the complete self-care experience — from the quality of the formula to the premium packaging and attentive customer service.",
+    a: "RALORA GLOW is handcrafted with carefully selected natural ingredients — no harsh bleaching agents, no artificial whitening chemicals. We focus on genuine self-care: honest formulations, premium packaging, and a luxury experience designed for everyone.",
   },
 ];
 

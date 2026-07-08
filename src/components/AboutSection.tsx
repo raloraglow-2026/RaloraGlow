@@ -161,7 +161,7 @@ export default function AboutSection() {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="font-body text-[9px] tracking-[0.3em] uppercase text-[#C9A86A]">Featured Product</p>
-                  <p className="font-heading text-base text-[#111111] mt-0.5">SPCL Tan Removal Body Scrub</p>
+                  <p className="font-heading text-base text-[#111111] mt-0.5">SPCL Tan Care Body Scrub</p>
                 </div>
                 <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#D4B97E] to-[#C9A86A] flex items-center justify-center shadow-md">
                   <span className="text-white text-xs">RG</span>

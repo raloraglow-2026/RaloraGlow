@@ -162,11 +162,11 @@ export default function WhyChooseSection() {
             <button
               onClick={() =>
                 window.open(
-                  "https://wa.me/917416751547?text=Hello%20RALORA%20GLOW!%20I'd%20like%20to%20order%20the%20SPCL%20Tan%20Removal%20Body%20Scrub.",
+                  "https://wa.me/917416751547?text=Hello%20RALORA%20GLOW!%20I'd%20like%20to%20order%20the%20SPCL%20Tan%20Care%20Body%20Scrub.",
                   "_blank"
                 )
               }
-              className="btn-luxury flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#C9A86A] to-[#D4B97E] text-white text-xs tracking-[0.2em] uppercase font-body rounded-full hover:shadow-[0_15px_40px_rgba(201,168,106,0.3)] transition-all duration-300"
+              className="btn-luxury flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#C9A86A] to-[#D4B97E] text-white text-[11px] tracking-[0.22em] uppercase font-body rounded-full hover:shadow-[0_15px_40px_rgba(201,168,106,0.3)] transition-all duration-300"
             >
               Order Now on WhatsApp
             </button>

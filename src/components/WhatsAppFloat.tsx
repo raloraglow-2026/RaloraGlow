@@ -20,7 +20,7 @@ export default function WhatsAppFloat() {
 
   const openWhatsApp = () => {
     window.open(
-      "https://wa.me/917416751547?text=Hello%20RALORA%20GLOW!%20I'm%20interested%20in%20the%20SPCL%20Tan%20Removal%20Body%20Scrub.",
+      "https://wa.me/917416751547?text=Hello%20RALORA%20GLOW!%20I'm%20interested%20in%20the%20SPCL%20Tan%20Care%20Body%20Scrub.",
       "_blank"
     );
   };

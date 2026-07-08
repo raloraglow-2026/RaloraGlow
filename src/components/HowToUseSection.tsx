@@ -6,36 +6,61 @@ import { useRef } from "react";
 const steps = [
   {
     number: "01",
-    title: "Prepare Your Skin",
-    subtitle: "Wet skin thoroughly",
-    desc: "Step into your shower and ensure your skin is completely wet. Warm water helps open pores for a deeper, more effective exfoliation experience.",
-    icon: "💧",
-    tip: "Use warm water for best results",
+    title: "Measure",
+    subtitle: "Take 2–3 teaspoons",
+    desc: "Scoop 2–3 teaspoons of RALORA GLOW SPCL Tan Care Body Scrub into a small bowl or your palm.",
+    icon: "🥄",
   },
   {
     number: "02",
-    title: "Apply & Massage",
-    subtitle: "Circular motions for 2–3 minutes",
-    desc: "Take a generous amount of the SPCL Tan Removal Body Scrub and massage gently across your body using slow, circular motions. Focus on areas prone to dryness.",
-    icon: "🤲",
-    tip: "Be gentle on sensitive areas",
+    title: "Mix",
+    subtitle: "Create a smooth paste",
+    desc: "Mix with rose water or plain water to form a smooth, creamy paste ready for application.",
+    icon: "💧",
   },
   {
     number: "03",
-    title: "Rinse & Reveal",
-    subtitle: "Rinse thoroughly and moisturize",
-    desc: "Rinse off completely with cool or lukewarm water to seal in the benefits. Pat dry gently and follow with your favorite body moisturizer for lasting softness.",
-    icon: "✨",
-    tip: "Follow with moisturizer for best results",
+    title: "Apply",
+    subtitle: "On damp skin",
+    desc: "Apply the paste evenly onto damp skin. For best results, ensure your skin is lightly moistened before use.",
+    icon: "🤲",
+  },
+  {
+    number: "04",
+    title: "Massage",
+    subtitle: "Circular motions for 2–3 minutes",
+    desc: "Gently massage in slow, circular motions for 2–3 minutes. Focus on areas prone to dryness or tanning.",
+    icon: "✦",
+  },
+  {
+    number: "05",
+    title: "Rest",
+    subtitle: "Leave on for 3–5 minutes",
+    desc: "Optionally, leave the scrub on your skin for 3–5 minutes to allow the natural ingredients to work gently.",
+    icon: "⏱",
+  },
+  {
+    number: "06",
+    title: "Rinse",
+    subtitle: "Rinse thoroughly",
+    desc: "Rinse off completely with cool or lukewarm water until your skin is clean and residue-free.",
+    icon: "🚿",
+  },
+  {
+    number: "07",
+    title: "Moisturize",
+    subtitle: "Seal in the benefits",
+    desc: "Pat dry gently and follow with your favourite body moisturizer to lock in softness and hydration.",
+    icon: "🧴",
   },
 ];
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
+  hidden: { opacity: 0, y: 30 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.15, duration: 0.7, ease: "easeOut" as const },
+    transition: { delay: i * 0.09, duration: 0.65, ease: "easeOut" as const },
   }),
 };
 
@@ -46,146 +71,104 @@ export default function HowToUseSection() {
   return (
     <section className="relative py-24 md:py-36 bg-white overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#C9A86A]/20 to-transparent" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 rounded-full bg-[#EFE8DD]/20 translate-x-1/2 translate-y-1/3 blur-3xl" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 rounded-full bg-[#EFE8DD]/15 translate-x-1/2 translate-y-1/2 blur-[100px] pointer-events-none" />
 
-      <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Header */}
-        <div className="text-center mb-20">
+      <div ref={ref} className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+
+        {/* ── Header ── */}
+        <div className="text-center mb-16 max-w-xl mx-auto">
           <motion.p
-            custom={0}
-            variants={fadeUp}
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
+            custom={0} variants={fadeUp} initial="hidden" animate={inView ? "visible" : "hidden"}
             className="font-body text-[10px] tracking-[0.45em] text-[#C9A86A] uppercase mb-4"
           >
             The Ritual
           </motion.p>
           <motion.h2
-            custom={1}
-            variants={fadeUp}
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-            className="font-heading text-4xl md:text-5xl lg:text-6xl text-[#111111] leading-tight"
+            custom={1} variants={fadeUp} initial="hidden" animate={inView ? "visible" : "hidden"}
+            className="font-heading text-4xl md:text-5xl lg:text-[56px] text-[#111111] leading-[1.1]"
           >
             How To
             <br />
             <span className="italic gold-gradient-text">Use</span>
           </motion.h2>
           <motion.div
-            custom={2}
-            variants={fadeUp}
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-            className="mx-auto mt-6 h-[1px] w-16 bg-gradient-to-r from-transparent via-[#C9A86A] to-transparent"
+            custom={2} variants={fadeUp} initial="hidden" animate={inView ? "visible" : "hidden"}
+            className="mx-auto mt-6 h-[1px] w-14 bg-gradient-to-r from-transparent via-[#C9A86A] to-transparent"
           />
           <motion.p
-            custom={3}
-            variants={fadeUp}
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-            className="font-body text-sm md:text-base text-[#111111]/50 max-w-md mx-auto mt-6 leading-relaxed"
+            custom={3} variants={fadeUp} initial="hidden" animate={inView ? "visible" : "hidden"}
+            className="font-body text-sm md:text-[15px] text-[#111111]/45 mt-6 leading-[1.8]"
           >
-            Three simple steps to transform your skin care routine into a luxury ritual.
+            Seven simple steps to turn your skincare into a luxury self-care ritual.
           </motion.p>
         </div>
 
-        {/* Steps */}
-        <div className="relative">
-          {/* Vertical connecting line — desktop */}
-          <div className="hidden lg:block absolute left-1/2 top-16 bottom-16 w-[1px] bg-gradient-to-b from-[#C9A86A]/20 via-[#C9A86A]/40 to-[#C9A86A]/20 -translate-x-1/2" />
-
-          <div className="space-y-8 lg:space-y-0">
-            {steps.map((step, i) => (
-              <motion.div
-                key={step.number}
-                custom={i + 2}
-                variants={fadeUp}
-                initial="hidden"
-                animate={inView ? "visible" : "hidden"}
-                className={`relative grid lg:grid-cols-2 gap-8 lg:gap-20 items-center ${
-                  i % 2 === 0 ? "" : "lg:direction-reverse"
-                }`}
-              >
-                {/* Content */}
-                <div className={`${i % 2 !== 0 ? "lg:order-2" : ""}`}>
-                  <div className="bg-[#FCFBF8] rounded-2xl p-8 border border-[#F4F4F4] hover:border-[#C9A86A]/20 hover:shadow-[0_20px_60px_rgba(201,168,106,0.08)] transition-all duration-500">
-                    <div className="flex items-start gap-5 mb-5">
-                      <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-[#C9A86A] to-[#D4B97E] flex items-center justify-center shadow-lg shadow-[#C9A86A]/20">
-                        <span className="font-body text-xs font-semibold text-white tracking-wider">{step.number}</span>
-                      </div>
-                      <div>
-                        <h3 className="font-heading text-xl md:text-2xl text-[#111111]">{step.title}</h3>
-                        <p className="font-body text-xs tracking-widest text-[#C9A86A] uppercase mt-1">{step.subtitle}</p>
-                      </div>
-                    </div>
-                    <div className="h-[1px] bg-gradient-to-r from-[#C9A86A]/20 to-transparent mb-5" />
-                    <p className="font-body text-sm text-[#111111]/55 leading-relaxed mb-5">{step.desc}</p>
-                    <div className="flex items-center gap-2 px-4 py-2.5 bg-white rounded-xl border border-[#C9A86A]/15">
-                      <span className="text-[#C9A86A] text-xs">💡</span>
-                      <p className="font-body text-xs text-[#C9A86A] tracking-wide">{step.tip}</p>
-                    </div>
+        {/* ── Steps Grid ── */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+          {steps.map((step, i) => (
+            <motion.div
+              key={step.number}
+              custom={i} variants={fadeUp} initial="hidden" animate={inView ? "visible" : "hidden"}
+              className={`group relative ${step.number === "07" ? "sm:col-span-2 lg:col-span-1" : ""}`}
+            >
+              <div className="h-full bg-[#FCFBF8] rounded-2xl p-6 border border-[#F4F4F4] hover:border-[#C9A86A]/20 hover:shadow-[0_16px_50px_rgba(201,168,106,0.08)] transition-all duration-400">
+                {/* Number + icon row */}
+                <div className="flex items-center justify-between mb-5">
+                  <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#C9A86A] to-[#D4B97E] flex items-center justify-center shadow-sm shadow-[#C9A86A]/20 flex-shrink-0">
+                    <span className="font-body text-[10px] font-semibold text-white tracking-wider">{step.number}</span>
                   </div>
+                  <span className="text-2xl opacity-60 group-hover:opacity-100 transition-opacity duration-300">{step.icon}</span>
                 </div>
 
-                {/* Visual side */}
-                <div className={`${i % 2 !== 0 ? "lg:order-1" : ""} flex items-center justify-center`}>
-                  {/* Center dot on timeline */}
-                  <div className="hidden lg:block absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-gradient-to-br from-[#C9A86A] to-[#D4B97E] shadow-[0_0_20px_rgba(201,168,106,0.4)] z-10" />
-                  
-                  <div className="w-48 h-48 md:w-56 md:h-56 rounded-3xl bg-gradient-to-br from-[#F8F5EF] to-[#EFE8DD] flex flex-col items-center justify-center shadow-[0_20px_60px_rgba(201,168,106,0.15)] border border-[#C9A86A]/10">
-                    <span className="text-5xl mb-3">{step.icon}</span>
-                    <span className="font-heading text-4xl text-[#C9A86A]/20">{step.number}</span>
-                    <p className="font-body text-[9px] tracking-[0.35em] text-[#C9A86A] uppercase mt-1">{step.title}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+                <div className="h-[1px] bg-gradient-to-r from-[#C9A86A]/20 to-transparent mb-4" />
+
+                <h3 className="font-heading text-[17px] text-[#111111] mb-1">{step.title}</h3>
+                <p className="font-body text-[9px] tracking-[0.25em] text-[#C9A86A] uppercase mb-3">{step.subtitle}</p>
+                <p className="font-body text-xs text-[#111111]/50 leading-[1.75]">{step.desc}</p>
+              </div>
+            </motion.div>
+          ))}
         </div>
 
-        {/* Frequency recommendation */}
+        {/* ── Quick Reference ── */}
         <motion.div
-          custom={5}
-          variants={fadeUp}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          className="mt-16 grid sm:grid-cols-3 gap-5"
+          custom={8} variants={fadeUp} initial="hidden" animate={inView ? "visible" : "hidden"}
+          className="mt-8 grid sm:grid-cols-3 gap-4"
         >
           {[
-            { label: "Frequency", value: "2–3 times per week", icon: "📅" },
-            { label: "Duration", value: "2–3 minutes massage", icon: "⏱" },
-            { label: "Follow With", value: "Body moisturizer", icon: "🧴" },
+            { icon: "📅", label: "Frequency", value: "2–3 times per week" },
+            { icon: "⏱", label: "Massage Duration", value: "2–3 minutes" },
+            { icon: "🧴", label: "Follow With", value: "Body moisturizer" },
           ].map((item, i) => (
             <div key={i} className="flex items-center gap-4 p-5 bg-[#FCFBF8] rounded-2xl border border-[#F4F4F4]">
-              <span className="text-2xl">{item.icon}</span>
+              <span className="text-xl flex-shrink-0">{item.icon}</span>
               <div>
                 <p className="font-body text-[9px] tracking-[0.3em] text-[#C9A86A] uppercase">{item.label}</p>
-                <p className="font-heading text-sm text-[#111111] mt-0.5">{item.value}</p>
+                <p className="font-heading text-[13px] text-[#111111] mt-0.5">{item.value}</p>
               </div>
             </div>
           ))}
         </motion.div>
 
-        {/* Patch test notice */}
+        {/* ── Patch Test ── */}
         <motion.div
-          custom={6}
-          variants={fadeUp}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          className="mt-6 p-5 bg-[#F8F5EF] rounded-2xl border border-[#C9A86A]/15 flex items-start gap-4"
+          custom={9} variants={fadeUp} initial="hidden" animate={inView ? "visible" : "hidden"}
+          className="mt-5 flex items-start gap-4 p-5 bg-[#F8F5EF] rounded-2xl border border-[#C9A86A]/12"
         >
-          <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#C9A86A]/10 flex items-center justify-center">
+          <div className="w-8 h-8 rounded-full bg-[#C9A86A]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
             <span className="text-sm">⚠️</span>
           </div>
           <div>
             <p className="font-heading text-sm text-[#111111] mb-1">Patch Test Recommended</p>
-            <p className="font-body text-xs text-[#111111]/50 leading-relaxed">
-              Before first use, apply a small amount to your inner arm and wait 24 hours. If no irritation occurs, you're ready to enjoy the full ritual. Discontinue use if any irritation develops.
+            <p className="font-body text-xs text-[#111111]/45 leading-relaxed">
+              Apply a small amount to your inner arm and wait 24 hours before first full use. 
+              Discontinue if any irritation occurs. For external use only. Keep away from eyes. 
+              Keep out of reach of children.
             </p>
           </div>
         </motion.div>
       </div>
+
       <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#C9A86A]/20 to-transparent" />
     </section>
   );
