@@ -9,12 +9,12 @@ const up = {
 };
 
 const cards = [
-  { icon:"◈", title:"Gentle Exfoliation",    desc:"Softly buffs away dead skin cells to reveal smoother, more refined skin." },
-  { icon:"🌿", title:"Natural Formula",       desc:"Made with carefully selected natural ingredients. No harsh chemicals." },
-  { icon:"♾",  title:"Spa-Like Feel",         desc:"Transforms your daily shower into a luxurious self-care ritual." },
-  { icon:"◎",  title:"Smooth Skin",           desc:"Leaves skin feeling silky soft and touchably smooth after every use." },
-  { icon:"✦",  title:"Handcrafted Quality",   desc:"Every batch is carefully crafted for consistent, premium results." },
-  { icon:"✿",  title:"Radiant Glow",          desc:"Supports healthy-looking, naturally radiant skin with regular use." },
+  { icon:"◈", title:"Gentle Exfoliation",    desc:"Reveals smoother skin." },
+  { icon:"🌿", title:"Natural Formula",       desc:"No harsh chemicals." },
+  { icon:"♾",  title:"Spa-Like Feel",         desc:"Luxurious self-care ritual." },
+  { icon:"◎",  title:"Smooth Skin",           desc:"Silky soft finish." },
+  { icon:"✦",  title:"Handcrafted Quality",   desc:"Premium results every time." },
+  { icon:"✿",  title:"Radiant Glow",          desc:"Naturally healthy-looking skin." },
 ];
 
 export default function BenefitsSection() {
@@ -64,7 +64,7 @@ export default function BenefitsSection() {
             </h3>
             <div className="gold-line w-12 mx-auto mt-7" />
             <div className="mt-8 flex justify-center gap-10 md:gap-16 flex-wrap">
-              {[["Exfoliated","Smooth Surface"],["Refreshed","Radiant Glow"],["Nourished","Soft & Hydrated"]].map(([a,b],i)=>(
+              {[["Exfoliated","Smooth"],["Refreshed","Radiant"],["Soft","Hydrated"]].map(([a,b],i)=>(
                 <div key={i} className="text-center">
                   <p className="font-heading text-lg text-[#D4B97E]">{a}</p>
                   <p className="font-body text-[9px] tracking-[0.26em] text-white/25 uppercase mt-1">{b}</p>

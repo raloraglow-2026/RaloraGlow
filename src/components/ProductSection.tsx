@@ -92,7 +92,7 @@ export default function ProductSection() {
             <h3 className="font-heading text-2xl md:text-3xl text-[#111111] leading-[1.15] mb-3">Premium<br /><span className="italic text-[#C9A86A]">Glow Ritual</span></h3>
             <div className="h-[1px] w-8 bg-gradient-to-r from-[#C9A86A] to-transparent mb-5" />
             <p className="font-body text-sm text-[#111111]/46 leading-[1.8] mb-6">
-              Gently exfoliates dead skin cells, improves tanning appearance, and leaves skin soft and radiant. For all skin types — men and women.
+              Gently exfoliates. Improves appearance. Leaves skin soft and radiant. For all skin types.
             </p>
 
             {/* Benefits list */}

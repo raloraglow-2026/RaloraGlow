@@ -45,10 +45,7 @@ export default function AboutSection() {
             </p>
             <div className="h-[1px] w-8 bg-[#C9A86A] mb-5" />
             <p className="font-body text-sm text-[#111111]/48 leading-[1.8] mb-4">
-              Premium skincare should feel thoughtful, honest, and beautifully crafted. Our SPCL Tan Care Body Scrub is handcrafted with natural ingredients.
-            </p>
-            <p className="font-body text-sm text-[#111111]/48 leading-[1.8] mb-6">
-              No harsh chemicals. No artificial whitening. Just genuine care for your skin.
+              Natural ingredients, zero compromise. Premium care for every skin type.
             </p>
 
             {/* Stats */}
@@ -97,9 +94,9 @@ export default function AboutSection() {
                 <p className="font-body text-[9px] tracking-[0.3em] text-[#C9A86A] uppercase">Featured Product</p>
                 <p className="font-heading text-sm text-[#111111] mt-0.5">SPCL Tan Care Body Scrub</p>
               </div>
-              <div className="relative w-8 h-8 rounded-full bg-[#0d0d0d] overflow-hidden flex-shrink-0">
-                  <Image src="/logo.png" alt="RALORA GLOW" fill className="object-contain p-0.5" />
-                </div>
+              <div className="relative w-10 h-10 rounded-full bg-[#0d0d0d] overflow-hidden flex-shrink-0 border border-[#C9A86A]/20 flex items-center justify-center">
+                <span className="text-white text-xs font-bold">RG</span>
+              </div>
             </div>
           </motion.div>
         </div>

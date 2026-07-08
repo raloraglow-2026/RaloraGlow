@@ -26,7 +26,7 @@ export default function ContactSection() {
           <motion.h2  custom={1} variants={up} initial="hidden" animate={v?"show":"hidden"} className="section-title">Ready To<br /><span className="gold-text italic">Glow?</span></motion.h2>
           <motion.div custom={2} variants={up} initial="hidden" animate={v?"show":"hidden"} className="gold-line w-12 mx-auto mt-6" />
           <motion.p   custom={3} variants={up} initial="hidden" animate={v?"show":"hidden"} className="section-sub text-center mx-auto">
-            Order your SPCL Tan Care Body Scrub today. We respond quickly on WhatsApp.
+            Message us on WhatsApp to order.
           </motion.p>
         </div>
 
