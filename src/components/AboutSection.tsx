@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import Image from "next/image";
 
 const up = {
   hidden: { opacity:0, y:28 },
@@ -39,26 +40,26 @@ export default function AboutSection() {
 
           {/* Left */}
           <motion.div custom={0} variants={up} initial="hidden" animate={v?"show":"hidden"}>
-            <p className="font-heading text-2xl md:text-3xl text-[#111111]/70 italic leading-[1.5] mb-6">
-              "Luxury is not about excess — it is about the quiet joy of using something perfectly made."
+            <p className="font-heading text-xl md:text-2xl text-[#111111]/70 italic leading-[1.5] mb-5">
+              "Luxury is the quiet joy of something perfectly made."
             </p>
-            <div className="h-[1px] w-10 bg-[#C9A86A] mb-6" />
-            <p className="font-body text-sm text-[#111111]/48 leading-[1.85] mb-5">
-              At RALORA GLOW, every product begins with a simple belief: premium skincare should feel thoughtful, honest, and beautifully crafted.
+            <div className="h-[1px] w-8 bg-[#C9A86A] mb-5" />
+            <p className="font-body text-sm text-[#111111]/48 leading-[1.8] mb-4">
+              Premium skincare should feel thoughtful, honest, and beautifully crafted. Our SPCL Tan Care Body Scrub is handcrafted with natural ingredients.
             </p>
-            <p className="font-body text-sm text-[#111111]/48 leading-[1.85] mb-8">
-              Our SPCL Tan Care Body Scrub is handcrafted with a blend of natural ingredients — no harsh chemicals, no artificial whitening agents. Just genuine care for your skin.
+            <p className="font-body text-sm text-[#111111]/48 leading-[1.8] mb-6">
+              No harsh chemicals. No artificial whitening. Just genuine care for your skin.
             </p>
 
             {/* Stats */}
-            <div className="flex items-center gap-8 flex-wrap">
-              {[["Natural","Focus"],["Unisex","For All"],["Handcrafted","Each Batch"]].map(([v1,v2],i)=>(
-                <div key={i} className="flex items-center gap-5">
+            <div className="flex items-center gap-6 flex-wrap">
+              {[["Natural","Focus"],["Unisex","For All"],["Handcrafted","Every Batch"]].map(([v1,v2],i)=>(
+                <div key={i} className="flex items-center gap-4">
                   <div>
-                    <p className="font-heading text-2xl gold-text">{v1}</p>
-                    <p className="font-body text-[9px] tracking-widest text-[#111111]/35 uppercase mt-0.5">{v2}</p>
+                    <p className="font-heading text-lg md:text-xl gold-text">{v1}</p>
+                    <p className="font-body text-[8px] tracking-widest text-[#111111]/35 uppercase mt-0.5">{v2}</p>
                   </div>
-                  {i<2 && <div className="w-[1px] h-8 bg-[#C9A86A]/15" />}
+                  {i<2 && <div className="w-[1px] h-6 bg-[#C9A86A]/15" />}
                 </div>
               ))}
             </div>
@@ -96,7 +97,9 @@ export default function AboutSection() {
                 <p className="font-body text-[9px] tracking-[0.3em] text-[#C9A86A] uppercase">Featured Product</p>
                 <p className="font-heading text-sm text-[#111111] mt-0.5">SPCL Tan Care Body Scrub</p>
               </div>
-              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#D4B97E] to-[#C9A86A] flex items-center justify-center text-white text-[9px] font-body tracking-wider">RG</div>
+              <div className="relative w-8 h-8 rounded-full bg-[#0d0d0d] overflow-hidden flex-shrink-0">
+                  <Image src="/logo.png" alt="RALORA GLOW" fill className="object-contain p-0.5" />
+                </div>
             </div>
           </motion.div>
         </div>

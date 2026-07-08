@@ -37,7 +37,7 @@ export default function HeroSection() {
       ))}
 
       <div className="container-xl relative z-10 w-full">
-        <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center min-h-screen py-32 lg:py-0">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-screen py-20 lg:py-0">
 
           {/* ── LEFT ── */}
           <div className="flex flex-col order-2 lg:order-1">
@@ -46,11 +46,11 @@ export default function HeroSection() {
             <motion.div
               initial={{ opacity:0, y:14 }} animate={{ opacity:1, y:0 }}
               transition={{ delay:2.5, duration:0.6 }}
-              className="self-start mb-7"
+              className="self-start mb-6"
             >
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 border border-[#C9A86A]/22 backdrop-blur-sm shadow-sm">
+              <span className="inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-white/80 border border-[#C9A86A]/22 backdrop-blur-sm shadow-sm">
                 <span className="w-1 h-1 rounded-full bg-[#C9A86A]" />
-                <span className="font-body text-[10px] tracking-[0.35em] uppercase text-[#C9A86A]">Premium · Natural · Luxury</span>
+                <span className="font-body text-[9px] tracking-[0.3em] uppercase text-[#C9A86A]">Premium · Natural · Luxury</span>
                 <span className="w-1 h-1 rounded-full bg-[#C9A86A]" />
               </span>
             </motion.div>
@@ -59,7 +59,7 @@ export default function HeroSection() {
             <motion.h1
               initial={{ opacity:0, y:28 }} animate={{ opacity:1, y:0 }}
               transition={{ delay:2.7, duration:0.9, ease:"easeOut" as const }}
-              className="font-heading text-[64px] sm:text-[78px] md:text-[88px] leading-[1.0] tracking-tight text-[#111111]"
+              className="font-heading text-[3.5rem] sm:text-[4.5rem] md:text-[5rem] leading-[1.0] tracking-tight text-[#111111]"
             >
               <span className="block">RALORA</span>
               <span className="block gold-text italic">GLOW</span>
@@ -69,14 +69,14 @@ export default function HeroSection() {
             <motion.div
               initial={{ scaleX:0 }} animate={{ scaleX:1 }}
               transition={{ delay:3.0, duration:0.6 }}
-              className="origin-left mt-6 mb-5 h-[1px] w-16 bg-gradient-to-r from-[#C9A86A] to-transparent"
+              className="origin-left mt-5 mb-4 h-[1px] w-14 bg-gradient-to-r from-[#C9A86A] to-transparent"
             />
 
             {/* Tagline */}
             <motion.p
               initial={{ opacity:0, y:14 }} animate={{ opacity:1, y:0 }}
               transition={{ delay:3.1, duration:0.7 }}
-              className="font-heading text-xl md:text-2xl text-[#111111]/50 italic mb-4"
+              className="font-heading text-lg md:text-xl text-[#111111]/50 italic mb-3"
             >
               Luxury skincare for every body.
             </motion.p>
@@ -85,26 +85,26 @@ export default function HeroSection() {
             <motion.p
               initial={{ opacity:0, y:14 }} animate={{ opacity:1, y:0 }}
               transition={{ delay:3.3, duration:0.7 }}
-              className="font-body text-sm text-[#111111]/42 leading-[1.85] max-w-[400px] mb-9"
+              className="font-body text-sm md:text-base text-[#111111]/42 leading-[1.85] max-w-sm mb-8"
             >
-              Handcrafted with carefully selected natural ingredients for a premium self-care experience — for men and women.
+              Handcrafted with natural ingredients for premium self-care — for men and women.
             </motion.p>
 
             {/* CTAs */}
             <motion.div
               initial={{ opacity:0, y:14 }} animate={{ opacity:1, y:0 }}
               transition={{ delay:3.5, duration:0.7 }}
-              className="flex flex-wrap gap-3"
+              className="flex flex-col sm:flex-row gap-3"
             >
               <button
                 onClick={() => document.querySelector("#product")?.scrollIntoView({ behavior:"smooth" })}
-                className="btn-shine inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#111111] text-white text-[11px] tracking-[0.2em] uppercase font-body hover:bg-[#1c1c1c] hover:shadow-[0_10px_30px_rgba(0,0,0,0.18)] transition-all duration-300"
+                className="btn-shine inline-flex items-center justify-center sm:justify-start gap-2 px-6 py-3 rounded-full bg-[#111111] text-white text-[10px] tracking-[0.18em] uppercase font-body hover:bg-[#1c1c1c] hover:shadow-[0_10px_30px_rgba(0,0,0,0.18)] transition-all duration-300"
               >
                 Explore Product <ArrowRight size={12} />
               </button>
               <button
                 onClick={() => window.open("https://wa.me/917416751547?text=Hi%20RALORA%20GLOW!%20I%20want%20to%20order.", "_blank")}
-                className="btn-shine inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-[#C9A86A] text-[#C9A86A] text-[11px] tracking-[0.2em] uppercase font-body hover:bg-[#C9A86A] hover:text-white hover:shadow-[0_10px_28px_rgba(201,168,106,0.28)] transition-all duration-300"
+                className="btn-shine inline-flex items-center justify-center sm:justify-start gap-2 px-6 py-3 rounded-full border border-[#C9A86A] text-[#C9A86A] text-[10px] tracking-[0.18em] uppercase font-body hover:bg-[#C9A86A] hover:text-white hover:shadow-[0_10px_28px_rgba(201,168,106,0.28)] transition-all duration-300"
               >
                 <MessageCircle size={12} /> WhatsApp Us
               </button>
@@ -114,13 +114,13 @@ export default function HeroSection() {
             <motion.div
               initial={{ opacity:0 }} animate={{ opacity:1 }}
               transition={{ delay:3.9, duration:0.7 }}
-              className="mt-10 flex items-center gap-4 flex-wrap"
+              className="mt-8 flex items-center gap-3 flex-wrap"
             >
               {[["🌿","Natural"],["✦","Handcrafted"],["◎","Unisex"]].map(([icon,label],i) => (
                 <div key={i} className="flex items-center gap-1.5">
                   <span className="text-[#C9A86A] text-xs">{icon}</span>
-                  <span className="font-body text-[10px] tracking-[0.2em] uppercase text-[#111111]/40">{label}</span>
-                  {i<2 && <div className="w-[1px] h-5 bg-[#C9A86A]/15 ml-2" />}
+                  <span className="font-body text-[9px] tracking-[0.18em] uppercase text-[#111111]/40">{label}</span>
+                  {i<2 && <div className="w-[1px] h-5 bg-[#C9A86A]/15 ml-1.5" />}
                 </div>
               ))}
             </motion.div>

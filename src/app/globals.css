@@ -98,39 +98,36 @@ body {
 .ping-gold { animation: ping-gold 2s infinite; }
 
 /* ── Section spacing ── */
-.section { padding: 80px 0; }
-@media (min-width: 768px) { .section { padding: 110px 0; } }
+.section { padding: clamp(3rem, 8vw, 7rem) 0; }
 
 /* ── Container ── */
 .container-xl {
-  max-width: 1200px;
+  max-width: 1320px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: clamp(1rem, 4vw, 3rem);
 }
-@media (min-width: 640px)  { .container-xl { padding: 0 32px; } }
-@media (min-width: 1024px) { .container-xl { padding: 0 48px; } }
 
 /* ── Section header ── */
 .section-label {
   font-family: 'Inter', sans-serif;
-  font-size: 10px;
+  font-size: clamp(9px, 2vw, 11px);
   letter-spacing: 0.4em;
   text-transform: uppercase;
   color: #C9A86A;
   display: block;
-  margin-bottom: 16px;
+  margin-bottom: clamp(12px, 2vw, 20px);
 }
 .section-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(36px, 5vw, 56px);
+  font-size: clamp(2.2rem, 6vw, 3.5rem);
   line-height: 1.1;
   color: #111111;
 }
 .section-sub {
   font-family: 'Inter', sans-serif;
-  font-size: 14px;
+  font-size: clamp(13px, 2vw, 15px);
   line-height: 1.8;
   color: rgba(17,17,17,0.45);
-  max-width: 480px;
-  margin: 16px auto 0;
+  max-width: 540px;
+  margin: clamp(12px, 2vw, 20px) auto 0;
 }

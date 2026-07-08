@@ -40,35 +40,35 @@ export default function WhyChooseSection() {
         </div>
 
         {/* Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3.5 md:gap-4">
           {cards.map((c,i)=>(
             <motion.div key={c.title} custom={i} variants={up} initial="hidden" animate={v?"show":"hidden"} className="group">
-              <div className="h-full bg-white rounded-2xl p-6 border border-[#F0EDE8] hover:border-[#C9A86A]/18 hover:shadow-[0_14px_40px_rgba(201,168,106,0.08)] transition-all duration-400 flex flex-col">
-                <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#F8F5EF] to-[#EFE8DD] flex items-center justify-center border border-[#C9A86A]/10 mb-4 group-hover:scale-105 transition-transform duration-300 flex-shrink-0">
-                  <span className="text-xl">{c.icon}</span>
+              <div className="h-full bg-white rounded-xl p-5 md:p-6 border border-[#F0EDE8] hover:border-[#C9A86A]/18 hover:shadow-[0_10px_32px_rgba(201,168,106,0.08)] transition-all duration-400 flex flex-col">
+                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#F8F5EF] to-[#EFE8DD] flex items-center justify-center border border-[#C9A86A]/10 mb-3 group-hover:scale-105 transition-transform duration-300 flex-shrink-0">
+                  <span className="text-lg">{c.icon}</span>
                 </div>
-                <div className="h-[1px] w-6 bg-[#C9A86A]/35 mb-3 group-hover:w-full transition-all duration-500" />
-                <h3 className="font-heading text-[16px] text-[#111111] mb-2">{c.title}</h3>
-                <p className="font-body text-xs text-[#111111]/48 leading-[1.75] flex-1">{c.desc}</p>
+                <div className="h-[1px] w-5 bg-[#C9A86A]/35 mb-2.5 group-hover:w-full transition-all duration-500" />
+                <h3 className="font-heading text-[15px] text-[#111111] mb-1.5">{c.title}</h3>
+                <p className="font-body text-xs text-[#111111]/48 leading-[1.65] flex-1">{c.desc}</p>
               </div>
             </motion.div>
           ))}
         </div>
 
         {/* CTA bar */}
-        <motion.div custom={9} variants={up} initial="hidden" animate={v?"show":"hidden"} className="mt-10 rounded-2xl bg-[#111111] px-8 py-10 md:px-12 md:py-12 flex flex-col md:flex-row items-center justify-between gap-6 overflow-hidden relative">
-          <div className="pointer-events-none absolute right-0 top-0 w-52 h-52 rounded-full bg-[#C9A86A]/5 translate-x-1/3 -translate-y-1/3" />
+        <motion.div custom={9} variants={up} initial="hidden" animate={v?"show":"hidden"} className="mt-8 rounded-xl bg-[#111111] px-6 py-8 md:px-10 md:py-10 flex flex-col md:flex-row items-center justify-between gap-5 overflow-hidden relative">
+          <div className="pointer-events-none absolute right-0 top-0 w-48 h-48 rounded-full bg-[#C9A86A]/5 translate-x-1/3 -translate-y-1/3" />
           <div className="relative z-10">
-            <p className="font-body text-[9px] tracking-[0.38em] text-[#C9A86A] uppercase mb-2">Premium · Natural · Luxury</p>
-            <h3 className="font-heading text-2xl md:text-3xl text-white leading-[1.2]">
-              Experience the RALORA GLOW<br /><span className="italic text-[#D4B97E]">difference today.</span>
+            <p className="font-body text-[9px] tracking-[0.35em] text-[#C9A86A] uppercase mb-1.5">Premium · Natural · Luxury</p>
+            <h3 className="font-heading text-xl md:text-2xl text-white leading-[1.2]">
+              Experience the<br /><span className="italic text-[#D4B97E]">RALORA GLOW difference.</span>
             </h3>
           </div>
           <button
             onClick={()=>window.open("https://wa.me/917416751547?text=Hi%20RALORA%20GLOW!%20I%20want%20to%20order.", "_blank")}
-            className="btn-shine relative z-10 flex-shrink-0 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#C9A86A] to-[#D4B97E] text-white text-[10px] tracking-[0.22em] uppercase font-body hover:shadow-[0_10px_30px_rgba(201,168,106,0.3)] transition-all duration-300"
+            className="btn-shine relative z-10 flex-shrink-0 px-6 py-2.5 rounded-full bg-gradient-to-r from-[#C9A86A] to-[#D4B97E] text-white text-[9px] tracking-[0.2em] uppercase font-body hover:shadow-[0_8px_24px_rgba(201,168,106,0.3)] transition-all duration-300"
           >
-            Order on WhatsApp
+            Order Now
           </button>
         </motion.div>
       </div>

@@ -37,18 +37,18 @@ export default function BenefitsSection() {
         </div>
 
         {/* Cards — equal height grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {cards.map((c,i)=>(
             <motion.div key={c.title} custom={i} variants={up} initial="hidden" animate={v?"show":"hidden"} className="group">
-              <div className="h-full bg-white rounded-2xl p-7 border border-[#F0EDE8] hover:border-[#C9A86A]/18 hover:shadow-[0_14px_40px_rgba(201,168,106,0.08)] transition-all duration-400 flex flex-col">
-                <div className="flex items-start justify-between mb-5">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#F8F5EF] to-[#EFE8DD] flex items-center justify-center text-xl text-[#C9A86A] border border-[#C9A86A]/10 group-hover:scale-105 transition-transform duration-300 flex-shrink-0">
+              <div className="h-full bg-white rounded-2xl p-6 border border-[#F0EDE8] hover:border-[#C9A86A]/18 hover:shadow-[0_12px_32px_rgba(201,168,106,0.08)] transition-all duration-400 flex flex-col">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="w-11 h-11 rounded-lg bg-gradient-to-br from-[#F8F5EF] to-[#EFE8DD] flex items-center justify-center text-lg text-[#C9A86A] border border-[#C9A86A]/10 group-hover:scale-105 transition-transform duration-300 flex-shrink-0">
                     {c.icon}
                   </div>
                 </div>
-                <div className="h-[1px] w-7 bg-[#C9A86A]/35 mb-4 group-hover:w-full transition-all duration-500" />
-                <h3 className="font-heading text-[18px] text-[#111111] mb-2">{c.title}</h3>
-                <p className="font-body text-xs text-[#111111]/48 leading-[1.78] flex-1">{c.desc}</p>
+                <div className="h-[1px] w-5 bg-[#C9A86A]/35 mb-3 group-hover:w-full transition-all duration-500" />
+                <h3 className="font-heading text-[16px] text-[#111111] mb-1.5">{c.title}</h3>
+                <p className="font-body text-xs text-[#111111]/48 leading-[1.7] flex-1">{c.desc}</p>
               </div>
             </motion.div>
           ))}

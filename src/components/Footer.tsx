@@ -30,14 +30,14 @@ export default function Footer() {
 
           {/* Brand */}
           <div className="lg:col-span-2">
-            <button onClick={()=>go("#home")} className="mb-6 block focus:outline-none" aria-label="Home">
-              <div className="relative h-10 w-[120px] rounded-lg overflow-hidden bg-[#0d0d0d]">
-                <Image src="/logo.png" alt="RALORA GLOW" fill className="object-contain p-1.5" />
+            <button onClick={()=>go("#home")} className="mb-5 block focus:outline-none" aria-label="Home">
+              <div className="relative h-8 w-[100px] rounded-lg overflow-hidden bg-[#0d0d0d]">
+                <Image src="/logo.png" alt="RALORA GLOW" fill className="object-contain p-1" />
               </div>
             </button>
-            <p className="font-heading text-lg text-[#111111]/60 italic mb-3">Luxury skincare for every body.</p>
-            <p className="font-body text-sm text-[#111111]/35 leading-[1.8] max-w-xs mb-7">
-              Handcrafted with carefully selected natural ingredients for a premium self-care experience — for men and women.
+            <p className="font-heading text-base text-[#111111]/60 italic mb-2">Luxury skincare for every body.</p>
+            <p className="font-body text-xs md:text-sm text-[#111111]/35 leading-[1.7] max-w-xs mb-5">
+              Handcrafted with natural ingredients for premium self-care.
             </p>
             <div className="flex gap-3">
               <a href="https://wa.me/917416751547" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"

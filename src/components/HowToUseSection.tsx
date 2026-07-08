@@ -38,46 +38,45 @@ export default function HowToUseSection() {
         </div>
 
         {/* Steps */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-          {steps.map((s,i)=>(
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 mb-6">
+          {steps.slice(0, 6).map((s,i)=>(
             <motion.div
               key={s.n} custom={i} variants={up} initial="hidden" animate={v?"show":"hidden"}
-              className={s.n === "07" ? "sm:col-span-2 lg:col-span-1" : ""}
             >
-              <div className="h-full bg-[#FCFBF8] rounded-2xl p-6 border border-[#F0EDE8] hover:border-[#C9A86A]/18 hover:shadow-[0_14px_40px_rgba(201,168,106,0.08)] transition-all duration-400 flex flex-col">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#C9A86A] to-[#D4B97E] flex items-center justify-center shadow-sm flex-shrink-0">
-                    <span className="font-body text-[10px] font-semibold text-white">{s.n}</span>
+              <div className="h-full bg-[#FCFBF8] rounded-xl p-5 md:p-6 border border-[#F0EDE8] hover:border-[#C9A86A]/18 hover:shadow-[0_10px_32px_rgba(201,168,106,0.08)] transition-all duration-400 flex flex-col">
+                <div className="flex items-center justify-between mb-3">
+                  <div className="w-7 h-7 rounded-full bg-gradient-to-br from-[#C9A86A] to-[#D4B97E] flex items-center justify-center shadow-sm flex-shrink-0">
+                    <span className="font-body text-[9px] font-semibold text-white">{s.n}</span>
                   </div>
-                  <span className="text-xl opacity-50">{s.icon}</span>
+                  <span className="text-lg opacity-50">{s.icon}</span>
                 </div>
-                <div className="h-[1px] bg-gradient-to-r from-[#C9A86A]/22 to-transparent mb-3" />
-                <h3 className="font-heading text-[16px] text-[#111111] mb-1">{s.title}</h3>
-                <p className="font-body text-[9px] tracking-[0.22em] text-[#C9A86A] uppercase mb-2.5">{s.sub}</p>
-                <p className="font-body text-xs text-[#111111]/48 leading-[1.75] flex-1">{s.desc}</p>
+                <div className="h-[1px] bg-gradient-to-r from-[#C9A86A]/22 to-transparent mb-2.5" />
+                <h3 className="font-heading text-[15px] text-[#111111] mb-0.5">{s.title}</h3>
+                <p className="font-body text-[8px] tracking-[0.2em] text-[#C9A86A] uppercase mb-2">{s.sub}</p>
+                <p className="font-body text-xs text-[#111111]/48 leading-[1.6] flex-1">{s.desc}</p>
               </div>
             </motion.div>
           ))}
         </div>
 
         {/* Quick info */}
-        <div className="grid sm:grid-cols-3 gap-4 mb-5">
-          {[["📅","Frequency","2–3 times per week"],["⏱","Massage","2–3 minutes"],["🧴","After Use","Body moisturizer"]].map(([ic,lb,vl])=>(
-            <div key={lb} className="flex items-center gap-3.5 p-4 bg-[#FCFBF8] rounded-2xl border border-[#F0EDE8]">
-              <span className="text-xl flex-shrink-0">{ic}</span>
+        <div className="grid sm:grid-cols-3 gap-3 mb-4">
+          {[["📅","Frequency","2–3x/week"],["⏱","Massage","2–3 min"],["🧴","After Use","Moisturize"]].map(([ic,lb,vl])=>(
+            <div key={lb} className="flex items-center gap-2.5 p-3.5 bg-[#FCFBF8] rounded-lg border border-[#F0EDE8]">
+              <span className="text-base flex-shrink-0">{ic}</span>
               <div>
-                <p className="font-body text-[9px] tracking-[0.28em] text-[#C9A86A] uppercase">{lb}</p>
-                <p className="font-heading text-[13px] text-[#111111] mt-0.5">{vl}</p>
+                <p className="font-body text-[8px] tracking-[0.25em] text-[#C9A86A] uppercase">{lb}</p>
+                <p className="font-heading text-[12px] text-[#111111] mt-0.5">{vl}</p>
               </div>
             </div>
           ))}
         </div>
 
         {/* Patch test */}
-        <motion.div custom={8} variants={up} initial="hidden" animate={v?"show":"hidden"} className="flex items-start gap-4 bg-[#F8F5EF] rounded-2xl p-5 border border-[#C9A86A]/10">
-          <div className="w-8 h-8 rounded-full bg-[#C9A86A]/10 border border-[#C9A86A]/12 flex items-center justify-center flex-shrink-0 text-sm">⚠️</div>
+        <motion.div custom={8} variants={up} initial="hidden" animate={v?"show":"hidden"} className="flex items-start gap-3 bg-[#F8F5EF] rounded-lg p-4 border border-[#C9A86A]/10">
+          <div className="w-7 h-7 rounded-full bg-[#C9A86A]/10 border border-[#C9A86A]/12 flex items-center justify-center flex-shrink-0 text-xs">⚠️</div>
           <div>
-            <p className="font-heading text-[14px] text-[#111111] mb-1">Patch Test Recommended</p>
+            <p className="font-heading text-[13px] text-[#111111] mb-0.5">Patch Test Recommended</p>
             <p className="font-body text-xs text-[#111111]/45 leading-[1.8]">Apply a small amount to your inner arm and wait 24 hours before first full use. Discontinue if irritation occurs. For external use only.</p>
           </div>
         </motion.div>

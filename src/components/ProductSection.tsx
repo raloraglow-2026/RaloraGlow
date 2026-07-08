@@ -89,29 +89,29 @@ export default function ProductSection() {
             <span className="self-start mb-5 px-3.5 py-1.5 rounded-full bg-[#F8F5EF] border border-[#C9A86A]/16 font-body text-[9px] tracking-[0.28em] text-[#C9A86A] uppercase inline-flex items-center gap-2">
               <span className="w-1 h-1 rounded-full bg-[#C9A86A]" /> Premium Handcrafted
             </span>
-            <h3 className="font-heading text-3xl md:text-4xl text-[#111111] leading-[1.15] mb-4">The Ultimate<br /><span className="italic text-[#C9A86A]">Glow Ritual</span></h3>
-            <div className="h-[1px] w-10 bg-gradient-to-r from-[#C9A86A] to-transparent mb-6" />
-            <p className="font-body text-sm text-[#111111]/46 leading-[1.88] mb-8">
-              The SPCL Tan Care Body Scrub is a premium handcrafted formula that gently exfoliates dead skin cells, helps improve the appearance of tanning with regular use, and leaves your skin feeling soft, smooth and radiant. Designed for all skin types — for men and women.
+            <h3 className="font-heading text-2xl md:text-3xl text-[#111111] leading-[1.15] mb-3">Premium<br /><span className="italic text-[#C9A86A]">Glow Ritual</span></h3>
+            <div className="h-[1px] w-8 bg-gradient-to-r from-[#C9A86A] to-transparent mb-5" />
+            <p className="font-body text-sm text-[#111111]/46 leading-[1.8] mb-6">
+              Gently exfoliates dead skin cells, improves tanning appearance, and leaves skin soft and radiant. For all skin types — men and women.
             </p>
 
             {/* Benefits list */}
-            <div className="space-y-2.5 mb-9">
-              {benefits.map((b,i)=>(
-                <div key={i} className="flex items-start gap-3">
-                  <div className="mt-[8px] w-1 h-1 rounded-full bg-[#C9A86A] flex-shrink-0" />
-                  <p className="font-body text-sm text-[#111111]/50">{b}</p>
+            <div className="space-y-2 mb-8">
+              {benefits.slice(0, 4).map((b,i)=>(
+                <div key={i} className="flex items-start gap-2.5">
+                  <div className="mt-[6px] w-1 h-1 rounded-full bg-[#C9A86A] flex-shrink-0" />
+                  <p className="font-body text-xs md:text-sm text-[#111111]/50">{b}</p>
                 </div>
               ))}
             </div>
 
             <button
               onClick={()=>window.open("https://wa.me/917416751547?text=Hi%20RALORA%20GLOW!%20I%20want%20to%20order.", "_blank")}
-              className="btn-shine self-start inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-[#C9A86A] to-[#D4B97E] text-white text-[11px] tracking-[0.22em] uppercase font-body hover:shadow-[0_10px_32px_rgba(201,168,106,0.35)] transition-all duration-300"
+              className="btn-shine inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-gradient-to-r from-[#C9A86A] to-[#D4B97E] text-white text-[10px] tracking-[0.2em] uppercase font-body hover:shadow-[0_10px_32px_rgba(201,168,106,0.35)] transition-all duration-300"
             >
-              <MessageCircle size={14} /> Order on WhatsApp
+              <MessageCircle size={13} /> Order Now
             </button>
-            <p className="mt-3 font-body text-[10px] tracking-wider text-[#111111]/22 uppercase">✓ Secure · ✓ Fast Response · ✓ Premium Packaging</p>
+            <p className="mt-2.5 font-body text-[9px] tracking-wider text-[#111111]/22 uppercase">✓ Fast Response · ✓ Premium Packaging</p>
           </motion.div>
         </div>
 
@@ -119,28 +119,28 @@ export default function ProductSection() {
         <div className="grid md:grid-cols-3 gap-5">
 
           {/* Product details */}
-          <motion.div custom={2} variants={up} initial="hidden" animate={v?"show":"hidden"} className="md:col-span-2 bg-[#FCFBF8] rounded-2xl p-7 border border-[#F0EDE8]">
-            <p className="font-heading text-[16px] text-[#111111] mb-5">Product Details</p>
-            <div className="h-[1px] bg-[#F0EDE8] mb-5" />
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+          <motion.div custom={2} variants={up} initial="hidden" animate={v?"show":"hidden"} className="md:col-span-2 bg-[#FCFBF8] rounded-lg p-5 md:p-6 border border-[#F0EDE8]">
+            <p className="font-heading text-[14px] md:text-[15px] text-[#111111] mb-3">Product Details</p>
+            <div className="h-[1px] bg-[#F0EDE8] mb-4" />
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
               {details.map(([k,v2])=>(
                 <div key={k}>
-                  <p className="font-body text-[9px] tracking-[0.28em] text-[#C9A86A] uppercase mb-1">{k}</p>
-                  <p className="font-heading text-[14px] text-[#111111]/70">{v2}</p>
+                  <p className="font-body text-[8px] tracking-[0.25em] text-[#C9A86A] uppercase mb-0.5">{k}</p>
+                  <p className="font-heading text-[13px] text-[#111111]/70">{v2}</p>
                 </div>
               ))}
             </div>
           </motion.div>
 
           {/* Storage */}
-          <motion.div custom={3} variants={up} initial="hidden" animate={v?"show":"hidden"} className="bg-gradient-to-br from-[#F8F5EF] to-[#EFE8DD] rounded-2xl p-7 border border-[#C9A86A]/10">
-            <p className="font-heading text-[16px] text-[#111111] mb-5">Storage</p>
-            <div className="h-[1px] bg-[#C9A86A]/12 mb-5" />
-            <ul className="space-y-2.5">
-              {["Cool, dry place","Keep lid tightly closed","Use a dry spoon","Avoid water inside jar"].map((s,i)=>(
-                <li key={i} className="flex items-start gap-2.5">
-                  <span className="mt-[8px] w-1 h-1 rounded-full bg-[#C9A86A] flex-shrink-0" />
-                  <span className="font-body text-xs text-[#111111]/48">{s}</span>
+          <motion.div custom={3} variants={up} initial="hidden" animate={v?"show":"hidden"} className="bg-gradient-to-br from-[#F8F5EF] to-[#EFE8DD] rounded-lg p-5 md:p-6 border border-[#C9A86A]/10">
+            <p className="font-heading text-[14px] md:text-[15px] text-[#111111] mb-3">Storage</p>
+            <div className="h-[1px] bg-[#C9A86A]/12 mb-3.5" />
+            <ul className="space-y-1.5">
+              {["Cool, dry place","Keep lid closed","Use dry spoon","Avoid water"].map((s,i)=>(
+                <li key={i} className="flex items-start gap-2">
+                  <span className="mt-[6px] w-1 h-1 rounded-full bg-[#C9A86A] flex-shrink-0" />
+                  <span className="font-body text-[11px] text-[#111111]/48">{s}</span>
                 </li>
               ))}
             </ul>
@@ -148,11 +148,11 @@ export default function ProductSection() {
         </div>
 
         {/* Patch test */}
-        <motion.div custom={4} variants={up} initial="hidden" animate={v?"show":"hidden"} className="mt-5 flex items-start gap-4 bg-white rounded-2xl p-5 border border-[#F0EDE8]">
-          <div className="w-9 h-9 rounded-full bg-[#C9A86A]/8 border border-[#C9A86A]/12 flex items-center justify-center flex-shrink-0 text-base mt-0.5">⚠️</div>
+        <motion.div custom={4} variants={up} initial="hidden" animate={v?"show":"hidden"} className="mt-4 flex items-start gap-3 bg-white rounded-lg p-4 border border-[#F0EDE8]">
+          <div className="w-8 h-8 rounded-full bg-[#C9A86A]/8 border border-[#C9A86A]/12 flex items-center justify-center flex-shrink-0 text-sm mt-0.5">⚠️</div>
           <div>
-            <p className="font-heading text-[14px] text-[#111111] mb-1">Patch Test Recommended</p>
-            <p className="font-body text-xs text-[#111111]/45 leading-[1.8]">Apply a small amount to your inner arm 24 hours before first use. Discontinue if irritation occurs. For external use only. Keep away from eyes and children.</p>
+            <p className="font-heading text-[13px] text-[#111111] mb-0.5">Patch Test Recommended</p>
+            <p className="font-body text-[11px] text-[#111111]/45 leading-[1.7]">Test on inner arm 24h before first use. Discontinue if irritation occurs. External use only. Keep away from eyes.</p>
           </div>
         </motion.div>
       </div>

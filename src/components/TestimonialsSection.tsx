@@ -51,59 +51,59 @@ export default function TestimonialsSection() {
         </div>
 
         {/* Featured review */}
-        <motion.div custom={2} variants={up} initial="hidden" animate={v?"show":"hidden"} className="max-w-2xl mx-auto mb-10">
-          <div className="bg-white rounded-3xl p-8 md:p-12 border border-[#F0EDE8] card-shadow relative overflow-hidden">
-            <div className="absolute top-6 left-8 font-heading text-7xl text-[#C9A86A]/8 leading-none select-none">"</div>
+        <motion.div custom={2} variants={up} initial="hidden" animate={v?"show":"hidden"} className="max-w-2xl mx-auto mb-8">
+          <div className="bg-white rounded-2xl p-6 md:p-10 border border-[#F0EDE8] card-shadow relative overflow-hidden">
+            <div className="absolute top-4 left-6 font-heading text-5xl text-[#C9A86A]/8 leading-none select-none">"</div>
             <div className="relative z-10">
-              <div className="flex gap-1 mb-7">{[1,2,3,4,5].map(s=><span key={s} className="text-[#C9A86A]">★</span>)}</div>
+              <div className="flex gap-1 mb-5">{[1,2,3,4,5].map(s=><span key={s} className="text-[#C9A86A] text-sm">★</span>)}</div>
 
               {/* Review text */}
-              <div className="min-h-[80px]">
+              <div className="min-h-[60px]">
                 <AnimatePresence mode="wait" custom={dir}>
                   <motion.p
                     key={cur} custom={dir} variants={slide} initial="enter" animate="center" exit="exit"
-                    className="font-heading text-lg md:text-xl text-[#111111]/65 italic leading-[1.6]"
+                    className="font-heading text-base md:text-lg text-[#111111]/65 italic leading-[1.6]"
                   >
                     "{reviews[cur].review}"
                   </motion.p>
                 </AnimatePresence>
               </div>
 
-              <div className="gold-line my-7" />
+              <div className="gold-line my-5" />
 
               <AnimatePresence mode="wait">
                 <motion.div
                   key={`a-${cur}`}
                   initial={{ opacity:0, y:8 }} animate={{ opacity:1, y:0 }} exit={{ opacity:0, y:-8 }}
-                  transition={{ duration:0.35 }}
-                  className="flex items-center justify-between flex-wrap gap-3"
+                  transition={{ duration:0.3 }}
+                  className="flex items-center justify-between flex-wrap gap-2"
                 >
-                  <div className="flex items-center gap-3">
-                    <div className="w-11 h-11 rounded-full bg-gradient-to-br from-[#C9A86A] to-[#D4B97E] flex items-center justify-center shadow-sm">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#C9A86A] to-[#D4B97E] flex items-center justify-center shadow-sm">
                       <span className="font-body text-xs font-semibold text-white">{reviews[cur].init}</span>
                     </div>
                     <div>
-                      <p className="font-heading text-[15px] text-[#111111]">{reviews[cur].name}</p>
-                      <p className="font-body text-xs text-[#111111]/35 tracking-wider">{reviews[cur].loc}, India</p>
+                      <p className="font-heading text-sm text-[#111111]">{reviews[cur].name}</p>
+                      <p className="font-body text-[9px] text-[#111111]/35 tracking-wider">{reviews[cur].loc}</p>
                     </div>
                   </div>
-                  <span className="px-3 py-1 bg-[#F8F5EF] rounded-full border border-[#C9A86A]/12 font-body text-[9px] tracking-[0.2em] text-[#C9A86A] uppercase">✓ Verified</span>
+                  <span className="px-2.5 py-1 bg-[#F8F5EF] rounded-full border border-[#C9A86A]/12 font-body text-[8px] tracking-[0.2em] text-[#C9A86A] uppercase">✓ Verified</span>
                 </motion.div>
               </AnimatePresence>
             </div>
           </div>
 
           {/* Nav */}
-          <div className="flex items-center justify-center gap-4 mt-6">
-            <button onClick={prev} className="w-9 h-9 rounded-full bg-white border border-[#F0EDE8] flex items-center justify-center text-[#C9A86A] hover:bg-[#C9A86A] hover:text-white hover:border-[#C9A86A] transition-all duration-250 shadow-sm"><ChevronLeft size={15}/></button>
-            <div className="flex gap-2">
+          <div className="flex items-center justify-center gap-3 mt-5">
+            <button onClick={prev} className="w-8 h-8 rounded-full bg-white border border-[#F0EDE8] flex items-center justify-center text-[#C9A86A] hover:bg-[#C9A86A] hover:text-white transition-all duration-250 shadow-sm"><ChevronLeft size={14}/></button>
+            <div className="flex gap-1.5">
               {reviews.map((_,i)=>(
                 <button key={i} onClick={()=>{setDir(i>cur?1:-1);setCur(i);}}
-                  className={`rounded-full transition-all duration-250 ${i===cur?"w-5 h-2 bg-[#C9A86A]":"w-2 h-2 bg-[#C9A86A]/22"}`}
+                  className={`rounded-full transition-all duration-250 ${i===cur?"w-4 h-1.5 bg-[#C9A86A]":"w-1.5 h-1.5 bg-[#C9A86A]/22"}`}
                 />
               ))}
             </div>
-            <button onClick={next} className="w-9 h-9 rounded-full bg-white border border-[#F0EDE8] flex items-center justify-center text-[#C9A86A] hover:bg-[#C9A86A] hover:text-white hover:border-[#C9A86A] transition-all duration-250 shadow-sm"><ChevronRight size={15}/></button>
+            <button onClick={next} className="w-8 h-8 rounded-full bg-white border border-[#F0EDE8] flex items-center justify-center text-[#C9A86A] hover:bg-[#C9A86A] hover:text-white transition-all duration-250 shadow-sm"><ChevronRight size={14}/></button>
           </div>
         </motion.div>
 

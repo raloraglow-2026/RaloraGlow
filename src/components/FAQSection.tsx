@@ -40,31 +40,31 @@ export default function FAQSection() {
         </div>
 
         {/* Accordion */}
-        <div className="max-w-2xl mx-auto space-y-3">
+        <div className="max-w-2xl mx-auto space-y-2.5">
           {faqs.map((f,i)=>(
             <motion.div key={i} custom={i+2} variants={up} initial="hidden" animate={v?"show":"hidden"}>
-              <div className={`rounded-2xl border overflow-hidden transition-all duration-300 ${open===i?"border-[#C9A86A]/22 bg-[#FCFBF8] shadow-[0_8px_30px_rgba(201,168,106,0.07)]":"border-[#F0EDE8] bg-white hover:border-[#C9A86A]/14"}`}>
+              <div className={`rounded-xl border overflow-hidden transition-all duration-300 ${open===i?"border-[#C9A86A]/22 bg-[#FCFBF8] shadow-[0_6px_24px_rgba(201,168,106,0.06)]":"border-[#F0EDE8] bg-white hover:border-[#C9A86A]/14"}`}>
                 <button
                   onClick={()=>setOpen(open===i?null:i)}
-                  className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left focus:outline-none"
+                  className="w-full flex items-center justify-between gap-3 px-5 py-4 text-left focus:outline-none"
                 >
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-3">
                     <span className={`font-body text-xs tracking-widest transition-colors duration-250 ${open===i?"text-[#C9A86A]":"text-[#111111]/25"}`}>{String(i+1).padStart(2,"0")}</span>
-                    <span className={`font-heading text-[15px] transition-colors duration-250 ${open===i?"text-[#111111]":"text-[#111111]/60"}`}>{f.q}</span>
+                    <span className={`font-heading text-sm md:text-base transition-colors duration-250 ${open===i?"text-[#111111]":"text-[#111111]/60"}`}>{f.q}</span>
                   </div>
-                  <div className={`w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-250 ${open===i?"bg-gradient-to-br from-[#C9A86A] to-[#D4B97E] text-white shadow-sm":"bg-[#F4F4F4] text-[#111111]/35"}`}>
-                    {open===i ? <Minus size={13}/> : <Plus size={13}/>}
+                  <div className={`w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-250 ${open===i?"bg-gradient-to-br from-[#C9A86A] to-[#D4B97E] text-white shadow-sm":"bg-[#F4F4F4] text-[#111111]/35"}`}>
+                    {open===i ? <Minus size={12}/> : <Plus size={12}/>}
                   </div>
                 </button>
                 <AnimatePresence>
                   {open===i && (
                     <motion.div
                       initial={{ height:0, opacity:0 }} animate={{ height:"auto", opacity:1 }} exit={{ height:0, opacity:0 }}
-                      transition={{ duration:0.35, ease:"easeInOut" as const }}
+                      transition={{ duration:0.3, ease:"easeInOut" as const }}
                     >
-                      <div className="px-6 pb-5 pl-[52px]">
-                        <div className="h-[1px] bg-gradient-to-r from-[#C9A86A]/18 to-transparent mb-4" />
-                        <p className="font-body text-sm text-[#111111]/50 leading-[1.8]">{f.a}</p>
+                      <div className="px-5 pb-4 pl-12 md:pl-[52px]">
+                        <div className="h-[1px] bg-gradient-to-r from-[#C9A86A]/18 to-transparent mb-3" />
+                        <p className="font-body text-xs md:text-sm text-[#111111]/50 leading-[1.7]">{f.a}</p>
                       </div>
                     </motion.div>
                   )}
@@ -75,14 +75,14 @@ export default function FAQSection() {
         </div>
 
         {/* CTA */}
-        <motion.div custom={11} variants={up} initial="hidden" animate={v?"show":"hidden"} className="mt-10 max-w-2xl mx-auto text-center p-7 bg-[#F8F5EF] rounded-2xl border border-[#C9A86A]/12">
-          <p className="font-heading text-lg text-[#111111] mb-1.5">Still have questions?</p>
-          <p className="font-body text-sm text-[#111111]/45 mb-5">We're here to help. Message us on WhatsApp for a quick personal response.</p>
+        <motion.div custom={11} variants={up} initial="hidden" animate={v?"show":"hidden"} className="mt-8 max-w-2xl mx-auto text-center p-6 bg-[#F8F5EF] rounded-xl border border-[#C9A86A]/12">
+          <p className="font-heading text-base md:text-lg text-[#111111] mb-1">Still have questions?</p>
+          <p className="font-body text-xs md:text-sm text-[#111111]/45 mb-4">We're here to help. Message us on WhatsApp.</p>
           <button
             onClick={()=>window.open("https://wa.me/917416751547?text=Hi%20RALORA%20GLOW!%20I%20have%20a%20question.", "_blank")}
-            className="btn-shine inline-flex items-center gap-2 px-7 py-3 rounded-full bg-gradient-to-r from-[#C9A86A] to-[#D4B97E] text-white text-[10px] tracking-[0.22em] uppercase font-body hover:shadow-[0_8px_26px_rgba(201,168,106,0.32)] transition-all duration-300"
+            className="btn-shine inline-flex items-center gap-2 px-6 py-2 rounded-full bg-gradient-to-r from-[#C9A86A] to-[#D4B97E] text-white text-[9px] tracking-[0.2em] uppercase font-body hover:shadow-[0_6px_20px_rgba(201,168,106,0.3)] transition-all duration-300"
           >
-            💬 Chat on WhatsApp
+            💬 Chat Now
           </button>
         </motion.div>
       </div>

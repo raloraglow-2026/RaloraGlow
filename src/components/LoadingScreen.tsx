@@ -7,7 +7,7 @@ export default function LoadingScreen() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 2400);
+    const timer = setTimeout(() => setLoading(false), 2600);
     return () => clearTimeout(timer);
   }, []);
 
@@ -15,74 +15,79 @@ export default function LoadingScreen() {
     <AnimatePresence>
       {loading && (
         <motion.div
-          key="loading"
+          key="loader"
           initial={{ opacity: 1 }}
-          exit={{ opacity: 0, transition: { duration: 0.9, ease: "easeInOut" as const } }}
+          exit={{ opacity: 0, transition: { duration: 0.8, ease: "easeInOut" as const } }}
           className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-white"
         >
-          {/* Gold progress line */}
+          {/* Progress line */}
           <motion.div
             className="absolute top-0 left-0 h-[2px] bg-gradient-to-r from-[#C9A86A] via-[#E8D5A3] to-[#C9A86A]"
             initial={{ width: "0%" }}
             animate={{ width: "100%" }}
-            transition={{ duration: 2.2, ease: "easeInOut" as const }}
+            transition={{ duration: 2.4, ease: "easeInOut" as const }}
           />
 
-          {/* Logo */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.88, y: 12 }}
+            initial={{ opacity: 0, scale: 0.85, y: 16 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.9, ease: "easeOut" as const }}
             className="flex flex-col items-center"
           >
-            {/* Outer glow ring */}
-            <div className="relative w-36 h-36 md:w-44 md:h-44 mb-7 flex items-center justify-center">
+            {/* ── Logo circle with glow rings ── */}
+            <div className="relative mb-8 flex items-center justify-center">
+              {/* Outer pulse ring */}
               <motion.div
-                className="absolute inset-0 rounded-full border border-[#C9A86A]/15"
-                animate={{ scale: [1, 1.08, 1], opacity: [0.2, 0.5, 0.2] }}
-                transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" as const }}
+                className="absolute w-[148px] h-[148px] md:w-[172px] md:h-[172px] rounded-full border border-[#C9A86A]/18"
+                animate={{ scale: [1, 1.07, 1], opacity: [0.18, 0.45, 0.18] }}
+                transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut" as const }}
               />
+              {/* Inner ring */}
               <motion.div
-                className="absolute inset-3 rounded-full border border-[#C9A86A]/10"
-                animate={{ scale: [1, 1.05, 1], opacity: [0.3, 0.6, 0.3] }}
-                transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" as const, delay: 0.3 }}
+                className="absolute w-[120px] h-[120px] md:w-[140px] md:h-[140px] rounded-full border border-[#C9A86A]/10"
+                animate={{ scale: [1, 1.04, 1], opacity: [0.25, 0.55, 0.25] }}
+                transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut" as const, delay: 0.4 }}
               />
-              {/* Logo on black bg */}
-              <div className="w-24 h-24 md:w-28 md:h-28 rounded-2xl bg-[#0a0a0a] overflow-hidden relative shadow-[0_8px_32px_rgba(0,0,0,0.18)]">
+              {/* Logo — square with rounded corners on its natural black bg */}
+              <div className="w-24 h-24 md:w-28 md:h-28 rounded-2xl overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.20)] flex-shrink-0">
                 <Image
                   src="/logo.png"
                   alt="RALORA GLOW"
-                  fill
-                  className="object-contain p-2"
+                  width={112}
+                  height={112}
+                  className="w-full h-full object-cover"
                   priority
                 />
               </div>
             </div>
 
+            {/* Brand name */}
             <motion.p
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.6 }}
-              className="font-heading text-2xl md:text-3xl tracking-[0.45em] text-[#111111] uppercase"
+              transition={{ delay: 0.55, duration: 0.6 }}
+              className="font-heading text-[22px] md:text-[26px] tracking-[0.5em] text-[#111111] uppercase"
             >
-              RALORA <span className="gold-gradient-text italic">GLOW</span>
+              RALORA&nbsp;<span className="gold-text italic">GLOW</span>
             </motion.p>
+
+            {/* Tagline */}
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.9, duration: 0.6 }}
-              className="font-body text-[10px] tracking-[0.38em] text-[#111111]/35 uppercase mt-2"
+              transition={{ delay: 1.0, duration: 0.6 }}
+              className="font-body text-[10px] tracking-[0.38em] text-[#111111]/32 uppercase mt-2"
             >
               Luxury Skincare
             </motion.p>
           </motion.div>
 
-          {/* Dots */}
+          {/* Loading dots */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 1.1 }}
-            className="absolute bottom-14 flex gap-2"
+            transition={{ delay: 1.2 }}
+            className="absolute bottom-12 flex gap-2"
           >
             {[0, 1, 2].map((i) => (
               <motion.div
