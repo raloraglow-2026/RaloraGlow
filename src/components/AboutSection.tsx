@@ -2,200 +2,120 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import Image from "next/image";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.15, duration: 0.7, ease: "easeOut" as const },
-  }),
+const up = {
+  hidden: { opacity:0, y:28 },
+  show: (i:number) => ({ opacity:1, y:0, transition:{ delay:i*0.12, duration:0.65, ease:"easeOut" as const } }),
 };
 
 const pillars = [
-  {
-    icon: "🌿",
-    title: "Our Story",
-    text: "Born from a passion for thoughtful self-care, RALORA GLOW was created to bring premium skincare within reach of everyone — without compromise.",
-  },
-  {
-    icon: "✦",
-    title: "Our Mission",
-    text: "To craft luxurious skincare rituals using nature's finest ingredients, formulated for every skin type, every gender, every lifestyle.",
-  },
-  {
-    icon: "◎",
-    title: "Our Vision",
-    text: "To redefine modern skincare — where natural meets luxury, and self-care becomes an art form accessible to all.",
-  },
+  { num:"01", title:"Our Story",   text:"Born from a passion for genuine self-care, RALORA GLOW was created to make premium skincare accessible to everyone — without compromise." },
+  { num:"02", title:"Our Mission", text:"To craft luxurious skincare experiences using carefully selected natural ingredients, designed for every skin type and every lifestyle." },
+  { num:"03", title:"Our Vision",  text:"To build a trusted premium skincare brand that stands for quality, honesty, and timeless elegance." },
 ];
 
 export default function AboutSection() {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-100px" });
+  const v   = useInView(ref, { once:true, margin:"-80px" });
 
   return (
-    <section id="about" className="relative py-24 md:py-36 bg-[#FCFBF8] overflow-hidden">
-      {/* Background ornament */}
-      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#C9A86A]/20 to-transparent" />
-      <div className="absolute top-1/2 right-0 w-80 h-80 rounded-full bg-[#EFE8DD]/40 translate-x-1/2 blur-3xl" />
-      <div className="absolute top-20 left-10 w-40 h-40 rounded-full bg-[#F8F5EF]/60 blur-2xl" />
+    <section id="about" className="relative section bg-[#FCFBF8] overflow-hidden">
+      <div className="gold-line absolute top-0 inset-x-0" />
+      <div className="pointer-events-none absolute top-1/2 right-0 w-72 h-72 rounded-full bg-[#EFE8DD]/30 translate-x-1/2 -translate-y-1/2 blur-[80px]" />
 
-      <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Section header */}
-        <div className="text-center mb-20">
-          <motion.p
-            custom={0}
-            variants={fadeUp}
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-            className="font-body text-[10px] tracking-[0.45em] text-[#C9A86A] uppercase mb-4"
-          >
-            Our Story
-          </motion.p>
-          <motion.h2
-            custom={1}
-            variants={fadeUp}
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-            className="font-heading text-4xl md:text-5xl lg:text-6xl text-[#111111] leading-tight"
-          >
-            Where Nature Meets
-            <br />
-            <span className="italic gold-gradient-text">Luxury</span>
+      <div ref={ref} className="container-xl">
+
+        {/* Header */}
+        <div className="text-center mb-16">
+          <motion.span custom={0} variants={up} initial="hidden" animate={v?"show":"hidden"} className="section-label">Our Story</motion.span>
+          <motion.h2  custom={1} variants={up} initial="hidden" animate={v?"show":"hidden"} className="section-title">
+            Where Nature Meets<br /><span className="gold-text italic">Luxury</span>
           </motion.h2>
-          <motion.div
-            custom={2}
-            variants={fadeUp}
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-            className="mx-auto mt-6 h-[1px] w-16 bg-gradient-to-r from-transparent via-[#C9A86A] to-transparent"
-          />
+          <motion.div custom={2} variants={up} initial="hidden" animate={v?"show":"hidden"} className="gold-line w-12 mx-auto mt-6" />
         </div>
 
-        {/* Main editorial layout */}
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center mb-24">
-          {/* Left: Large editorial text */}
-          <motion.div
-            custom={0}
-            variants={fadeUp}
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-          >
-            <p className="font-heading text-2xl md:text-3xl lg:text-4xl text-[#111111]/80 leading-[1.4] mb-8 italic">
-              "Luxury is not about excess. It is about the quiet joy of using something perfectly made."
+        {/* Editorial two-col */}
+        <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center mb-16">
+
+          {/* Left */}
+          <motion.div custom={0} variants={up} initial="hidden" animate={v?"show":"hidden"}>
+            <p className="font-heading text-2xl md:text-3xl text-[#111111]/70 italic leading-[1.5] mb-6">
+              "Luxury is not about excess — it is about the quiet joy of using something perfectly made."
             </p>
-            <div className="h-[1px] w-12 bg-[#C9A86A] mb-8" />
-            <p className="font-body text-sm md:text-base text-[#111111]/50 leading-relaxed mb-6">
-              At RALORA GLOW, we believe that premium skincare should not be a privilege. We set out to create formulas that are as thoughtful in their ingredients as they are refined in their experience.
+            <div className="h-[1px] w-10 bg-[#C9A86A] mb-6" />
+            <p className="font-body text-sm text-[#111111]/48 leading-[1.85] mb-5">
+              At RALORA GLOW, every product begins with a simple belief: premium skincare should feel thoughtful, honest, and beautifully crafted.
             </p>
-            <p className="font-body text-sm md:text-base text-[#111111]/50 leading-relaxed">
-              Every product is a carefully considered blend of nature's most effective botanicals, designed to deliver visible results while feeling like a daily ritual of indulgence.
+            <p className="font-body text-sm text-[#111111]/48 leading-[1.85] mb-8">
+              Our SPCL Tan Care Body Scrub is handcrafted with a blend of natural ingredients — no harsh chemicals, no artificial whitening agents. Just genuine care for your skin.
             </p>
-            <div className="mt-10 flex items-center gap-6">
-              <div>
-                <p className="font-heading text-3xl md:text-4xl gold-gradient-text">100%</p>
-                <p className="font-body text-xs tracking-widest text-[#111111]/40 uppercase mt-1">Natural Focus</p>
-              </div>
-              <div className="w-[1px] h-10 bg-[#C9A86A]/20" />
-              <div>
-                <p className="font-heading text-3xl md:text-4xl gold-gradient-text">Unisex</p>
-                <p className="font-body text-xs tracking-widest text-[#111111]/40 uppercase mt-1">For Everyone</p>
-              </div>
-              <div className="w-[1px] h-10 bg-[#C9A86A]/20" />
-              <div>
-                <p className="font-heading text-3xl md:text-4xl gold-gradient-text">Premium</p>
-                <p className="font-body text-xs tracking-widest text-[#111111]/40 uppercase mt-1">Formula</p>
-              </div>
+
+            {/* Stats */}
+            <div className="flex items-center gap-8 flex-wrap">
+              {[["Natural","Focus"],["Unisex","For All"],["Handcrafted","Each Batch"]].map(([v1,v2],i)=>(
+                <div key={i} className="flex items-center gap-5">
+                  <div>
+                    <p className="font-heading text-2xl gold-text">{v1}</p>
+                    <p className="font-body text-[9px] tracking-widest text-[#111111]/35 uppercase mt-0.5">{v2}</p>
+                  </div>
+                  {i<2 && <div className="w-[1px] h-8 bg-[#C9A86A]/15" />}
+                </div>
+              ))}
             </div>
           </motion.div>
 
-          {/* Right: Visual collage */}
-          <motion.div
-            custom={1}
-            variants={fadeUp}
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-            className="relative"
-          >
+          {/* Right — visual tiles */}
+          <motion.div custom={1} variants={up} initial="hidden" animate={v?"show":"hidden"} className="relative">
             <div className="grid grid-cols-2 gap-4">
-              {/* Tall image left */}
-              <div className="col-span-1 row-span-2">
-                <div className="h-72 md:h-[380px] rounded-2xl overflow-hidden img-zoom luxury-shadow">
-                  <div className="w-full h-full bg-gradient-to-br from-[#EFE8DD] via-[#F8F5EF] to-[#FCFBF8] flex items-center justify-center relative">
-                    <div className="text-center p-6">
-                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#D4B97E] to-[#C9A86A] mx-auto mb-4 flex items-center justify-center shadow-lg">
-                        <span className="text-white text-2xl">🌿</span>
-                      </div>
-                      <p className="font-heading text-sm tracking-wider text-[#111111]/60">Natural</p>
-                      <p className="font-heading text-lg gold-gradient-text">Botanicals</p>
-                    </div>
-                    <div className="absolute bottom-4 left-4 right-4 h-[1px] bg-gradient-to-r from-transparent via-[#C9A86A]/30 to-transparent" />
+              <div className="row-span-2 rounded-2xl bg-gradient-to-br from-[#EFE8DD] to-[#F8F5EF] flex items-center justify-center card-shadow min-h-[280px]">
+                <div className="text-center p-6">
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#D4B97E] to-[#C9A86A] mx-auto mb-4 flex items-center justify-center shadow-md">
+                    <span className="text-white text-xl">🌿</span>
                   </div>
+                  <p className="font-heading text-sm text-[#111111]/55 tracking-wide">Natural</p>
+                  <p className="font-heading text-base gold-text italic">Ingredients</p>
                 </div>
               </div>
-              {/* Two stacked right */}
-              <div className="space-y-4">
-                <div className="h-32 md:h-44 rounded-2xl overflow-hidden img-zoom luxury-shadow">
-                  <div className="w-full h-full bg-gradient-to-br from-[#F8F5EF] to-[#EFE8DD] flex items-center justify-center">
-                    <div className="text-center">
-                      <span className="text-3xl">✨</span>
-                      <p className="font-heading text-xs tracking-widest text-[#C9A86A] mt-2 uppercase">Premium</p>
-                    </div>
-                  </div>
+              <div className="rounded-2xl bg-gradient-to-br from-[#F8F5EF] to-[#EFE8DD] flex items-center justify-center card-shadow min-h-[130px]">
+                <div className="text-center p-4">
+                  <span className="text-2xl">✨</span>
+                  <p className="font-heading text-xs tracking-widest text-[#C9A86A] mt-2 uppercase">Premium</p>
                 </div>
-                <div className="h-32 md:h-44 rounded-2xl overflow-hidden img-zoom luxury-shadow">
-                  <div className="w-full h-full bg-gradient-to-br from-[#EFE8DD] to-[#F8F5EF] flex items-center justify-center">
-                    <div className="text-center">
-                      <span className="text-3xl">🕊️</span>
-                      <p className="font-heading text-xs tracking-widest text-[#C9A86A] mt-2 uppercase">Pure</p>
-                    </div>
-                  </div>
+              </div>
+              <div className="rounded-2xl bg-gradient-to-br from-[#EFE8DD] to-[#F8F5EF] flex items-center justify-center card-shadow min-h-[130px]">
+                <div className="text-center p-4">
+                  <span className="text-2xl">🤲</span>
+                  <p className="font-heading text-xs tracking-widest text-[#C9A86A] mt-2 uppercase">Handcrafted</p>
                 </div>
               </div>
             </div>
 
-            {/* Floating label */}
-            <div className="absolute -bottom-4 left-4 right-4 bg-white rounded-2xl p-4 luxury-shadow border border-[#C9A86A]/10">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="font-body text-[9px] tracking-[0.3em] uppercase text-[#C9A86A]">Featured Product</p>
-                  <p className="font-heading text-base text-[#111111] mt-0.5">SPCL Tan Care Body Scrub</p>
-                </div>
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#D4B97E] to-[#C9A86A] flex items-center justify-center shadow-md overflow-hidden relative">
-                  <Image src="/logo.png" alt="RALORA GLOW" fill className="object-contain p-1" />
-                </div>
+            {/* Bottom label */}
+            <div className="mt-4 bg-white rounded-2xl p-4 card-shadow border border-[#C9A86A]/10 flex items-center justify-between">
+              <div>
+                <p className="font-body text-[9px] tracking-[0.3em] text-[#C9A86A] uppercase">Featured Product</p>
+                <p className="font-heading text-sm text-[#111111] mt-0.5">SPCL Tan Care Body Scrub</p>
               </div>
+              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#D4B97E] to-[#C9A86A] flex items-center justify-center text-white text-[9px] font-body tracking-wider">RG</div>
             </div>
           </motion.div>
         </div>
 
         {/* Three pillars */}
-        <div className="grid md:grid-cols-3 gap-8 mt-12">
-          {pillars.map((p, i) => (
-            <motion.div
-              key={p.title}
-              custom={i + 2}
-              variants={fadeUp}
-              initial="hidden"
-              animate={inView ? "visible" : "hidden"}
-              className="group"
-            >
-              <div className="p-8 bg-white rounded-2xl border border-[#F4F4F4] hover:border-[#C9A86A]/20 hover:shadow-[0_20px_60px_rgba(201,168,106,0.08)] transition-all duration-500 h-full">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#F8F5EF] to-[#EFE8DD] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <span className="text-xl">{p.icon}</span>
-                </div>
-                <div className="h-[1px] w-8 bg-[#C9A86A]/40 mb-5" />
-                <h3 className="font-heading text-xl text-[#111111] mb-3 tracking-wide">{p.title}</h3>
-                <p className="font-body text-sm text-[#111111]/50 leading-relaxed">{p.text}</p>
+        <div className="grid md:grid-cols-3 gap-5">
+          {pillars.map((p,i)=>(
+            <motion.div key={p.num} custom={i+2} variants={up} initial="hidden" animate={v?"show":"hidden"}>
+              <div className="h-full bg-white rounded-2xl p-7 border border-[#F0EDE8] hover:border-[#C9A86A]/18 hover:shadow-[0_14px_40px_rgba(201,168,106,0.08)] transition-all duration-400">
+                <p className="font-heading text-4xl text-[#C9A86A]/12 mb-3">{p.num}</p>
+                <div className="h-[1px] w-7 bg-[#C9A86A]/35 mb-4" />
+                <h3 className="font-heading text-lg text-[#111111] mb-2">{p.title}</h3>
+                <p className="font-body text-xs text-[#111111]/48 leading-[1.8]">{p.text}</p>
               </div>
             </motion.div>
           ))}
         </div>
       </div>
-      <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#C9A86A]/20 to-transparent" />
+      <div className="gold-line absolute bottom-0 inset-x-0" />
     </section>
   );
 }

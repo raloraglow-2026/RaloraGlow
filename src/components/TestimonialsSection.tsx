@@ -4,272 +4,130 @@ import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-const testimonials = [
-  {
-    name: "Priya Sharma",
-    location: "Mumbai, India",
-    initials: "PS",
-    rating: 5,
-    review:
-      "I've tried many body scrubs but RALORA GLOW's SPCL Tan Removal Scrub is genuinely special. After just two weeks, my skin feels incredibly soft and I can already see an improvement in my tan lines. The packaging is beautiful and it feels so luxurious!",
-    tag: "Verified Customer",
-  },
-  {
-    name: "Arjun Mehta",
-    location: "Bangalore, India",
-    initials: "AM",
-    rating: 5,
-    review:
-      "As a man who spends a lot of time outdoors, I was skeptical about using a body scrub. But this one is fantastic — gentle, effective, and the fragrance is subtle and sophisticated. My skin looks noticeably healthier after using it regularly.",
-    tag: "Verified Customer",
-  },
-  {
-    name: "Kavya Reddy",
-    location: "Hyderabad, India",
-    initials: "KR",
-    rating: 5,
-    review:
-      "The SPCL scrub has become my Sunday ritual. It leaves my skin feeling like I just stepped out of a spa. The exfoliation is thorough but gentle enough for regular use. I love that it's designed for everyone — finally a unisex luxury product!",
-    tag: "Verified Customer",
-  },
-  {
-    name: "Rohan Kapoor",
-    location: "Delhi, India",
-    initials: "RK",
-    rating: 5,
-    review:
-      "I ordered through WhatsApp and received it beautifully packaged. The scrub itself is premium quality — you can tell a lot of thought went into the formula. My tan from the beach holiday has visibly improved. Highly recommended!",
-    tag: "Verified Customer",
-  },
-  {
-    name: "Nisha Patel",
-    location: "Chennai, India",
-    initials: "NP",
-    rating: 5,
-    review:
-      "RALORA GLOW is everything a luxury skincare brand should be. The scrub smells divine, works beautifully, and makes my skin feel soft for days. The ordering process through WhatsApp was quick and the service was impeccable.",
-    tag: "Verified Customer",
-  },
+const reviews = [
+  { name:"Priya Sharma",  loc:"Mumbai",    init:"PS", review:"After two weeks of regular use my skin feels incredibly soft. The packaging is beautiful and it feels genuinely luxurious. Love this product!" },
+  { name:"Arjun Mehta",   loc:"Bangalore", init:"AM", review:"I was skeptical but this scrub is fantastic — gentle, effective, and the fragrance is subtle. My skin looks visibly healthier after regular use." },
+  { name:"Kavya Reddy",   loc:"Hyderabad", init:"KR", review:"This has become my Sunday ritual. Leaves my skin feeling like I just stepped out of a spa. Love that it's designed for everyone." },
+  { name:"Rohan Kapoor",  loc:"Delhi",     init:"RK", review:"Beautifully packaged and premium quality. My tan from my beach trip has visibly improved. Ordered again already. Highly recommended!" },
+  { name:"Nisha Patel",   loc:"Chennai",   init:"NP", review:"RALORA GLOW is everything a luxury skincare brand should be. Works beautifully and makes my skin feel soft for days. Ordering process was quick." },
 ];
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.15, duration: 0.7, ease: "easeOut" as const },
-  }),
+const up = {
+  hidden: { opacity:0, y:24 },
+  show: (i:number) => ({ opacity:1, y:0, transition:{ delay:i*0.12, duration:0.65, ease:"easeOut" as const } }),
 };
 
 export default function TestimonialsSection() {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
-  const [current, setCurrent] = useState(0);
-  const [direction, setDirection] = useState(0);
+  const ref    = useRef(null);
+  const v      = useInView(ref, { once:true, margin:"-80px" });
+  const [cur, setCur] = useState(0);
+  const [dir, setDir] = useState(0);
 
-  const prev = () => {
-    setDirection(-1);
-    setCurrent((c) => (c - 1 + testimonials.length) % testimonials.length);
-  };
-  const next = () => {
-    setDirection(1);
-    setCurrent((c) => (c + 1) % testimonials.length);
-  };
+  const prev = () => { setDir(-1); setCur(c=>(c-1+reviews.length)%reviews.length); };
+  const next = () => { setDir(1);  setCur(c=>(c+1)%reviews.length); };
 
-  const variants = {
-    enter: (dir: number) => ({ opacity: 0, x: dir * 50 }),
-    center: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
-    exit: (dir: number) => ({ opacity: 0, x: -dir * 50, transition: { duration: 0.3 } }),
+  const slide = {
+    enter: (d:number) => ({ opacity:0, x:d*40 }),
+    center: { opacity:1, x:0, transition:{ duration:0.45, ease:"easeOut" as const } },
+    exit:   (d:number) => ({ opacity:0, x:-d*40, transition:{ duration:0.28 } }),
   };
 
   return (
-    <section id="testimonials" className="relative py-24 md:py-36 bg-[#FCFBF8] overflow-hidden">
-      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#C9A86A]/20 to-transparent" />
-      <div className="absolute top-1/4 right-0 w-80 h-80 rounded-full bg-[#EFE8DD]/30 translate-x-1/2 blur-3xl" />
-      <div className="absolute bottom-1/4 left-0 w-60 h-60 rounded-full bg-[#EFE8DD]/20 -translate-x-1/2 blur-3xl" />
+    <section id="testimonials" className="relative section bg-[#FCFBF8] overflow-hidden">
+      <div className="gold-line absolute top-0 inset-x-0" />
+      <div className="pointer-events-none absolute top-1/4 right-0 w-64 h-64 rounded-full bg-[#EFE8DD]/25 translate-x-1/2 blur-[80px]" />
 
-      <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+      <div ref={ref} className="container-xl">
+
         {/* Header */}
-        <div className="text-center mb-20">
-          <motion.p
-            custom={0}
-            variants={fadeUp}
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-            className="font-body text-[10px] tracking-[0.45em] text-[#C9A86A] uppercase mb-4"
-          >
-            Real Stories
-          </motion.p>
-          <motion.h2
-            custom={1}
-            variants={fadeUp}
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-            className="font-heading text-4xl md:text-5xl lg:text-6xl text-[#111111] leading-tight"
-          >
-            What Our
-            <br />
-            <span className="italic gold-gradient-text">Customers Say</span>
-          </motion.h2>
-          <motion.div
-            custom={2}
-            variants={fadeUp}
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-            className="mx-auto mt-6 h-[1px] w-16 bg-gradient-to-r from-transparent via-[#C9A86A] to-transparent"
-          />
-          {/* Stars */}
-          <motion.div
-            custom={3}
-            variants={fadeUp}
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-            className="flex items-center justify-center gap-1 mt-6"
-          >
-            {[1,2,3,4,5].map((s) => (
-              <span key={s} className="text-[#C9A86A] text-lg">★</span>
-            ))}
-            <span className="font-body text-xs text-[#111111]/40 ml-2 tracking-wider">5.0 / 5.0</span>
+        <div className="text-center mb-14">
+          <motion.span custom={0} variants={up} initial="hidden" animate={v?"show":"hidden"} className="section-label">Real Stories</motion.span>
+          <motion.h2  custom={1} variants={up} initial="hidden" animate={v?"show":"hidden"} className="section-title">What Our<br /><span className="gold-text italic">Customers Say</span></motion.h2>
+          <motion.div custom={2} variants={up} initial="hidden" animate={v?"show":"hidden"} className="gold-line w-12 mx-auto mt-6" />
+          <motion.div custom={3} variants={up} initial="hidden" animate={v?"show":"hidden"} className="flex items-center justify-center gap-1 mt-5">
+            {[1,2,3,4,5].map(s=><span key={s} className="text-[#C9A86A] text-lg">★</span>)}
+            <span className="font-body text-xs text-[#111111]/35 ml-2 tracking-wider">5.0 / 5.0</span>
           </motion.div>
         </div>
 
-        {/* Main featured testimonial */}
-        <motion.div
-          custom={2}
-          variants={fadeUp}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          className="relative max-w-3xl mx-auto mb-16"
-        >
-          <div className="glass-card rounded-3xl p-10 md:p-14 shadow-[0_30px_80px_rgba(201,168,106,0.1)] relative overflow-hidden">
-            {/* Quote mark */}
-            <div className="absolute top-8 left-8 font-heading text-8xl text-[#C9A86A]/10 leading-none select-none">"</div>
-            
+        {/* Featured review */}
+        <motion.div custom={2} variants={up} initial="hidden" animate={v?"show":"hidden"} className="max-w-2xl mx-auto mb-10">
+          <div className="bg-white rounded-3xl p-8 md:p-12 border border-[#F0EDE8] card-shadow relative overflow-hidden">
+            <div className="absolute top-6 left-8 font-heading text-7xl text-[#C9A86A]/8 leading-none select-none">"</div>
             <div className="relative z-10">
-              {/* Rating */}
-              <div className="flex items-center gap-1 mb-8">
-                {[1,2,3,4,5].map((s) => (
-                  <span key={s} className="text-[#C9A86A]">★</span>
-                ))}
-              </div>
+              <div className="flex gap-1 mb-7">{[1,2,3,4,5].map(s=><span key={s} className="text-[#C9A86A]">★</span>)}</div>
 
-              {/* Review text with animation */}
-              <div className="min-h-[100px]">
-                <AnimatePresence mode="wait" custom={direction}>
+              {/* Review text */}
+              <div className="min-h-[80px]">
+                <AnimatePresence mode="wait" custom={dir}>
                   <motion.p
-                    key={current}
-                    custom={direction}
-                    variants={variants}
-                    initial="enter"
-                    animate="center"
-                    exit="exit"
-                    className="font-heading text-lg md:text-xl text-[#111111]/70 leading-relaxed italic"
+                    key={cur} custom={dir} variants={slide} initial="enter" animate="center" exit="exit"
+                    className="font-heading text-lg md:text-xl text-[#111111]/65 italic leading-[1.6]"
                   >
-                    "{testimonials[current].review}"
+                    "{reviews[cur].review}"
                   </motion.p>
                 </AnimatePresence>
               </div>
 
-              <div className="h-[1px] bg-gradient-to-r from-transparent via-[#C9A86A]/20 to-transparent my-8" />
+              <div className="gold-line my-7" />
 
-              {/* Author with animation */}
               <AnimatePresence mode="wait">
                 <motion.div
-                  key={`author-${current}`}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.4 }}
-                  className="flex items-center justify-between"
+                  key={`a-${cur}`}
+                  initial={{ opacity:0, y:8 }} animate={{ opacity:1, y:0 }} exit={{ opacity:0, y:-8 }}
+                  transition={{ duration:0.35 }}
+                  className="flex items-center justify-between flex-wrap gap-3"
                 >
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#C9A86A] to-[#D4B97E] flex items-center justify-center shadow-md">
-                      <span className="font-body text-xs font-semibold text-white tracking-wider">
-                        {testimonials[current].initials}
-                      </span>
+                  <div className="flex items-center gap-3">
+                    <div className="w-11 h-11 rounded-full bg-gradient-to-br from-[#C9A86A] to-[#D4B97E] flex items-center justify-center shadow-sm">
+                      <span className="font-body text-xs font-semibold text-white">{reviews[cur].init}</span>
                     </div>
                     <div>
-                      <p className="font-heading text-base text-[#111111]">{testimonials[current].name}</p>
-                      <p className="font-body text-xs text-[#111111]/40 tracking-wider">{testimonials[current].location}</p>
+                      <p className="font-heading text-[15px] text-[#111111]">{reviews[cur].name}</p>
+                      <p className="font-body text-xs text-[#111111]/35 tracking-wider">{reviews[cur].loc}, India</p>
                     </div>
                   </div>
-                  <div className="px-3 py-1.5 bg-[#F8F5EF] rounded-full border border-[#C9A86A]/15">
-                    <p className="font-body text-[9px] tracking-[0.2em] text-[#C9A86A] uppercase">✓ {testimonials[current].tag}</p>
-                  </div>
+                  <span className="px-3 py-1 bg-[#F8F5EF] rounded-full border border-[#C9A86A]/12 font-body text-[9px] tracking-[0.2em] text-[#C9A86A] uppercase">✓ Verified</span>
                 </motion.div>
               </AnimatePresence>
             </div>
           </div>
 
-          {/* Navigation */}
-          <div className="flex items-center justify-center gap-4 mt-8">
-            <button
-              onClick={prev}
-              className="w-10 h-10 rounded-full bg-white border border-[#C9A86A]/20 flex items-center justify-center hover:bg-[#C9A86A] hover:border-[#C9A86A] hover:text-white text-[#C9A86A] transition-all duration-300 shadow-sm"
-            >
-              <ChevronLeft size={16} />
-            </button>
-            
-            {/* Dots */}
+          {/* Nav */}
+          <div className="flex items-center justify-center gap-4 mt-6">
+            <button onClick={prev} className="w-9 h-9 rounded-full bg-white border border-[#F0EDE8] flex items-center justify-center text-[#C9A86A] hover:bg-[#C9A86A] hover:text-white hover:border-[#C9A86A] transition-all duration-250 shadow-sm"><ChevronLeft size={15}/></button>
             <div className="flex gap-2">
-              {testimonials.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => { setDirection(i > current ? 1 : -1); setCurrent(i); }}
-                  className={`rounded-full transition-all duration-300 ${
-                    i === current
-                      ? "w-6 h-2 bg-[#C9A86A]"
-                      : "w-2 h-2 bg-[#C9A86A]/25"
-                  }`}
+              {reviews.map((_,i)=>(
+                <button key={i} onClick={()=>{setDir(i>cur?1:-1);setCur(i);}}
+                  className={`rounded-full transition-all duration-250 ${i===cur?"w-5 h-2 bg-[#C9A86A]":"w-2 h-2 bg-[#C9A86A]/22"}`}
                 />
               ))}
             </div>
-
-            <button
-              onClick={next}
-              className="w-10 h-10 rounded-full bg-white border border-[#C9A86A]/20 flex items-center justify-center hover:bg-[#C9A86A] hover:border-[#C9A86A] hover:text-white text-[#C9A86A] transition-all duration-300 shadow-sm"
-            >
-              <ChevronRight size={16} />
-            </button>
+            <button onClick={next} className="w-9 h-9 rounded-full bg-white border border-[#F0EDE8] flex items-center justify-center text-[#C9A86A] hover:bg-[#C9A86A] hover:text-white hover:border-[#C9A86A] transition-all duration-250 shadow-sm"><ChevronRight size={15}/></button>
           </div>
         </motion.div>
 
-        {/* Mini testimonial cards */}
-        <motion.div
-          custom={4}
-          variants={fadeUp}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          className="grid sm:grid-cols-3 gap-5"
-        >
-          {testimonials.slice(0, 3).map((t, i) => (
+        {/* Mini cards */}
+        <motion.div custom={4} variants={up} initial="hidden" animate={v?"show":"hidden"} className="grid sm:grid-cols-3 gap-4">
+          {reviews.slice(0,3).map((r,i)=>(
             <div
-              key={t.name}
-              onClick={() => { setDirection(i > current ? 1 : -1); setCurrent(i); }}
-              className={`cursor-pointer p-5 rounded-2xl border transition-all duration-300 ${
-                current === i
-                  ? "border-[#C9A86A]/30 bg-white shadow-[0_10px_40px_rgba(201,168,106,0.1)]"
-                  : "border-[#F4F4F4] bg-white hover:border-[#C9A86A]/15 hover:shadow-sm"
-              }`}
+              key={r.name}
+              onClick={()=>{setDir(i>cur?1:-1);setCur(i);}}
+              className={`cursor-pointer p-5 rounded-2xl border transition-all duration-250 ${cur===i?"border-[#C9A86A]/25 bg-white card-shadow":"border-[#F0EDE8] bg-white hover:border-[#C9A86A]/14"}`}
             >
-              <div className="flex items-center gap-1 mb-3">
-                {[1,2,3,4,5].map((s) => (
-                  <span key={s} className="text-[#C9A86A] text-xs">★</span>
-                ))}
-              </div>
-              <p className="font-body text-xs text-[#111111]/60 leading-relaxed line-clamp-3 italic">"{t.review}"</p>
+              <div className="flex gap-0.5 mb-3">{[1,2,3,4,5].map(s=><span key={s} className="text-[#C9A86A] text-xs">★</span>)}</div>
+              <p className="font-body text-xs text-[#111111]/55 leading-[1.7] line-clamp-3 italic">"{r.review}"</p>
               <div className="flex items-center gap-2 mt-3">
                 <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#C9A86A] to-[#D4B97E] flex items-center justify-center">
-                  <span className="font-body text-[7px] text-white">{t.initials}</span>
+                  <span className="font-body text-[7px] text-white">{r.init}</span>
                 </div>
-                <p className="font-body text-[10px] text-[#111111]/50">{t.name}</p>
+                <p className="font-body text-[10px] text-[#111111]/45">{r.name}</p>
               </div>
             </div>
           ))}
         </motion.div>
       </div>
-      <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#C9A86A]/20 to-transparent" />
+      <div className="gold-line absolute bottom-0 inset-x-0" />
     </section>
   );
 }

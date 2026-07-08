@@ -3,173 +3,86 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 
-const steps = [
-  {
-    number: "01",
-    title: "Measure",
-    subtitle: "Take 2–3 teaspoons",
-    desc: "Scoop 2–3 teaspoons of RALORA GLOW SPCL Tan Care Body Scrub into a small bowl or your palm.",
-    icon: "🥄",
-  },
-  {
-    number: "02",
-    title: "Mix",
-    subtitle: "Create a smooth paste",
-    desc: "Mix with rose water or plain water to form a smooth, creamy paste ready for application.",
-    icon: "💧",
-  },
-  {
-    number: "03",
-    title: "Apply",
-    subtitle: "On damp skin",
-    desc: "Apply the paste evenly onto damp skin. For best results, ensure your skin is lightly moistened before use.",
-    icon: "🤲",
-  },
-  {
-    number: "04",
-    title: "Massage",
-    subtitle: "Circular motions for 2–3 minutes",
-    desc: "Gently massage in slow, circular motions for 2–3 minutes. Focus on areas prone to dryness or tanning.",
-    icon: "✦",
-  },
-  {
-    number: "05",
-    title: "Rest",
-    subtitle: "Leave on for 3–5 minutes",
-    desc: "Optionally, leave the scrub on your skin for 3–5 minutes to allow the natural ingredients to work gently.",
-    icon: "⏱",
-  },
-  {
-    number: "06",
-    title: "Rinse",
-    subtitle: "Rinse thoroughly",
-    desc: "Rinse off completely with cool or lukewarm water until your skin is clean and residue-free.",
-    icon: "🚿",
-  },
-  {
-    number: "07",
-    title: "Moisturize",
-    subtitle: "Seal in the benefits",
-    desc: "Pat dry gently and follow with your favourite body moisturizer to lock in softness and hydration.",
-    icon: "🧴",
-  },
-];
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.09, duration: 0.65, ease: "easeOut" as const },
-  }),
+const up = {
+  hidden: { opacity:0, y:24 },
+  show: (i:number) => ({ opacity:1, y:0, transition:{ delay:i*0.08, duration:0.6, ease:"easeOut" as const } }),
 };
+
+const steps = [
+  { n:"01", icon:"🥄", title:"Measure",   sub:"2–3 teaspoons",          desc:"Scoop 2–3 teaspoons of the scrub into a small bowl or your palm." },
+  { n:"02", icon:"💧", title:"Mix",        sub:"Create a smooth paste",  desc:"Mix with rose water or plain water to form a smooth, creamy paste." },
+  { n:"03", icon:"🤲", title:"Apply",      sub:"On damp skin",           desc:"Apply the paste evenly onto damp skin before use." },
+  { n:"04", icon:"✦",  title:"Massage",    sub:"2–3 minutes",            desc:"Gently massage in circular motions for 2–3 minutes." },
+  { n:"05", icon:"⏱",  title:"Rest",       sub:"3–5 minutes (optional)", desc:"Leave on for 3–5 minutes to let the natural ingredients work." },
+  { n:"06", icon:"🚿", title:"Rinse",      sub:"Rinse thoroughly",       desc:"Rinse off completely with cool or lukewarm water." },
+  { n:"07", icon:"🧴", title:"Moisturize", sub:"Seal in softness",       desc:"Pat dry and apply your favourite moisturizer to lock in hydration." },
+];
 
 export default function HowToUseSection() {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
+  const v   = useInView(ref, { once:true, margin:"-80px" });
 
   return (
-    <section id="howtouse" className="relative py-24 md:py-36 bg-white overflow-hidden">
-      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#C9A86A]/20 to-transparent" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 rounded-full bg-[#EFE8DD]/15 translate-x-1/2 translate-y-1/2 blur-[100px] pointer-events-none" />
+    <section id="howtouse" className="relative section bg-white overflow-hidden">
+      <div className="gold-line absolute top-0 inset-x-0" />
+      <div className="pointer-events-none absolute bottom-0 right-0 w-80 h-80 rounded-full bg-[#EFE8DD]/12 translate-x-1/2 translate-y-1/2 blur-[80px]" />
 
-      <div ref={ref} className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+      <div ref={ref} className="container-xl">
 
-        {/* ── Header ── */}
-        <div className="text-center mb-16 max-w-xl mx-auto">
-          <motion.p
-            custom={0} variants={fadeUp} initial="hidden" animate={inView ? "visible" : "hidden"}
-            className="font-body text-[10px] tracking-[0.45em] text-[#C9A86A] uppercase mb-4"
-          >
-            The Ritual
-          </motion.p>
-          <motion.h2
-            custom={1} variants={fadeUp} initial="hidden" animate={inView ? "visible" : "hidden"}
-            className="font-heading text-4xl md:text-5xl lg:text-[56px] text-[#111111] leading-[1.1]"
-          >
-            How To
-            <br />
-            <span className="italic gold-gradient-text">Use</span>
-          </motion.h2>
-          <motion.div
-            custom={2} variants={fadeUp} initial="hidden" animate={inView ? "visible" : "hidden"}
-            className="mx-auto mt-6 h-[1px] w-14 bg-gradient-to-r from-transparent via-[#C9A86A] to-transparent"
-          />
-          <motion.p
-            custom={3} variants={fadeUp} initial="hidden" animate={inView ? "visible" : "hidden"}
-            className="font-body text-sm md:text-[15px] text-[#111111]/45 mt-6 leading-[1.8]"
-          >
-            Seven simple steps to turn your skincare into a luxury self-care ritual.
-          </motion.p>
+        {/* Header */}
+        <div className="text-center mb-14">
+          <motion.span custom={0} variants={up} initial="hidden" animate={v?"show":"hidden"} className="section-label">The Ritual</motion.span>
+          <motion.h2  custom={1} variants={up} initial="hidden" animate={v?"show":"hidden"} className="section-title">How To<br /><span className="gold-text italic">Use</span></motion.h2>
+          <motion.div custom={2} variants={up} initial="hidden" animate={v?"show":"hidden"} className="gold-line w-12 mx-auto mt-6" />
+          <motion.p   custom={3} variants={up} initial="hidden" animate={v?"show":"hidden"} className="section-sub text-center mx-auto">Seven simple steps to turn your skincare into a luxury ritual.</motion.p>
         </div>
 
-        {/* ── Steps Grid ── */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-          {steps.map((step, i) => (
+        {/* Steps */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+          {steps.map((s,i)=>(
             <motion.div
-              key={step.number}
-              custom={i} variants={fadeUp} initial="hidden" animate={inView ? "visible" : "hidden"}
-              className={`group relative ${step.number === "07" ? "sm:col-span-2 lg:col-span-1" : ""}`}
+              key={s.n} custom={i} variants={up} initial="hidden" animate={v?"show":"hidden"}
+              className={s.n === "07" ? "sm:col-span-2 lg:col-span-1" : ""}
             >
-              <div className="h-full bg-[#FCFBF8] rounded-2xl p-6 border border-[#F4F4F4] hover:border-[#C9A86A]/20 hover:shadow-[0_16px_50px_rgba(201,168,106,0.08)] transition-all duration-400">
-                {/* Number + icon row */}
-                <div className="flex items-center justify-between mb-5">
-                  <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#C9A86A] to-[#D4B97E] flex items-center justify-center shadow-sm shadow-[#C9A86A]/20 flex-shrink-0">
-                    <span className="font-body text-[10px] font-semibold text-white tracking-wider">{step.number}</span>
+              <div className="h-full bg-[#FCFBF8] rounded-2xl p-6 border border-[#F0EDE8] hover:border-[#C9A86A]/18 hover:shadow-[0_14px_40px_rgba(201,168,106,0.08)] transition-all duration-400 flex flex-col">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#C9A86A] to-[#D4B97E] flex items-center justify-center shadow-sm flex-shrink-0">
+                    <span className="font-body text-[10px] font-semibold text-white">{s.n}</span>
                   </div>
-                  <span className="text-2xl opacity-60 group-hover:opacity-100 transition-opacity duration-300">{step.icon}</span>
+                  <span className="text-xl opacity-50">{s.icon}</span>
                 </div>
-
-                <div className="h-[1px] bg-gradient-to-r from-[#C9A86A]/20 to-transparent mb-4" />
-
-                <h3 className="font-heading text-[17px] text-[#111111] mb-1">{step.title}</h3>
-                <p className="font-body text-[9px] tracking-[0.25em] text-[#C9A86A] uppercase mb-3">{step.subtitle}</p>
-                <p className="font-body text-xs text-[#111111]/50 leading-[1.75]">{step.desc}</p>
+                <div className="h-[1px] bg-gradient-to-r from-[#C9A86A]/22 to-transparent mb-3" />
+                <h3 className="font-heading text-[16px] text-[#111111] mb-1">{s.title}</h3>
+                <p className="font-body text-[9px] tracking-[0.22em] text-[#C9A86A] uppercase mb-2.5">{s.sub}</p>
+                <p className="font-body text-xs text-[#111111]/48 leading-[1.75] flex-1">{s.desc}</p>
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* ── Quick Reference ── */}
-        <motion.div
-          custom={8} variants={fadeUp} initial="hidden" animate={inView ? "visible" : "hidden"}
-          className="mt-8 grid sm:grid-cols-3 gap-4"
-        >
-          {[
-            { icon: "📅", label: "Frequency", value: "2–3 times per week" },
-            { icon: "⏱", label: "Massage Duration", value: "2–3 minutes" },
-            { icon: "🧴", label: "Follow With", value: "Body moisturizer" },
-          ].map((item, i) => (
-            <div key={i} className="flex items-center gap-4 p-5 bg-[#FCFBF8] rounded-2xl border border-[#F4F4F4]">
-              <span className="text-xl flex-shrink-0">{item.icon}</span>
+        {/* Quick info */}
+        <div className="grid sm:grid-cols-3 gap-4 mb-5">
+          {[["📅","Frequency","2–3 times per week"],["⏱","Massage","2–3 minutes"],["🧴","After Use","Body moisturizer"]].map(([ic,lb,vl])=>(
+            <div key={lb} className="flex items-center gap-3.5 p-4 bg-[#FCFBF8] rounded-2xl border border-[#F0EDE8]">
+              <span className="text-xl flex-shrink-0">{ic}</span>
               <div>
-                <p className="font-body text-[9px] tracking-[0.3em] text-[#C9A86A] uppercase">{item.label}</p>
-                <p className="font-heading text-[13px] text-[#111111] mt-0.5">{item.value}</p>
+                <p className="font-body text-[9px] tracking-[0.28em] text-[#C9A86A] uppercase">{lb}</p>
+                <p className="font-heading text-[13px] text-[#111111] mt-0.5">{vl}</p>
               </div>
             </div>
           ))}
-        </motion.div>
+        </div>
 
-        {/* ── Patch Test ── */}
-        <motion.div
-          custom={9} variants={fadeUp} initial="hidden" animate={inView ? "visible" : "hidden"}
-          className="mt-5 flex items-start gap-4 p-5 bg-[#F8F5EF] rounded-2xl border border-[#C9A86A]/12"
-        >
-          <div className="w-8 h-8 rounded-full bg-[#C9A86A]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-            <span className="text-sm">⚠️</span>
-          </div>
+        {/* Patch test */}
+        <motion.div custom={8} variants={up} initial="hidden" animate={v?"show":"hidden"} className="flex items-start gap-4 bg-[#F8F5EF] rounded-2xl p-5 border border-[#C9A86A]/10">
+          <div className="w-8 h-8 rounded-full bg-[#C9A86A]/10 border border-[#C9A86A]/12 flex items-center justify-center flex-shrink-0 text-sm">⚠️</div>
           <div>
-            <p className="font-heading text-sm text-[#111111] mb-1">Patch Test Recommended</p>
-            <p className="font-body text-xs text-[#111111]/45 leading-relaxed">
-              Apply a small amount to your inner arm and wait 24 hours before first full use. 
-              Discontinue if any irritation occurs. For external use only. Keep away from eyes. 
-              Keep out of reach of children.
-            </p>
+            <p className="font-heading text-[14px] text-[#111111] mb-1">Patch Test Recommended</p>
+            <p className="font-body text-xs text-[#111111]/45 leading-[1.8]">Apply a small amount to your inner arm and wait 24 hours before first full use. Discontinue if irritation occurs. For external use only.</p>
           </div>
         </motion.div>
       </div>
-
-      <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#C9A86A]/20 to-transparent" />
+      <div className="gold-line absolute bottom-0 inset-x-0" />
     </section>
   );
 }

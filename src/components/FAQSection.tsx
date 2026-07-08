@@ -4,152 +4,67 @@ import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Plus, Minus } from "lucide-react";
 
-const faqs = [
-  {
-    q: "How often should I use the SPCL Tan Care Body Scrub?",
-    a: "We recommend using the scrub 2–3 times per week for best results. Consistent use helps reveal smoother, more radiant skin. For sensitive skin, begin with once a week and gradually increase as your skin adjusts.",
-  },
-  {
-    q: "Who can use RALORA GLOW's body scrub?",
-    a: "The SPCL Tan Care Body Scrub is designed for everyone — men and women of all ages and skin types. The formula is gentle enough for most users while being effective for the whole body.",
-  },
-  {
-    q: "How should I store the product?",
-    a: "Store in a cool, dry place away from direct sunlight. Keep the container tightly closed after each use. Always use a dry spoon to scoop out the product — avoid introducing water into the container.",
-  },
-  {
-    q: "How long does one jar last?",
-    a: "With regular use of 2–3 times per week, one jar typically lasts approximately 4–6 weeks. This may vary based on the amount used per application.",
-  },
-  {
-    q: "Is it suitable for sensitive skin?",
-    a: "We always recommend performing a patch test before first use. Apply a small amount to your inner arm and wait 24 hours. If no irritation occurs, it should be safe to use. Discontinue immediately if any irritation develops.",
-  },
-  {
-    q: "How do I place an order?",
-    a: "Simply message us on WhatsApp at +91 7416751547. Our team will guide you through the ordering process, answer any questions, and ensure your order is handled with care and dispatched promptly.",
-  },
-  {
-    q: "What makes RALORA GLOW different from other scrubs?",
-    a: "RALORA GLOW is handcrafted with carefully selected natural ingredients — no harsh bleaching agents, no artificial whitening chemicals. We focus on genuine self-care: honest formulations, premium packaging, and a luxury experience designed for everyone.",
-  },
-];
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.08, duration: 0.6, ease: "easeOut" as const },
-  }),
+const up = {
+  hidden: { opacity:0, y:22 },
+  show: (i:number) => ({ opacity:1, y:0, transition:{ delay:i*0.07, duration:0.55, ease:"easeOut" as const } }),
 };
 
-export default function FAQSection() {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+const faqs = [
+  { q:"How often should I use it?",          a:"Use 2–3 times per week for best results. For sensitive skin, start with once a week and gradually increase." },
+  { q:"Who can use this scrub?",             a:"The SPCL Tan Care Body Scrub is designed for everyone — men and women of all skin types." },
+  { q:"How do I use it properly?",           a:"Mix 2–3 teaspoons with rose water or plain water to form a paste. Apply on damp skin, massage in circular motions for 2–3 minutes, then rinse thoroughly." },
+  { q:"How should I store it?",              a:"Store in a cool, dry place. Keep the lid tightly closed and always use a dry spoon. Avoid introducing water into the jar." },
+  { q:"How long does one jar last?",         a:"With regular use 2–3 times per week, one jar typically lasts 4–6 weeks depending on amount used per session." },
+  { q:"Is it suitable for sensitive skin?",  a:"A patch test is always recommended. Apply a small amount to your inner arm and wait 24 hours before full use." },
+  { q:"Does it permanently remove tan?",     a:"RALORA GLOW makes no claims of permanent tan removal. With consistent use it helps improve the appearance of tanning and leaves skin looking healthier and more radiant." },
+  { q:"How do I place an order?",            a:"Message us on WhatsApp at +91 7416751547. We'll confirm your order and dispatch it with premium packaging." },
+];
 
-  const toggle = (i: number) => setOpenIndex(openIndex === i ? null : i);
+export default function FAQSection() {
+  const ref  = useRef(null);
+  const v    = useInView(ref, { once:true, margin:"-80px" });
+  const [open, setOpen] = useState<number|null>(0);
 
   return (
-    <section id="faq" className="relative py-24 md:py-36 bg-white overflow-hidden">
-      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#C9A86A]/20 to-transparent" />
-      <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full bg-[#EFE8DD]/15 blur-3xl" />
+    <section id="faq" className="relative section bg-white overflow-hidden">
+      <div className="gold-line absolute top-0 inset-x-0" />
+      <div className="pointer-events-none absolute top-0 left-1/4 w-80 h-80 rounded-full bg-[#EFE8DD]/12 blur-[80px]" />
 
-      <div ref={ref} className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+      <div ref={ref} className="container-xl">
+
         {/* Header */}
-        <div className="text-center mb-16">
-          <motion.p
-            custom={0}
-            variants={fadeUp}
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-            className="font-body text-[10px] tracking-[0.45em] text-[#C9A86A] uppercase mb-4"
-          >
-            Got Questions?
-          </motion.p>
-          <motion.h2
-            custom={1}
-            variants={fadeUp}
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-            className="font-heading text-4xl md:text-5xl lg:text-6xl text-[#111111] leading-tight"
-          >
-            Frequently Asked
-            <br />
-            <span className="italic gold-gradient-text">Questions</span>
-          </motion.h2>
-          <motion.div
-            custom={2}
-            variants={fadeUp}
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-            className="mx-auto mt-6 h-[1px] w-16 bg-gradient-to-r from-transparent via-[#C9A86A] to-transparent"
-          />
+        <div className="text-center mb-14">
+          <motion.span custom={0} variants={up} initial="hidden" animate={v?"show":"hidden"} className="section-label">Got Questions?</motion.span>
+          <motion.h2  custom={1} variants={up} initial="hidden" animate={v?"show":"hidden"} className="section-title">Frequently Asked<br /><span className="gold-text italic">Questions</span></motion.h2>
+          <motion.div custom={2} variants={up} initial="hidden" animate={v?"show":"hidden"} className="gold-line w-12 mx-auto mt-6" />
         </div>
 
-        {/* FAQ Items */}
-        <div className="space-y-3">
-          {faqs.map((faq, i) => (
-            <motion.div
-              key={i}
-              custom={i + 2}
-              variants={fadeUp}
-              initial="hidden"
-              animate={inView ? "visible" : "hidden"}
-              className="group"
-            >
-              <div
-                className={`rounded-2xl border transition-all duration-400 overflow-hidden ${
-                  openIndex === i
-                    ? "border-[#C9A86A]/25 bg-[#FCFBF8] shadow-[0_10px_40px_rgba(201,168,106,0.08)]"
-                    : "border-[#F4F4F4] bg-white hover:border-[#C9A86A]/15"
-                }`}
-              >
+        {/* Accordion */}
+        <div className="max-w-2xl mx-auto space-y-3">
+          {faqs.map((f,i)=>(
+            <motion.div key={i} custom={i+2} variants={up} initial="hidden" animate={v?"show":"hidden"}>
+              <div className={`rounded-2xl border overflow-hidden transition-all duration-300 ${open===i?"border-[#C9A86A]/22 bg-[#FCFBF8] shadow-[0_8px_30px_rgba(201,168,106,0.07)]":"border-[#F0EDE8] bg-white hover:border-[#C9A86A]/14"}`}>
                 <button
-                  onClick={() => toggle(i)}
-                  className="w-full flex items-center justify-between gap-4 p-6 text-left focus:outline-none"
-                  aria-expanded={openIndex === i}
+                  onClick={()=>setOpen(open===i?null:i)}
+                  className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left focus:outline-none"
                 >
-                  <div className="flex items-start gap-4">
-                    <span
-                      className={`flex-shrink-0 mt-0.5 font-body text-xs tracking-widest transition-colors duration-300 ${
-                        openIndex === i ? "text-[#C9A86A]" : "text-[#111111]/30"
-                      }`}
-                    >
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <span
-                      className={`font-heading text-base md:text-lg transition-colors duration-300 ${
-                        openIndex === i ? "text-[#111111]" : "text-[#111111]/70"
-                      }`}
-                    >
-                      {faq.q}
-                    </span>
+                  <div className="flex items-center gap-4">
+                    <span className={`font-body text-xs tracking-widest transition-colors duration-250 ${open===i?"text-[#C9A86A]":"text-[#111111]/25"}`}>{String(i+1).padStart(2,"0")}</span>
+                    <span className={`font-heading text-[15px] transition-colors duration-250 ${open===i?"text-[#111111]":"text-[#111111]/60"}`}>{f.q}</span>
                   </div>
-                  <div
-                    className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${
-                      openIndex === i
-                        ? "bg-gradient-to-br from-[#C9A86A] to-[#D4B97E] text-white shadow-md shadow-[#C9A86A]/20"
-                        : "bg-[#F4F4F4] text-[#111111]/40"
-                    }`}
-                  >
-                    {openIndex === i ? <Minus size={14} /> : <Plus size={14} />}
+                  <div className={`w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-250 ${open===i?"bg-gradient-to-br from-[#C9A86A] to-[#D4B97E] text-white shadow-sm":"bg-[#F4F4F4] text-[#111111]/35"}`}>
+                    {open===i ? <Minus size={13}/> : <Plus size={13}/>}
                   </div>
                 </button>
-
                 <AnimatePresence>
-                  {openIndex === i && (
+                  {open===i && (
                     <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.4, ease: "easeInOut" as const }}
+                      initial={{ height:0, opacity:0 }} animate={{ height:"auto", opacity:1 }} exit={{ height:0, opacity:0 }}
+                      transition={{ duration:0.35, ease:"easeInOut" as const }}
                     >
-                      <div className="px-6 pb-6 pl-14">
-                        <div className="h-[1px] bg-gradient-to-r from-[#C9A86A]/20 to-transparent mb-4" />
-                        <p className="font-body text-sm text-[#111111]/55 leading-relaxed">{faq.a}</p>
+                      <div className="px-6 pb-5 pl-[52px]">
+                        <div className="h-[1px] bg-gradient-to-r from-[#C9A86A]/18 to-transparent mb-4" />
+                        <p className="font-body text-sm text-[#111111]/50 leading-[1.8]">{f.a}</p>
                       </div>
                     </motion.div>
                   )}
@@ -159,30 +74,19 @@ export default function FAQSection() {
           ))}
         </div>
 
-        {/* Still have questions */}
-        <motion.div
-          custom={10}
-          variants={fadeUp}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          className="mt-12 text-center p-8 bg-[#F8F5EF] rounded-2xl border border-[#C9A86A]/15"
-        >
-          <p className="font-heading text-xl text-[#111111] mb-2">Still have questions?</p>
-          <p className="font-body text-sm text-[#111111]/50 mb-6">We're here to help. Reach out to us on WhatsApp for a personal response.</p>
+        {/* CTA */}
+        <motion.div custom={11} variants={up} initial="hidden" animate={v?"show":"hidden"} className="mt-10 max-w-2xl mx-auto text-center p-7 bg-[#F8F5EF] rounded-2xl border border-[#C9A86A]/12">
+          <p className="font-heading text-lg text-[#111111] mb-1.5">Still have questions?</p>
+          <p className="font-body text-sm text-[#111111]/45 mb-5">We're here to help. Message us on WhatsApp for a quick personal response.</p>
           <button
-            onClick={() =>
-              window.open(
-                "https://wa.me/917416751547?text=Hello%20RALORA%20GLOW!%20I%20have%20a%20question.",
-                "_blank"
-              )
-            }
-            className="btn-luxury inline-flex items-center gap-2 px-7 py-3 bg-gradient-to-r from-[#C9A86A] to-[#D4B97E] text-white text-xs tracking-[0.2em] uppercase font-body rounded-full hover:shadow-[0_10px_30px_rgba(201,168,106,0.35)] transition-all duration-300"
+            onClick={()=>window.open("https://wa.me/917416751547?text=Hi%20RALORA%20GLOW!%20I%20have%20a%20question.", "_blank")}
+            className="btn-shine inline-flex items-center gap-2 px-7 py-3 rounded-full bg-gradient-to-r from-[#C9A86A] to-[#D4B97E] text-white text-[10px] tracking-[0.22em] uppercase font-body hover:shadow-[0_8px_26px_rgba(201,168,106,0.32)] transition-all duration-300"
           >
             💬 Chat on WhatsApp
           </button>
         </motion.div>
       </div>
-      <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#C9A86A]/20 to-transparent" />
+      <div className="gold-line absolute bottom-0 inset-x-0" />
     </section>
   );
 }
