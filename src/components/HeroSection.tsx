@@ -94,17 +94,17 @@ export default function HeroSection() {
             <motion.div
               initial={{ opacity:0, y:14 }} animate={{ opacity:1, y:0 }}
               transition={{ delay:3.5, duration:0.7 }}
-              className="flex flex-col sm:flex-row gap-3"
+              className="flex flex-col sm:flex-row gap-2.5 sm:gap-3"
             >
               <button
                 onClick={() => document.querySelector("#product")?.scrollIntoView({ behavior:"smooth" })}
-                className="btn-shine inline-flex items-center justify-center sm:justify-start gap-2 px-6 py-3 rounded-full bg-[#111111] text-white text-[10px] tracking-[0.18em] uppercase font-body hover:bg-[#1c1c1c] hover:shadow-[0_10px_30px_rgba(0,0,0,0.18)] transition-all duration-300"
+                className="btn-shine inline-flex items-center justify-center sm:justify-start gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-[#111111] text-white text-[10px] tracking-[0.18em] uppercase font-body hover:bg-[#1c1c1c] hover:shadow-[0_10px_30px_rgba(0,0,0,0.18)] transition-all duration-300"
               >
                 Explore Product <ArrowRight size={12} />
               </button>
               <button
                 onClick={() => window.open("https://wa.me/917416751547?text=Hi%20RALORA%20GLOW!%20I%20want%20to%20order.", "_blank")}
-                className="btn-shine inline-flex items-center justify-center sm:justify-start gap-2 px-6 py-3 rounded-full border border-[#C9A86A] text-[#C9A86A] text-[10px] tracking-[0.18em] uppercase font-body hover:bg-[#C9A86A] hover:text-white hover:shadow-[0_10px_28px_rgba(201,168,106,0.28)] transition-all duration-300"
+                className="btn-shine inline-flex items-center justify-center sm:justify-start gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-full border border-[#C9A86A] text-[#C9A86A] text-[10px] tracking-[0.18em] uppercase font-body hover:bg-[#C9A86A] hover:text-white hover:shadow-[0_10px_28px_rgba(201,168,106,0.28)] transition-all duration-300"
               >
                 <MessageCircle size={12} /> WhatsApp Us
               </button>
@@ -114,7 +114,7 @@ export default function HeroSection() {
             <motion.div
               initial={{ opacity:0 }} animate={{ opacity:1 }}
               transition={{ delay:3.9, duration:0.7 }}
-              className="mt-8 flex items-center gap-3 flex-wrap"
+              className="mt-6 md:mt-8 flex items-center gap-2 md:gap-3 flex-wrap"
             >
               {[["🌿","Natural"],["✦","Handcrafted"],["◎","Unisex"]].map(([icon,label],i) => (
                 <div key={i} className="flex items-center gap-1.5">

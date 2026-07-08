@@ -34,7 +34,7 @@ export default function HowToUseSection() {
           <motion.span custom={0} variants={up} initial="hidden" animate={v?"show":"hidden"} className="section-label">The Ritual</motion.span>
           <motion.h2  custom={1} variants={up} initial="hidden" animate={v?"show":"hidden"} className="section-title">How To<br /><span className="gold-text italic">Use</span></motion.h2>
           <motion.div custom={2} variants={up} initial="hidden" animate={v?"show":"hidden"} className="gold-line w-12 mx-auto mt-6" />
-          <motion.p   custom={3} variants={up} initial="hidden" animate={v?"show":"hidden"} className="section-sub text-center mx-auto">Seven simple steps to turn your skincare into a luxury ritual.</motion.p>
+          <motion.p   custom={3} variants={up} initial="hidden" animate={v?"show":"hidden"} className="section-sub text-center mx-auto">Six simple steps to turn your skincare into a luxury ritual.</motion.p>
         </div>
 
         {/* Steps */}

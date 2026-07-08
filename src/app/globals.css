@@ -97,6 +97,12 @@ body {
 }
 .ping-gold { animation: ping-gold 2s infinite; }
 
+/* ── Container responsive padding ── */
+.container-xl {
+  padding-left: clamp(0.75rem, 3vw, 2rem);
+  padding-right: clamp(0.75rem, 3vw, 2rem);
+}
+
 /* ── Section spacing ── */
 .section { padding: clamp(3rem, 8vw, 7rem) 0; }
 

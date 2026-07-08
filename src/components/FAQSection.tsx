@@ -40,21 +40,21 @@ export default function FAQSection() {
         </div>
 
         {/* Accordion */}
-        <div className="max-w-2xl mx-auto space-y-2.5">
+        <div className="max-w-2xl mx-auto space-y-2 md:space-y-2.5">
           {faqs.map((f,i)=>(
             <motion.div key={i} custom={i+2} variants={up} initial="hidden" animate={v?"show":"hidden"}>
               <div className={`rounded-xl border overflow-hidden transition-all duration-300 ${open===i?"border-[#C9A86A]/22 bg-[#FCFBF8] shadow-[0_6px_24px_rgba(201,168,106,0.06)]":"border-[#F0EDE8] bg-white hover:border-[#C9A86A]/14"}`}>
                 <button
                   onClick={()=>setOpen(open===i?null:i)}
-                  className="w-full flex items-center justify-between gap-3 px-5 py-4 text-left focus:outline-none"
+                  className="w-full flex items-center justify-between gap-3 px-4 md:px-5 py-3 md:py-4 text-left focus:outline-none"
                 >
                   <div className="flex items-center gap-3">
                     <span className={`font-body text-xs tracking-widest transition-colors duration-250 ${open===i?"text-[#C9A86A]":"text-[#111111]/25"}`}>{String(i+1).padStart(2,"0")}</span>
                     <span className={`font-heading text-sm md:text-base transition-colors duration-250 ${open===i?"text-[#111111]":"text-[#111111]/60"}`}>{f.q}</span>
                   </div>
-                  <div className={`w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-250 ${open===i?"bg-gradient-to-br from-[#C9A86A] to-[#D4B97E] text-white shadow-sm":"bg-[#F4F4F4] text-[#111111]/35"}`}>
-                    {open===i ? <Minus size={12}/> : <Plus size={12}/>}
-                  </div>
+                  <span className={`w-5 h-5 md:w-6 md:h-6 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-250 ${open===i?"bg-gradient-to-br from-[#C9A86A] to-[#D4B97E] text-white shadow-sm":"bg-[#F4F4F4] text-[#111111]/35"}`}>
+                    {open===i ? <Minus size={11}/> : <Plus size={11}/>}
+                  </span>
                 </button>
                 <AnimatePresence>
                   {open===i && (

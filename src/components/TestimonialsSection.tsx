@@ -94,16 +94,16 @@ export default function TestimonialsSection() {
           </div>
 
           {/* Nav */}
-          <div className="flex items-center justify-center gap-3 mt-5">
-            <button onClick={prev} className="w-8 h-8 rounded-full bg-white border border-[#F0EDE8] flex items-center justify-center text-[#C9A86A] hover:bg-[#C9A86A] hover:text-white transition-all duration-250 shadow-sm"><ChevronLeft size={14}/></button>
-            <div className="flex gap-1.5">
+          <div className="flex items-center justify-center gap-2 md:gap-3 mt-5">
+            <button onClick={prev} className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-white border border-[#F0EDE8] flex items-center justify-center text-[#C9A86A] hover:bg-[#C9A86A] hover:text-white transition-all duration-250 shadow-sm"><ChevronLeft size={13}/></button>
+            <div className="flex gap-1 md:gap-1.5">
               {reviews.map((_,i)=>(
                 <button key={i} onClick={()=>{setDir(i>cur?1:-1);setCur(i);}}
                   className={`rounded-full transition-all duration-250 ${i===cur?"w-4 h-1.5 bg-[#C9A86A]":"w-1.5 h-1.5 bg-[#C9A86A]/22"}`}
                 />
               ))}
             </div>
-            <button onClick={next} className="w-8 h-8 rounded-full bg-white border border-[#F0EDE8] flex items-center justify-center text-[#C9A86A] hover:bg-[#C9A86A] hover:text-white transition-all duration-250 shadow-sm"><ChevronRight size={14}/></button>
+            <button onClick={next} className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-white border border-[#F0EDE8] flex items-center justify-center text-[#C9A86A] hover:bg-[#C9A86A] hover:text-white transition-all duration-250 shadow-sm"><ChevronRight size={13}/></button>
           </div>
         </motion.div>
 

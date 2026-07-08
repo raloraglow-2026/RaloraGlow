@@ -26,7 +26,7 @@ export default function Footer() {
     <footer className="bg-white border-t border-[#F4F4F4]">
       <div className="h-[1px] bg-gradient-to-r from-transparent via-[#C9A86A] to-transparent" />
       <div className="container-xl">
-        <div className="py-14 md:py-18 grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="py-12 md:py-16 grid md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
 
           {/* Brand */}
           <div className="lg:col-span-2">
