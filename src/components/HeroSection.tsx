@@ -50,7 +50,7 @@ export default function HeroSection() {
 
       {/* Content */}
       <div className="max-w-[1200px] mx-auto px-6 sm:px-8 w-full relative z-10">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center min-h-screen pt-36 pb-20 lg:py-0">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center min-h-screen pt-24 pb-16 lg:py-0">
 
           {/* Left: Text */}
           <motion.div
@@ -138,10 +138,10 @@ export default function HeroSection() {
             transition={{ delay: 2.7, duration: 1.2, ease: "easeOut" as const }}
             className="hidden lg:flex items-center justify-center order-1 lg:order-2"
           >
-            <div className="relative">
-              {/* Orbit ring */}
+            <div className="relative overflow-visible">
+              {/* Orbit ring — contained */}
               <motion.div
-                className="pointer-events-none absolute inset-[-24px] rounded-full border border-dashed border-[#C9A86A]/10"
+                className="pointer-events-none absolute inset-[-20px] rounded-full border border-dashed border-[#C9A86A]/8"
                 animate={{ rotate: 360 }}
                 transition={{ duration: 30, repeat: Infinity, ease: "linear" as const }}
               />
@@ -201,7 +201,7 @@ export default function HeroSection() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 4.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        className="absolute bottom-20 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 hidden md:flex"
       >
         <span className="font-body text-[8px] tracking-[0.35em] text-[#111111]/20 uppercase">Scroll</span>
         <motion.div
