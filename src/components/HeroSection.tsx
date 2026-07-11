@@ -54,13 +54,13 @@ export default function HeroSection() {
           {/* CTA */}
           <button
             onClick={() => document.querySelector("#product")?.scrollIntoView({ behavior: "smooth" })}
-            className="btn-primary mb-20"
+            className="btn-primary mb-28 sm:mb-32"
           >
             Discover the Scrub <ArrowDown size={13} />
           </button>
 
-          {/* Trust badges — pushed down with breathing room */}
-          <div className="flex items-center gap-8 sm:gap-12 flex-wrap justify-center">
+          {/* Trust badges — pushed far down */}
+          <div className="flex items-center gap-8 sm:gap-14 flex-wrap justify-center">
             {[
               { label: "Natural", sub: "Formula" },
               { label: "Handcrafted", sub: "In India" },
