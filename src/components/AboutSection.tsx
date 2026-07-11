@@ -34,12 +34,12 @@ export default function AboutSection() {
       <div ref={ref} className="wrap">
 
         {/* Editorial grid */}
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-28 items-start mb-28">
+        <div className="grid lg:grid-cols-2 gap-20 lg:gap-32 items-start mb-36">
 
           {/* Left — narrative */}
           <motion.div variants={up(0)} initial="hidden" animate={v ? "show" : "hidden"}>
             <span className="eyebrow mb-8 inline-flex">The RALORA GLOW Story</span>
-            <h2 className="h2 mb-7">
+            <h2 className="h2 mb-8">
               Where Nature<br />Meets <span className="gold-text italic">Elegance</span>
             </h2>
             <span className="gold-rule-short mb-8 block" />
@@ -51,7 +51,7 @@ export default function AboutSection() {
             </p>
 
             {/* Stats */}
-            <div className="flex gap-10 pt-7 border-t border-[#111111]/5">
+            <div className="flex gap-12 pt-8 border-t border-[#111111]/5">
               {stats.map((s, i) => (
                 <motion.div key={s.label} variants={up(i + 2)} initial="hidden" animate={v ? "show" : "hidden"}>
                   <p className="stat-num text-[#C9A86A]">{s.num}</p>
@@ -63,16 +63,16 @@ export default function AboutSection() {
 
           {/* Right — value cards 2x3 grid */}
           <motion.div variants={up(1)} initial="hidden" animate={v ? "show" : "hidden"}>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-5">
               {values.map((val) => (
                 <div
                   key={val.title}
-                  className="group p-7 rounded-2xl bg-white border border-[#111111]/5 hover:border-[#C9A86A]/20 hover:shadow-[0_12px_48px_rgba(201,168,106,0.08)] transition-all duration-400"
+                  className="group p-8 rounded-2xl bg-white border border-[#111111]/5 hover:border-[#C9A86A]/20 hover:shadow-[0_12px_48px_rgba(201,168,106,0.08)] transition-all duration-400"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#C9A86A]/8 to-[#C9A86A]/15 flex items-center justify-center mb-4 group-hover:from-[#C9A86A]/15 group-hover:to-[#C9A86A]/25 transition-all duration-400">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#C9A86A]/8 to-[#C9A86A]/15 flex items-center justify-center mb-5 group-hover:from-[#C9A86A]/15 group-hover:to-[#C9A86A]/25 transition-all duration-400">
                     <span className="text-[#C9A86A]">{val.icon}</span>
                   </div>
-                  <p className="font-heading text-[17px] text-[#111111] mb-1.5">{val.title}</p>
+                  <p className="font-heading text-[18px] text-[#111111] mb-1.5">{val.title}</p>
                   <p className="font-body text-[12px] text-[#111111]/38 leading-[1.75]">{val.desc}</p>
                 </div>
               ))}
@@ -83,10 +83,10 @@ export default function AboutSection() {
         {/* Quote card — ivory, NOT dark */}
         <motion.div
           variants={up(2)} initial="hidden" animate={v ? "show" : "hidden"}
-          className="rounded-3xl bg-[#F8F5EF] px-8 py-14 md:px-16 md:py-18 text-center border border-[#C9A86A]/8"
+          className="rounded-3xl bg-[#F8F5EF] px-10 py-16 md:px-20 md:py-24 text-center border border-[#C9A86A]/8"
         >
-          <span className="font-heading text-[56px] md:text-[72px] text-[#C9A86A]/12 leading-none select-none block mb-2">&ldquo;</span>
-          <p className="font-heading text-[20px] md:text-[26px] text-[#111111]/55 italic leading-[1.5] max-w-xl mx-auto -mt-6">
+          <span className="font-heading text-[72px] md:text-[96px] text-[#C9A86A]/12 leading-none select-none block mb-2">&ldquo;</span>
+          <p className="font-heading text-[22px] md:text-[30px] text-[#111111]/55 italic leading-[1.5] max-w-xl mx-auto -mt-6">
             Pure by Nature. Made for You.
           </p>
           <div className="w-12 h-[1px] bg-gradient-to-r from-transparent via-[#C9A86A] to-transparent mx-auto mt-8 mb-4" />

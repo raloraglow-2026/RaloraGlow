@@ -32,11 +32,11 @@ body {
 .wrap {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 clamp(24px, 5vw, 64px);
+  padding: 0 clamp(28px, 5vw, 72px);
 }
 
 /* ─── Section spacing ─── */
-.sec { padding: clamp(100px, 12vw, 180px) 0; }
+.sec { padding: clamp(120px, 14vw, 180px) 0; }
 
 /* ─── Label / Eyebrow ─── */
 .eyebrow {
@@ -44,9 +44,9 @@ body {
   align-items: center;
   gap: 12px;
   font-family: 'Inter', sans-serif;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 500;
-  letter-spacing: 0.5em;
+  letter-spacing: 0.55em;
   text-transform: uppercase;
   color: #C9A86A;
 }
@@ -62,7 +62,7 @@ body {
 /* ─── Section titles ─── */
 .h2 {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2.8rem, 6vw, 4.2rem);
+  font-size: clamp(3rem, 6.5vw, 4.5rem);
   line-height: 1.05;
   font-weight: 400;
   color: #111111;
@@ -70,31 +70,31 @@ body {
 }
 .h3 {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
   line-height: 1.15;
   font-weight: 400;
   color: #111111;
 }
 
 /* ─── Body text ─── */
-.body-lg { font-size: 15px; line-height: 2.0; color: rgba(17,17,17,0.45); }
-.body-sm { font-size: 13px; line-height: 1.9; color: rgba(17,17,17,0.40); }
+.body-lg { font-size: 16px; line-height: 2.1; color: rgba(17,17,17,0.45); }
+.body-sm { font-size: 14px; line-height: 2.0; color: rgba(17,17,17,0.40); }
 
 /* ─── Gold dividers ─── */
 .gold-rule { height: 1px; background: linear-gradient(90deg, transparent, #C9A86A 50%, transparent); }
-.gold-rule-short { display: block; width: 48px; height: 1px; background: #C9A86A; opacity: 0.5; }
+.gold-rule-short { display: block; width: 56px; height: 1px; background: #C9A86A; opacity: 0.5; }
 
 /* ─── Buttons ─── */
 .btn-gold {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 15px 36px;
+  padding: 16px 40px;
   border-radius: 100px;
   background: linear-gradient(135deg, #C9A86A, #D4B97E);
   color: #ffffff;
   font-family: 'Inter', sans-serif;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.25em;
   text-transform: uppercase;
@@ -118,12 +118,12 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 15px 36px;
+  padding: 16px 40px;
   border-radius: 100px;
   background: #111111;
   color: #ffffff;
   font-family: 'Inter', sans-serif;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.25em;
   text-transform: uppercase;
@@ -137,13 +137,13 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 15px 36px;
+  padding: 15px 38px;
   border-radius: 100px;
   background: transparent;
   color: #C9A86A;
   border: 1px solid rgba(201,168,106,0.5);
   font-family: 'Inter', sans-serif;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.25em;
   text-transform: uppercase;
@@ -161,7 +161,7 @@ body {
 .nav-link::after {
   content: '';
   position: absolute; bottom: -2px; left: 0;
-  width: 0; height: 1px; background: #C9A86A;
+  width: 0; height: 1.5px; background: #C9A86A;
   transition: width 0.3s ease;
 }
 .nav-link:hover::after { width: 100%; }
@@ -176,7 +176,7 @@ body {
 /* ─── Stat item ─── */
 .stat-num {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(2.4rem, 5vw, 3.5rem);
   line-height: 1;
   font-weight: 300;
 }

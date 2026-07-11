@@ -22,20 +22,20 @@ export default function Footer() {
 
       <div className="max-w-[1200px] mx-auto px-6 sm:px-8">
         {/* Main grid */}
-        <div className="py-20 grid sm:grid-cols-2 lg:grid-cols-4 gap-14 lg:gap-10">
+        <div className="py-24 grid sm:grid-cols-2 lg:grid-cols-4 gap-14 lg:gap-14">
 
           {/* Col 1 — Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
             <div className="flex items-center gap-3 mb-7">
-              <div className="relative w-11 h-11 rounded-xl overflow-hidden shadow-[0_4px_16px_rgba(201,168,106,0.12)]">
+              <div className="relative w-[48px] h-[48px] rounded-xl overflow-hidden shadow-[0_4px_16px_rgba(201,168,106,0.12)]">
                 <Image src="/logo.png" alt="RALORA GLOW" fill className="object-cover" />
               </div>
               <div className="flex flex-col leading-none">
-                <span className="font-heading text-[17px] text-white/80 tracking-[0.06em] font-medium">RALORA</span>
-                <span className="font-body text-[8px] tracking-[0.4em] text-[#C9A86A] uppercase mt-[2px]">GLOW</span>
+                <span className="font-heading text-[18px] text-white/80 tracking-[0.06em] font-medium">RALORA</span>
+                <span className="font-body text-[9px] tracking-[0.4em] text-[#C9A86A] uppercase mt-[2px]">GLOW</span>
               </div>
             </div>
-            <p className="font-body text-[13px] text-white/25 leading-[1.9] max-w-[240px] mb-8">
+            <p className="font-body text-[14px] text-white/25 leading-[1.9] max-w-[240px] mb-8">
               Premium handcrafted skincare — where nature meets luxurious self-care.
             </p>
             <div className="flex gap-3">
@@ -59,7 +59,7 @@ export default function Footer() {
             <ul className="space-y-3.5">
               {nav.map(l => (
                 <li key={l.label}>
-                  <button onClick={() => go(l.href)} className="font-body text-[13px] text-white/25 hover:text-[#C9A86A] transition-colors duration-300 text-left">{l.label}</button>
+                  <button onClick={() => go(l.href)} className="font-body text-[14px] text-white/25 hover:text-[#C9A86A] transition-colors duration-300 text-left">{l.label}</button>
                 </li>
               ))}
             </ul>
@@ -70,7 +70,7 @@ export default function Footer() {
             <p className="font-body text-[9px] tracking-[0.4em] text-[#C9A86A] uppercase mb-7">Legal</p>
             <ul className="space-y-3.5">
               {["Privacy Policy", "Terms of Service", "Shipping Policy", "Refund Policy"].map(p => (
-                <li key={p}><span className="font-body text-[13px] text-white/25 hover:text-white/45 transition-colors cursor-pointer">{p}</span></li>
+                <li key={p}><span className="font-body text-[14px] text-white/25 hover:text-white/45 transition-colors cursor-pointer">{p}</span></li>
               ))}
             </ul>
           </div>

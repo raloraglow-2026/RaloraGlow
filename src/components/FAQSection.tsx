@@ -31,7 +31,7 @@ export default function FAQSection() {
       <div ref={ref} className="wrap">
 
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-20">
           <motion.span variants={up(0)} initial="hidden" animate={v ? "show" : "hidden"} className="eyebrow mb-8 inline-flex">Questions</motion.span>
           <motion.h2 variants={up(1)} initial="hidden" animate={v ? "show" : "hidden"} className="h2 mb-5">
             Frequently<br /><span className="gold-text italic">Asked</span>
@@ -40,7 +40,7 @@ export default function FAQSection() {
         </div>
 
         {/* Accordion */}
-        <div className="max-w-3xl mx-auto space-y-3">
+        <div className="max-w-3xl mx-auto space-y-4">
           {faqs.map((f, i) => (
             <motion.div key={i} variants={up(i + 2)} initial="hidden" animate={v ? "show" : "hidden"}>
               <div className={`rounded-2xl border overflow-hidden transition-all duration-400 ${
@@ -50,12 +50,12 @@ export default function FAQSection() {
               }`}>
                 <button
                   onClick={() => setOpen(open === i ? null : i)}
-                  className="w-full flex items-center justify-between gap-4 px-7 py-7 text-left focus:outline-none"
+                  className="w-full flex items-center justify-between gap-4 px-8 py-8 text-left focus:outline-none"
                 >
-                  <span className={`font-heading text-[17px] md:text-[18px] transition-colors duration-300 leading-snug ${open === i ? "text-[#111111]" : "text-[#111111]/50"}`}>
+                  <span className={`font-heading text-[18px] md:text-[20px] transition-colors duration-300 leading-snug ${open === i ? "text-[#111111]" : "text-[#111111]/50"}`}>
                     {f.q}
                   </span>
-                  <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${
+                  <div className={`flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 ${
                     open === i ? "bg-gradient-to-br from-[#C9A86A] to-[#D4B97E] text-white" : "bg-[#F8F5EF] text-[#111111]/25"
                   }`}>
                     {open === i ? <Minus size={14} /> : <Plus size={14} />}
@@ -69,9 +69,9 @@ export default function FAQSection() {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.35, ease: "easeInOut" as const }}
                     >
-                      <div className="px-7 pb-7">
+                      <div className="px-8 pb-8">
                         <span className="gold-rule-short mb-4 block" />
-                        <p className="font-body text-[13px] text-[#111111]/45 leading-[1.9]">{f.a}</p>
+                        <p className="font-body text-[14px] text-[#111111]/45 leading-[2.0]">{f.a}</p>
                       </div>
                     </motion.div>
                   )}
@@ -82,7 +82,7 @@ export default function FAQSection() {
         </div>
 
         {/* Small WhatsApp CTA */}
-        <motion.div variants={up(10)} initial="hidden" animate={v ? "show" : "hidden"} className="mt-14 text-center">
+        <motion.div variants={up(10)} initial="hidden" animate={v ? "show" : "hidden"} className="mt-16 text-center">
           <button
             onClick={() => window.open("https://wa.me/917416751547?text=Hi%20RALORA%20GLOW!%20I%20want%20to%20order%20the%20SPCL%20Tan%20Care%20Body%20Scrub.", "_blank")}
             className="btn-outline-gold"

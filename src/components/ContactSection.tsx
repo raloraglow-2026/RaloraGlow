@@ -41,12 +41,12 @@ export default function ContactSection() {
           <motion.div variants={up(5)} initial="hidden" animate={v ? "show" : "hidden"} className="mt-7">
             <a href="tel:+917416751547" className="inline-flex items-center gap-2 group">
               <Phone size={14} className="text-[#C9A86A]" />
-              <span className="font-heading text-[20px] text-[#111111]/60 group-hover:text-[#C9A86A] transition-colors">+91 7416 751 547</span>
+              <span className="font-heading text-[18px] text-[#111111]/60 group-hover:text-[#C9A86A] transition-colors">+91 7416 751 547</span>
             </a>
           </motion.div>
 
           {/* Social icons row */}
-          <motion.div variants={up(6)} initial="hidden" animate={v ? "show" : "hidden"} className="flex items-center justify-center gap-4 mt-10">
+          <motion.div variants={up(6)} initial="hidden" animate={v ? "show" : "hidden"} className="flex items-center justify-center gap-5 mt-10">
             <a
               href="https://wa.me/917416751547?text=Hi%20RALORA%20GLOW!%20I%20want%20to%20order%20the%20SPCL%20Tan%20Care%20Body%20Scrub."
               target="_blank" rel="noopener noreferrer"

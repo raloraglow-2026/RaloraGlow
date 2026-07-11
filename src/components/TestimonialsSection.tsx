@@ -38,7 +38,7 @@ export default function TestimonialsSection() {
       <div ref={ref} className="wrap">
 
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-20">
           <motion.span variants={up(0)} initial="hidden" animate={v ? "show" : "hidden"} className="eyebrow mb-8 inline-flex">Real Stories</motion.span>
           <motion.h2 variants={up(1)} initial="hidden" animate={v ? "show" : "hidden"} className="h2 mb-5">
             What Customers<br /><span className="gold-text italic">Are Saying</span>
@@ -50,7 +50,7 @@ export default function TestimonialsSection() {
 
         {/* Single large review card */}
         <motion.div variants={up(2)} initial="hidden" animate={v ? "show" : "hidden"} className="max-w-2xl mx-auto">
-          <div className="bg-[#FDFBF7] rounded-3xl p-12 md:p-16 border border-[#C9A86A]/6 relative overflow-hidden">
+          <div className="bg-[#FDFBF7] rounded-3xl p-14 md:p-20 border border-[#C9A86A]/6 relative overflow-hidden">
 
             {/* Review text */}
             <div className="min-h-[80px] mb-8">
@@ -62,7 +62,7 @@ export default function TestimonialsSection() {
                   initial="enter"
                   animate="center"
                   exit="exit"
-                  className="font-heading text-[22px] md:text-[24px] text-[#111111]/55 italic leading-[1.6]"
+                  className="font-heading text-[24px] md:text-[28px] text-[#111111]/55 italic leading-[1.6]"
                 >
                   &ldquo;{reviews[cur].review}&rdquo;
                 </motion.p>
@@ -70,7 +70,7 @@ export default function TestimonialsSection() {
             </div>
 
             {/* Gold rule */}
-            <div className="w-16 h-[1px] bg-gradient-to-r from-[#C9A86A] to-transparent mb-7" />
+            <div className="w-16 h-[1px] bg-gradient-to-r from-[#C9A86A] to-transparent mb-9" />
 
             {/* Author */}
             <AnimatePresence mode="wait">
@@ -81,18 +81,18 @@ export default function TestimonialsSection() {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.3 }}
               >
-                <p className="font-heading text-[18px] text-[#111111] mb-1">{reviews[cur].name}</p>
-                <p className="font-body text-[12px] text-[#111111]/35 tracking-wider">{reviews[cur].loc}, Andhra Pradesh</p>
+                <p className="font-heading text-[20px] text-[#111111] mb-1">{reviews[cur].name}</p>
+                <p className="font-body text-[13px] text-[#111111]/35 tracking-wider">{reviews[cur].loc}, Andhra Pradesh</p>
               </motion.div>
             </AnimatePresence>
           </div>
 
           {/* Navigation dots + arrows */}
-          <div className="flex items-center justify-center gap-5 mt-10">
-            <button onClick={prev} className="w-10 h-10 rounded-full border border-[#111111]/8 flex items-center justify-center text-[#111111]/40 hover:bg-[#C9A86A] hover:text-white hover:border-[#C9A86A] transition-all duration-300">
+          <div className="flex items-center justify-center gap-5 mt-12">
+            <button onClick={prev} className="w-11 h-11 rounded-full border border-[#111111]/8 flex items-center justify-center text-[#111111]/40 hover:bg-[#C9A86A] hover:text-white hover:border-[#C9A86A] transition-all duration-300">
               <ChevronLeft size={16} />
             </button>
-            <div className="flex gap-2.5">
+            <div className="flex gap-3">
               {reviews.map((_, i) => (
                 <button
                   key={i}
@@ -101,7 +101,7 @@ export default function TestimonialsSection() {
                 />
               ))}
             </div>
-            <button onClick={next} className="w-10 h-10 rounded-full border border-[#111111]/8 flex items-center justify-center text-[#111111]/40 hover:bg-[#C9A86A] hover:text-white hover:border-[#C9A86A] transition-all duration-300">
+            <button onClick={next} className="w-11 h-11 rounded-full border border-[#111111]/8 flex items-center justify-center text-[#111111]/40 hover:bg-[#C9A86A] hover:text-white hover:border-[#C9A86A] transition-all duration-300">
               <ChevronRight size={16} />
             </button>
           </div>

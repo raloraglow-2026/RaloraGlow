@@ -50,7 +50,7 @@ export default function HeroSection() {
 
       {/* Content */}
       <div className="max-w-[1200px] mx-auto px-6 sm:px-8 w-full relative z-10">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center min-h-screen pt-24 pb-16 lg:py-0">
+        <div className="grid lg:grid-cols-2 gap-14 lg:gap-24 items-center min-h-screen pt-24 pb-16 lg:py-0">
 
           {/* Left: Text */}
           <motion.div
@@ -75,7 +75,7 @@ export default function HeroSection() {
             </motion.div>
 
             {/* Headline with staggered words */}
-            <motion.h1 variants={item} className="font-heading text-[48px] sm:text-[60px] md:text-[72px] lg:text-[84px] xl:text-[96px] leading-[0.95] tracking-[-0.02em] text-[#111111] mb-6">
+            <motion.h1 variants={item} className="font-heading text-[52px] sm:text-[64px] md:text-[80px] lg:text-[92px] xl:text-[104px] leading-[0.95] tracking-[-0.02em] text-[#111111] mb-6">
               <motion.span
                 className="block"
                 initial={{ opacity: 0, x: -20 }}
@@ -103,12 +103,12 @@ export default function HeroSection() {
             </motion.h1>
 
             {/* Subtitle */}
-            <motion.p variants={item} className="font-body text-[14px] md:text-[15px] text-[#111111]/40 leading-[2.0] max-w-[400px] mb-9">
+            <motion.p variants={item} className="font-body text-[15px] md:text-[17px] text-[#111111]/40 leading-[2.0] max-w-[400px] mb-9">
               Pure by Nature. Made for You.
             </motion.p>
 
             {/* CTAs */}
-            <motion.div variants={item} className="flex flex-wrap gap-3 mb-10">
+            <motion.div variants={item} className="flex flex-wrap gap-3 mb-14">
               <button
                 onClick={() => document.querySelector("#product")?.scrollIntoView({ behavior: "smooth" })}
                 className="btn-dark"
@@ -152,7 +152,7 @@ export default function HeroSection() {
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" as const }}
                 className="relative"
               >
-                <div className="bg-gradient-to-b from-[#FDFBF7] to-[#F5EFE5] rounded-[2rem] p-10 lg:p-12 border border-[#C9A86A]/10 shadow-[0_24px_80px_rgba(201,168,106,0.10)] w-[300px] lg:w-[340px]">
+                <div className="bg-gradient-to-b from-[#FDFBF7] to-[#F5EFE5] rounded-[2rem] p-10 lg:p-14 border border-[#C9A86A]/10 shadow-[0_24px_80px_rgba(201,168,106,0.10)] w-[320px] lg:w-[370px]">
 
                   {/* Shimmer */}
                   <motion.div
@@ -171,14 +171,14 @@ export default function HeroSection() {
 
                   {/* Logo image */}
                   <div className="flex justify-center mb-7">
-                    <div className="relative w-32 h-32 lg:w-36 lg:h-36 rounded-2xl overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.12)] ring-1 ring-[#C9A86A]/10">
+                    <div className="relative w-36 h-36 lg:w-44 lg:h-44 rounded-2xl overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.12)] ring-1 ring-[#C9A86A]/10">
                       <Image src="/logo.png" alt="SPCL Tan Care Body Scrub" fill className="object-cover" />
                     </div>
                   </div>
 
                   {/* Info */}
                   <div className="text-center relative z-10">
-                    <p className="font-heading text-[20px] lg:text-[22px] text-[#111111] mb-1">SPCL Tan Care</p>
+                    <p className="font-heading text-[22px] lg:text-[26px] text-[#111111] mb-1">SPCL Tan Care</p>
                     <p className="font-body text-[11px] text-[#111111]/35 tracking-wide mb-4">Body Scrub · 200g</p>
                     <div className="flex justify-center gap-1 mb-4">
                       {[1,2,3,4,5].map(s => <span key={s} className="text-[#C9A86A] text-xs">★</span>)}
