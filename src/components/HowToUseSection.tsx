@@ -9,13 +9,13 @@ const up = (i: number) => ({
 });
 
 const steps = [
-  { title: "Measure",    desc: "Take 2–3 teaspoons of scrub into a clean bowl." },
-  { title: "Prepare",    desc: "Mix with rose water or plain water to form a smooth, luxurious paste." },
-  { title: "Apply",      desc: "Spread evenly onto clean, damp skin with gentle strokes." },
-  { title: "Massage",    desc: "Work in soft circular motions for 2–3 minutes — let the botanicals do their work." },
-  { title: "Rest",       desc: "Leave on for 3–5 minutes for deeper nourishment (optional)." },
-  { title: "Rinse",      desc: "Wash away with cool or lukewarm water to reveal refreshed skin." },
-  { title: "Moisturize", desc: "Pat dry gently and seal with your favourite body moisturizer." },
+  { title: "Measure",    desc: "Take 2–3 teaspoons into a bowl." },
+  { title: "Prepare",    desc: "Mix with rose water to form paste." },
+  { title: "Apply",      desc: "Spread evenly on clean, damp skin." },
+  { title: "Massage",    desc: "Gentle circles for 2–3 minutes." },
+  { title: "Rest",       desc: "Leave 3–5 minutes for deeper effect." },
+  { title: "Rinse",      desc: "Wash off with cool water." },
+  { title: "Moisturize", desc: "Pat dry and apply moisturizer." },
 ];
 
 export default function HowToUseSection() {
@@ -36,12 +36,12 @@ export default function HowToUseSection() {
           </motion.h2>
           <motion.span variants={up(2)} initial="hidden" animate={v ? "show" : "hidden"} className="gold-rule-short mx-auto block mb-7" />
           <motion.p variants={up(3)} initial="hidden" animate={v ? "show" : "hidden"} className="body-lg mx-auto text-center max-w-lg">
-            Seven mindful steps to luminous skin. Use 2–3 times per week for best results.
+            Seven steps to luminous skin. Use 2–3 times per week.
           </motion.p>
         </div>
 
         {/* Steps — elegant numbered list with gold accents */}
-        <motion.div variants={up(2)} initial="hidden" animate={v ? "show" : "hidden"} className="max-w-2xl mx-auto mb-14">
+        <motion.div variants={up(2)} initial="hidden" animate={v ? "show" : "hidden"} className="max-w-2xl mx-auto">
           {steps.map((s, i) => (
             <div
               key={i}
@@ -62,20 +62,6 @@ export default function HowToUseSection() {
                 <p className="font-heading text-[20px] text-[#111111] mb-1.5 group-hover:text-[#111111] transition-colors">{s.title}</p>
                 <p className="font-body text-[13px] text-[#111111]/45 leading-[1.75]">{s.desc}</p>
               </div>
-            </div>
-          ))}
-        </motion.div>
-
-        {/* Quick reference strip */}
-        <motion.div variants={up(3)} initial="hidden" animate={v ? "show" : "hidden"} className="max-w-2xl mx-auto grid sm:grid-cols-3 gap-4">
-          {[
-            ["Frequency", "2–3 times per week"],
-            ["Duration", "2–3 minute massage"],
-            ["Follow With", "Body moisturizer"],
-          ].map(([lbl, val]) => (
-            <div key={lbl} className="text-center p-5 bg-white rounded-2xl border border-[#C9A86A]/8 shadow-[0_4px_20px_rgba(201,168,106,0.04)]">
-              <p className="font-body text-[9px] tracking-[0.35em] text-[#C9A86A] uppercase mb-2">{lbl}</p>
-              <p className="font-heading text-[16px] text-[#111111]">{val}</p>
             </div>
           ))}
         </motion.div>

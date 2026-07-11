@@ -10,12 +10,12 @@ const up = (i: number) => ({
 });
 
 const values = [
-  { icon: <Leaf size={22} />,     title: "100% Natural",      desc: "Carefully sourced botanicals — free from harsh chemicals and synthetic agents." },
-  { icon: <Shield size={22} />,   title: "Derma-Gentle",      desc: "Formulated for every skin type — delivers visible results without irritation." },
-  { icon: <Heart size={22} />,    title: "Artisan Crafted",   desc: "Small-batch production ensures uncompromising quality in every single jar." },
-  { icon: <Sparkles size={22} />, title: "Luxury Grade",      desc: "From formulation to packaging — a premium experience at every touchpoint." },
-  { icon: <Users size={22} />,    title: "Universal",         desc: "One exceptional product designed for all — men, women, every skin tone." },
-  { icon: <Award size={22} />,    title: "Transparent",       desc: "No false promises. Honest claims, genuine results over time." },
+  { icon: <Leaf size={22} />,     title: "100% Natural",    desc: "Pure botanicals, zero harsh chemicals" },
+  { icon: <Shield size={22} />,   title: "Derma-Gentle",    desc: "Safe for every skin type" },
+  { icon: <Heart size={22} />,    title: "Artisan Crafted", desc: "Small-batch quality in every jar" },
+  { icon: <Sparkles size={22} />, title: "Luxury Grade",    desc: "Premium from formula to finish" },
+  { icon: <Users size={22} />,    title: "Universal",       desc: "Designed for all, loved by all" },
+  { icon: <Award size={22} />,    title: "Transparent",     desc: "Honest claims, real results" },
 ];
 
 const stats = [
@@ -45,13 +45,10 @@ export default function AboutSection() {
             </h2>
             <span className="gold-rule-short mb-8 block" />
             <p className="body-lg mb-6">
-              RALORA GLOW was founded on an uncompromising principle — that truly premium skincare should be accessible, honest, and beautifully crafted. Not gatekept. Not overpriced. Simply exceptional.
-            </p>
-            <p className="body-lg mb-6">
-              Our signature SPCL Tan Care Body Scrub is handcrafted in India using time-tested natural formulations. Zero harsh bleaching agents. Zero artificial whitening chemicals.
+              Premium skincare that is accessible, honest, and beautifully crafted.
             </p>
             <p className="body-lg mb-8">
-              Every jar carries the care we would give our own skin. That is the RALORA GLOW promise — nothing less.
+              Handcrafted in India with time-tested natural formulations.
             </p>
 
             {/* Stats row */}
@@ -99,7 +96,7 @@ export default function AboutSection() {
           <div className="relative z-10">
             <span className="font-heading text-[60px] md:text-[80px] text-[#C9A86A]/10 leading-none select-none block mb-4">&ldquo;</span>
             <p className="font-heading text-[22px] md:text-[30px] text-white/80 italic leading-[1.5] max-w-2xl mx-auto -mt-8">
-              Luxury is not about price — it is about intention. Every ingredient chosen with purpose, every jar crafted with devotion.
+              Luxury is not about price — it is about intention.
             </p>
             <div className="w-12 h-[1px] bg-gradient-to-r from-transparent via-[#C9A86A] to-transparent mx-auto mt-10 mb-5" />
             <p className="font-body text-[10px] tracking-[0.4em] text-[#C9A86A] uppercase">— The RALORA GLOW Philosophy</p>

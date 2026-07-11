@@ -114,8 +114,7 @@ export default function HeroSection() {
 
             {/* Subtitle with fade */}
             <motion.p variants={item} className="font-body text-[14px] md:text-[15px] text-[#111111]/42 leading-[1.85] max-w-[400px] mb-8">
-              Handcrafted with carefully selected natural formulations.
-              A premium self-care ritual for men and women.
+              Handcrafted natural formulations for radiant skin.
             </motion.p>
 
             {/* CTAs — slide up */}

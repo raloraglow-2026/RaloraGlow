@@ -10,11 +10,11 @@ const up = (i: number) => ({
 });
 
 const reviews = [
-  { name: "Lakshmi V.", loc: "Visakhapatnam", review: "I've tried so many scrubs over the years but nothing felt this luxurious. After just two weeks, the tan on my arms has lightened noticeably. My skin feels like silk every morning. Absolutely in love with this product." },
-  { name: "Ravi K.", loc: "Visakhapatnam", review: "Bought this for my wife but ended up using it myself too. The scrub is so gentle yet effective — my farmer's tan from daily commute has visibly reduced. The packaging is premium and the product smells earthy and natural." },
-  { name: "Divya P.", loc: "Vijayawada", review: "The SPCL Tan Care Scrub has completely transformed my weekend skincare routine. My elbows and knees that were always dark now look so much more even-toned. I love that it uses natural formulations — the kind my grandmother always believed in." },
-  { name: "Suresh M.", loc: "Visakhapatnam", review: "I was skeptical about skincare products but a friend recommended RALORA GLOW. After a month of regular use, even my colleagues noticed the difference. Skin feels cleaner, brighter, and healthier. Worth every rupee." },
-  { name: "Anjali R.", loc: "Rajahmundry", review: "Finally a scrub that doesn't irritate my sensitive skin. The natural formula is so soothing and the results are gradual but real. My beach tan from last summer is almost gone. The quality of this product is genuinely premium." },
+  { name: "Lakshmi V.", loc: "Visakhapatnam", review: "Nothing felt this luxurious before. After two weeks, my tan lightened noticeably. Skin feels like silk." },
+  { name: "Ravi K.", loc: "Visakhapatnam", review: "So gentle yet effective — my tan has visibly reduced. The packaging is premium and it smells earthy and natural." },
+  { name: "Divya P.", loc: "Vijayawada", review: "My elbows and knees look so much more even-toned now. Love the natural formulation." },
+  { name: "Suresh M.", loc: "Visakhapatnam", review: "After a month of regular use, even my colleagues noticed the difference. Skin feels cleaner and brighter." },
+  { name: "Anjali R.", loc: "Rajahmundry", review: "Doesn't irritate my sensitive skin at all. The results are gradual but genuinely real. Premium quality." },
 ];
 
 export default function TestimonialsSection() {
@@ -51,7 +51,7 @@ export default function TestimonialsSection() {
           </motion.div>
         </div>
 
-        {/* Review card — premium design */}
+        {/* Review card */}
         <motion.div variants={up(2)} initial="hidden" animate={v ? "show" : "hidden"} className="max-w-2xl mx-auto">
           <div className="bg-gradient-to-b from-[#FDFBF7] to-white rounded-[2rem] p-9 md:p-14 border border-[#C9A86A]/8 shadow-[0_16px_60px_rgba(201,168,106,0.06)] relative overflow-hidden">
             {/* Decorative quote mark */}
@@ -108,7 +108,7 @@ export default function TestimonialsSection() {
             </div>
           </div>
 
-          {/* Navigation — refined */}
+          {/* Navigation */}
           <div className="flex items-center justify-center gap-5 mt-8">
             <button onClick={prev} className="w-10 h-10 rounded-full border border-[#111111]/8 flex items-center justify-center text-[#111111]/40 hover:bg-[#C9A86A] hover:text-white hover:border-[#C9A86A] hover:shadow-[0_4px_16px_rgba(201,168,106,0.25)] transition-all duration-300">
               <ChevronLeft size={16} />

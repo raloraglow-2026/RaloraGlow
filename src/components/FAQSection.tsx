@@ -10,14 +10,14 @@ const up = (i: number) => ({
 });
 
 const faqs = [
-  { q: "How often should I use it?", a: "Use 2–3 times per week for best results. For sensitive skin, start with once a week and gradually increase as your skin adjusts." },
-  { q: "Who can use this scrub?", a: "The SPCL Tan Care Body Scrub is designed for everyone — men and women of all skin types. It is universally formulated to be gentle yet effective." },
-  { q: "How do I use it properly?", a: "Mix 2–3 teaspoons with rose water or plain water to form a smooth paste. Apply on damp skin, massage gently in circular motions for 2–3 minutes, then rinse thoroughly with cool water." },
-  { q: "How should I store it?", a: "Store in a cool, dry place away from direct sunlight. Keep the lid tightly closed and always use a dry spoon. Avoid introducing water into the jar to maintain freshness." },
-  { q: "How long does one jar last?", a: "With regular use of 2–3 times per week, one 200g jar typically lasts 4–6 weeks depending on the amount used per session." },
-  { q: "Is it suitable for sensitive skin?", a: "A patch test is always recommended. Apply a small amount to your inner arm and wait 24 hours before full use. Our natural formula is designed to be gentle on all skin types." },
-  { q: "Does it permanently remove tan?", a: "RALORA GLOW makes no claims of permanent tan removal. With consistent use, it helps improve the appearance of tanning and leaves skin looking visibly healthier and more radiant." },
-  { q: "How do I place an order?", a: "Simply message us on WhatsApp at +91 7416751547. We will confirm your order, process it swiftly, and dispatch with premium packaging." },
+  { q: "How often should I use it?", a: "2–3 times per week. Start once weekly for sensitive skin." },
+  { q: "Who can use this scrub?", a: "Everyone — men and women of all skin types." },
+  { q: "How do I use it properly?", a: "Mix 2–3 teaspoons with rose water, massage 2–3 minutes on damp skin, rinse with cool water." },
+  { q: "How should I store it?", a: "Cool, dry place. Keep lid closed, always use a dry spoon." },
+  { q: "How long does one jar last?", a: "4–6 weeks with regular use (2–3 times per week)." },
+  { q: "Is it suitable for sensitive skin?", a: "Yes. Do a patch test on your inner arm 24 hours before full use." },
+  { q: "Does it permanently remove tan?", a: "No permanent claims. Consistent use visibly improves skin radiance over time." },
+  { q: "How do I place an order?", a: "Message us on WhatsApp at +91 7416751547. We respond within minutes." },
 ];
 
 export default function FAQSection() {
@@ -93,7 +93,7 @@ export default function FAQSection() {
         >
           <div className="p-8 md:p-10 bg-white rounded-2xl border border-[#C9A86A]/10 shadow-[0_8px_32px_rgba(201,168,106,0.05)]">
             <p className="font-heading text-[22px] text-[#111111] mb-2">Still have questions?</p>
-            <p className="font-body text-[13px] text-[#111111]/40 mb-7">We are here to help. Reach out on WhatsApp for a quick, personal response.</p>
+            <p className="font-body text-[13px] text-[#111111]/40 mb-7">Reach out on WhatsApp for a quick, personal response.</p>
             <button
               onClick={() => window.open("https://wa.me/917416751547?text=Hi%20RALORA%20GLOW!%20I%20have%20a%20question.", "_blank")}
               className="btn-gold"

@@ -11,12 +11,12 @@ const up = (i: number) => ({
 });
 
 const benefits = [
-  "Gently exfoliates dead skin cells for renewed radiance",
-  "Visibly improves the appearance of tanning with regular use",
-  "Smooths rough, uneven skin texture to silk-like softness",
-  "Leaves skin feeling deeply refreshed and luminous",
-  "Supports healthy, naturally radiant skin over time",
-  "Universally formulated — perfect for all skin types",
+  "Gently exfoliates dead skin",
+  "Visibly reduces tan appearance",
+  "Smooths rough, uneven texture",
+  "Leaves skin refreshed & luminous",
+  "Supports healthy radiance over time",
+  "Perfect for all skin types",
 ];
 
 export default function ProductSection() {
@@ -38,11 +38,11 @@ export default function ProductSection() {
           </motion.h2>
           <motion.span variants={up(2)} initial="hidden" animate={v ? "show" : "hidden"} className="gold-rule-short mx-auto block mb-7" />
           <motion.p variants={up(3)} initial="hidden" animate={v ? "show" : "hidden"} className="body-lg mx-auto text-center">
-            A handcrafted luxury exfoliant that gently removes dead skin, diminishes the appearance of tanning, and reveals the radiant skin beneath.
+            A luxury exfoliant for radiant, silky skin.
           </motion.p>
         </div>
 
-        {/* Main product showcase — bigger card layout */}
+        {/* Main product showcase */}
         <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center mb-20">
 
           {/* Left: Premium product card */}
@@ -83,7 +83,6 @@ export default function ProductSection() {
           {/* Right: Benefits */}
           <motion.div variants={up(1)} initial="hidden" animate={v ? "show" : "hidden"}>
             <h3 className="h3 mb-3">The Promise</h3>
-            <p className="body-sm mb-8 max-w-md">Six powerful benefits working together for visibly radiant, smoother skin.</p>
             <span className="gold-rule-short mb-8 block" />
 
             <div className="space-y-5 mb-12">
