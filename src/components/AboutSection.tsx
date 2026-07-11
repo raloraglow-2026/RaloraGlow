@@ -22,7 +22,7 @@ export default function AboutSection() {
       <div className="wrap">
 
         {/* Editorial grid */}
-        <div className="grid lg:grid-cols-2 gap-20 lg:gap-32 items-start mb-36">
+        <div className="grid lg:grid-cols-2 gap-20 lg:gap-20 items-start mb-16">
 
           {/* Left — narrative */}
           <div>
@@ -47,6 +47,7 @@ export default function AboutSection() {
                 </div>
               ))}
             </div>
+            <p className="font-body text-[12px] text-[#111111]/25 mt-4">Trusted by customers across Andhra Pradesh</p>
           </div>
 
           {/* Right — value cards 2x3 grid */}
@@ -69,7 +70,7 @@ export default function AboutSection() {
         </div>
 
         {/* Quote card — ivory */}
-        <div className="rounded-3xl bg-[#F8F5EF] px-10 py-16 md:px-20 md:py-24 text-center border border-[#C9A86A]/8">
+        <div className="rounded-3xl bg-[#F8F5EF] px-10 py-12 md:px-20 md:py-14 text-center border border-[#C9A86A]/8">
           <span className="font-heading text-[72px] md:text-[96px] text-[#C9A86A]/12 leading-none select-none block mb-2">&ldquo;</span>
           <p className="font-heading text-[22px] md:text-[30px] text-[#111111]/55 italic leading-[1.5] max-w-xl mx-auto -mt-6">
             Pure by Nature. Made for You.

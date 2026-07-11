@@ -29,7 +29,7 @@ export default function TestimonialsSection() {
       <div className="wrap">
 
         {/* Header */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-12">
           <span className="eyebrow mb-8 inline-flex">Real Stories</span>
           <h2 className="h2 mb-5">
             What Customers<br /><span className="gold-text italic">Are Saying</span>
@@ -41,7 +41,7 @@ export default function TestimonialsSection() {
 
         {/* Single large review card */}
         <div className="max-w-2xl mx-auto">
-          <div className="bg-[#FDFBF7] rounded-3xl p-14 md:p-20 border border-[#C9A86A]/6 relative overflow-hidden">
+          <div className="bg-[#FDFBF7] rounded-3xl p-14 md:p-14 border border-[#C9A86A]/6 relative overflow-hidden">
 
             {/* Review text */}
             <div className="min-h-[80px] mb-8">
@@ -96,6 +96,7 @@ export default function TestimonialsSection() {
               <ChevronRight size={16} />
             </button>
           </div>
+          <p className="font-body text-[11px] text-[#111111]/25 text-center mt-6">Verified customers from Andhra Pradesh</p>
         </div>
       </div>
     </section>

@@ -22,7 +22,7 @@ export default function FAQSection() {
       <div className="wrap">
 
         {/* Header */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-12">
           <span className="eyebrow mb-8 inline-flex">Questions</span>
           <h2 className="h2 mb-5">
             Frequently<br /><span className="gold-text italic">Asked</span>

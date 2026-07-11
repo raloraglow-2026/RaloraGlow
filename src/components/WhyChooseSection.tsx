@@ -16,7 +16,7 @@ export default function WhyChooseSection() {
       <div className="wrap">
 
         {/* Header */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-12">
           <span className="eyebrow mb-8 inline-flex">Why Us</span>
           <h2 className="h2 mb-5">
             Why Choose<br /><span className="gold-text italic">RALORA GLOW</span>
@@ -25,7 +25,7 @@ export default function WhyChooseSection() {
         </div>
 
         {/* Cards grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {cards.map((card) => (
             <div
               key={card.title}
@@ -37,6 +37,9 @@ export default function WhyChooseSection() {
             </div>
           ))}
         </div>
+
+        {/* Tagline below grid */}
+        <p className="font-heading text-[18px] text-[#111111]/30 italic text-center mt-12">Every batch crafted with intention</p>
       </div>
     </section>
   );

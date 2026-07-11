@@ -1,5 +1,5 @@
 "use client";
-import { MessageCircle, Camera, Mail, Phone } from "lucide-react";
+import { MessageCircle, Camera, Mail, Phone, Clock } from "lucide-react";
 
 export default function ContactSection() {
   const wa = () => window.open("https://wa.me/917416751547?text=Hi%20RALORA%20GLOW!%20I%20want%20to%20order.", "_blank");
@@ -11,12 +11,13 @@ export default function ContactSection() {
         {/* Centered layout */}
         <div className="max-w-lg mx-auto text-center">
           <span className="eyebrow mb-8 inline-flex">Get In Touch</span>
-          <h2 className="h2 mb-5">
+          <h2 className="h2 mb-3">
             Ready To <span className="gold-text italic">Glow?</span>
           </h2>
+          <p className="font-heading text-[18px] text-[#111111]/40 italic mb-5">One message away from radiant skin.</p>
           <span className="gold-rule-short mx-auto block mb-7" />
           <p className="body-lg mb-10">
-            One message away from radiant skin.
+            Reach out and we&apos;ll get back to you within minutes.
           </p>
 
           {/* Big WhatsApp button */}
@@ -30,6 +31,12 @@ export default function ContactSection() {
               <Phone size={14} className="text-[#C9A86A]" />
               <span className="font-heading text-[18px] text-[#111111]/60 group-hover:text-[#C9A86A] transition-colors">+91 7416 751 547</span>
             </a>
+          </div>
+
+          {/* Response time */}
+          <div className="mt-4 inline-flex items-center gap-2">
+            <Clock size={12} className="text-[#C9A86A]" />
+            <span className="font-body text-[12px] text-[#111111]/30">Response within minutes</span>
           </div>
 
           {/* Social icons row */}

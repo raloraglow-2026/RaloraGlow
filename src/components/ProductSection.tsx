@@ -21,7 +21,7 @@ export default function ProductSection() {
       <div className="wrap">
 
         {/* Header */}
-        <div className="text-center mb-24 max-w-2xl mx-auto">
+        <div className="text-center mb-16 max-w-2xl mx-auto">
           <span className="eyebrow mb-8 inline-flex">Our Signature</span>
           <h2 className="h2 mb-5">
             SPCL Tan Care<br /><span className="gold-text italic">Body Scrub</span>
@@ -33,11 +33,11 @@ export default function ProductSection() {
         </div>
 
         {/* 2-col showcase */}
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-16 items-center">
 
           {/* Left: Product card */}
           <div>
-            <div className="bg-[#FDFBF7] rounded-3xl p-12 md:p-16 border border-[#C9A86A]/8 flex flex-col items-center text-center">
+            <div className="bg-[#FDFBF7] rounded-3xl p-10 md:p-12 border border-[#C9A86A]/8 flex flex-col items-center text-center">
 
               {/* Product image */}
               <div className="relative w-52 h-52 md:w-64 md:h-64 rounded-2xl overflow-hidden shadow-[0_16px_60px_rgba(0,0,0,0.12)] mb-8 ring-1 ring-[#C9A86A]/10">
@@ -72,7 +72,7 @@ export default function ProductSection() {
             <h3 className="h3 mb-3">The Promise</h3>
             <span className="gold-rule-short mb-10 block" />
 
-            <div className="space-y-7 mb-14">
+            <div className="space-y-5 mb-14">
               {benefits.map((b, i) => (
                 <div key={i} className="flex items-start gap-4 group">
                   <div className="w-7 h-7 rounded-full bg-[#3D5A40] flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
@@ -84,7 +84,7 @@ export default function ProductSection() {
             </div>
 
             {/* Details strip */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 p-8 bg-[#FDFBF7] rounded-2xl border border-[#111111]/4">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 p-6 bg-[#FDFBF7] rounded-2xl border border-[#111111]/4">
               {[
                 ["200g", "Net Weight"],
                 ["All Skin Types", "Compatibility"],
@@ -97,6 +97,7 @@ export default function ProductSection() {
                 </div>
               ))}
             </div>
+            <p className="font-body text-[12px] text-[#C9A86A] text-center mt-6">Free premium packaging with every order</p>
           </div>
         </div>
       </div>

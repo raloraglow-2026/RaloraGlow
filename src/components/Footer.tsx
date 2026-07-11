@@ -22,7 +22,7 @@ export default function Footer() {
 
       <div className="max-w-[1200px] mx-auto px-6 sm:px-8">
         {/* Main grid */}
-        <div className="py-24 grid sm:grid-cols-2 lg:grid-cols-4 gap-14 lg:gap-14">
+        <div className="py-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-14 lg:gap-14">
 
           {/* Col 1 — Brand */}
           <div className="sm:col-span-2 lg:col-span-1">

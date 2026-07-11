@@ -2,11 +2,11 @@
 import { Leaf, Heart, Users, MapPin, Recycle } from "lucide-react";
 
 const badges = [
-  { icon: <Leaf size={28} />,    label: "100% Natural" },
-  { icon: <Heart size={28} />,   label: "Cruelty-Free" },
-  { icon: <Users size={28} />,   label: "Unisex" },
-  { icon: <MapPin size={28} />,  label: "Made in India" },
-  { icon: <Recycle size={28} />, label: "Eco-Friendly" },
+  { icon: <Leaf size={32} />,    label: "100% Natural" },
+  { icon: <Heart size={32} />,   label: "Cruelty-Free" },
+  { icon: <Users size={32} />,   label: "Unisex" },
+  { icon: <MapPin size={32} />,  label: "Made in India" },
+  { icon: <Recycle size={32} />, label: "Eco-Friendly" },
 ];
 
 export default function TrustSection() {
@@ -14,8 +14,11 @@ export default function TrustSection() {
     <section className="sec bg-white relative overflow-hidden">
       <div className="wrap">
 
+        {/* Gold rule above badges */}
+        <div className="gold-rule mb-12" />
+
         {/* Header */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-12">
           <span className="eyebrow mb-8 inline-flex">Trust</span>
           <h2 className="h2 mb-5">
             What We<br /><span className="gold-text italic">Stand For</span>

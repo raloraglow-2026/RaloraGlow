@@ -54,7 +54,7 @@ export default function HeroSection() {
           {/* CTA */}
           <button
             onClick={() => document.querySelector("#product")?.scrollIntoView({ behavior: "smooth" })}
-            className="btn-primary mb-28 sm:mb-32"
+            className="btn-primary mb-16"
           >
             Discover the Scrub <ArrowDown size={13} />
           </button>

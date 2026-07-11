@@ -1,5 +1,5 @@
 "use client";
-import { AlertTriangle } from "lucide-react";
+import { AlertTriangle, Droplets, Sun, CloudRain, Flower2 } from "lucide-react";
 
 const method1Steps = [
   "Take 2-3 tablespoons of scrub powder",
@@ -19,10 +19,10 @@ const method2Steps = [
 ];
 
 const frequency = [
-  { type: "Normal Skin", freq: "2-3x / week" },
-  { type: "Oily Skin", freq: "2-3x / week" },
-  { type: "Dry Skin", freq: "1-2x / week" },
-  { type: "Sensitive Skin", freq: "Once / week" },
+  { type: "Normal Skin", freq: "2-3x / week", icon: <Sun size={18} /> },
+  { type: "Oily Skin", freq: "2-3x / week", icon: <Droplets size={18} /> },
+  { type: "Dry Skin", freq: "1-2x / week", icon: <CloudRain size={18} /> },
+  { type: "Sensitive Skin", freq: "Once / week", icon: <Flower2 size={18} /> },
 ];
 
 export default function HowToUseSection() {
@@ -31,7 +31,7 @@ export default function HowToUseSection() {
       <div className="wrap">
 
         {/* Header */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-12">
           <span className="eyebrow mb-8 inline-flex">The Ritual</span>
           <h2 className="h2 mb-5">
             How To<br /><span className="gold-text italic">Use</span>
@@ -43,7 +43,7 @@ export default function HowToUseSection() {
         </div>
 
         {/* Two methods */}
-        <div className="grid md:grid-cols-2 gap-8 mb-10">
+        <div className="grid md:grid-cols-2 gap-6 mb-10">
 
           {/* Method 1 */}
           <div className="bg-white rounded-3xl p-10 md:p-12 border border-[#C9A86A]/8 h-full">
@@ -90,6 +90,7 @@ export default function HowToUseSection() {
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-5">
           {frequency.map((f) => (
             <div key={f.type} className="bg-white rounded-2xl p-7 border border-[#111111]/4 text-center">
+              <div className="text-[#C9A86A] flex justify-center mb-3">{f.icon}</div>
               <p className="font-heading text-[16px] text-[#111111]/75 mb-1">{f.freq}</p>
               <p className="font-body text-[10px] tracking-[0.15em] text-[#C9A86A] uppercase">{f.type}</p>
             </div>
