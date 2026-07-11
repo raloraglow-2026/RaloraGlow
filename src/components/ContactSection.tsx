@@ -16,83 +16,60 @@ export default function ContactSection() {
 
   return (
     <section id="contact" className="sec bg-white relative overflow-hidden">
-      <div className="gold-rule absolute top-0 inset-x-0" />
 
       <div ref={ref} className="wrap">
 
-        {/* Header */}
-        <div className="text-center mb-16">
+        {/* Centered layout */}
+        <div className="max-w-lg mx-auto text-center">
           <motion.span variants={up(0)} initial="hidden" animate={v ? "show" : "hidden"} className="eyebrow mb-8 inline-flex">Get In Touch</motion.span>
           <motion.h2 variants={up(1)} initial="hidden" animate={v ? "show" : "hidden"} className="h2 mb-5">
-            Ready To<br /><span className="gold-text italic">Glow?</span>
+            Ready To <span className="gold-text italic">Glow?</span>
           </motion.h2>
-          <motion.span variants={up(2)} initial="hidden" animate={v ? "show" : "hidden"} className="gold-rule-short mx-auto block" />
+          <motion.span variants={up(2)} initial="hidden" animate={v ? "show" : "hidden"} className="gold-rule-short mx-auto block mb-7" />
+          <motion.p variants={up(3)} initial="hidden" animate={v ? "show" : "hidden"} className="body-lg mb-10">
+            One message away from radiant skin.
+          </motion.p>
+
+          {/* Big WhatsApp button */}
+          <motion.div variants={up(4)} initial="hidden" animate={v ? "show" : "hidden"}>
+            <button onClick={wa} className="btn-gold w-full sm:w-auto justify-center !py-5 !px-12 !text-[11px]">
+              <MessageCircle size={16} /> Order on WhatsApp
+            </button>
+          </motion.div>
+
+          {/* Phone */}
+          <motion.div variants={up(5)} initial="hidden" animate={v ? "show" : "hidden"} className="mt-7">
+            <a href="tel:+917416751547" className="inline-flex items-center gap-2 group">
+              <Phone size={14} className="text-[#C9A86A]" />
+              <span className="font-heading text-[20px] text-[#111111]/60 group-hover:text-[#C9A86A] transition-colors">+91 7416 751 547</span>
+            </a>
+          </motion.div>
+
+          {/* Social icons row */}
+          <motion.div variants={up(6)} initial="hidden" animate={v ? "show" : "hidden"} className="flex items-center justify-center gap-4 mt-10">
+            <a
+              href="https://wa.me/917416751547?text=Hi%20RALORA%20GLOW!%20I%20want%20to%20order%20the%20SPCL%20Tan%20Care%20Body%20Scrub."
+              target="_blank" rel="noopener noreferrer"
+              className="w-11 h-11 rounded-full border border-[#111111]/8 flex items-center justify-center text-[#111111]/40 hover:bg-[#25D366] hover:text-white hover:border-[#25D366] transition-all duration-300"
+            >
+              <MessageCircle size={16} />
+            </a>
+            <a
+              href="https://instagram.com/raloraglow"
+              target="_blank" rel="noopener noreferrer"
+              className="w-11 h-11 rounded-full border border-[#111111]/8 flex items-center justify-center text-[#111111]/40 hover:bg-[#E1306C] hover:text-white hover:border-[#E1306C] transition-all duration-300"
+            >
+              <Camera size={16} />
+            </a>
+            <a
+              href="mailto:hello@raloraglow.com"
+              className="w-11 h-11 rounded-full border border-[#111111]/8 flex items-center justify-center text-[#111111]/40 hover:bg-[#C9A86A] hover:text-white hover:border-[#C9A86A] transition-all duration-300"
+            >
+              <Mail size={16} />
+            </a>
+          </motion.div>
         </div>
-
-        {/* Minimal CTA card */}
-        <motion.div variants={up(2)} initial="hidden" animate={v ? "show" : "hidden"} className="max-w-lg mx-auto">
-          <div className="bg-[#0f0f0f] rounded-[2rem] p-9 md:p-12 overflow-hidden relative text-center">
-            {/* Ambient glow */}
-            <div className="pointer-events-none absolute -top-20 -right-20 w-64 h-64 opacity-[0.06]"
-              style={{ background: "radial-gradient(circle, #C9A86A, transparent)" }} />
-
-            <div className="relative z-10">
-              {/* WhatsApp icon */}
-              <div className="w-14 h-14 rounded-2xl bg-[#25D366] flex items-center justify-center shadow-[0_8px_24px_rgba(37,211,102,0.25)] mx-auto mb-8">
-                <MessageCircle size={24} className="text-white" />
-              </div>
-
-              <h3 className="font-heading text-[28px] md:text-[34px] text-white leading-[1.15] mb-3">
-                Begin Your<br /><span className="gold-text-light italic">Glow Journey</span>
-              </h3>
-              <p className="font-body text-[13px] text-white/40 mb-8">
-                One message away from radiant skin.
-              </p>
-
-              {/* Phone number */}
-              <a href="tel:+917416751547" className="flex items-center justify-center gap-3 mb-8 group">
-                <Phone size={15} className="text-[#C9A86A]" />
-                <span className="font-heading text-[22px] text-white group-hover:text-[#D4B97E] transition-colors">+91 7416 751 547</span>
-              </a>
-
-              {/* Big CTA button */}
-              <button onClick={wa}
-                className="w-full flex items-center justify-center gap-3 py-5 rounded-2xl bg-[#25D366] text-white font-body text-[12px] tracking-[0.18em] uppercase font-medium hover:shadow-[0_12px_36px_rgba(37,211,102,0.30)] transition-all duration-300"
-              >
-                <MessageCircle size={18} /> Order on WhatsApp
-              </button>
-            </div>
-          </div>
-
-          {/* Social row */}
-          <div className="grid grid-cols-2 gap-4 mt-5">
-            <a href="https://instagram.com/raloraglow" target="_blank" rel="noopener noreferrer"
-              className="card-white p-5 flex items-center gap-3.5 hover:border-[#C9A86A]/20 hover:shadow-[0_8px_28px_rgba(201,168,106,0.08)] transition-all duration-300"
-            >
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#f09433] to-[#dc2743] flex items-center justify-center flex-shrink-0">
-                <Camera size={15} className="text-white" />
-              </div>
-              <div>
-                <p className="font-body text-[9px] tracking-[0.25em] text-[#C9A86A] uppercase">Follow us</p>
-                <p className="font-body text-[13px] text-[#111111]/55 mt-0.5">Instagram</p>
-              </div>
-            </a>
-            <a href="mailto:hello@raloraglow.com"
-              className="card-white p-5 flex items-center gap-3.5 hover:border-[#C9A86A]/20 hover:shadow-[0_8px_28px_rgba(201,168,106,0.08)] transition-all duration-300"
-            >
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#C9A86A] to-[#D4B97E] flex items-center justify-center flex-shrink-0">
-                <Mail size={15} className="text-white" />
-              </div>
-              <div>
-                <p className="font-body text-[9px] tracking-[0.25em] text-[#C9A86A] uppercase">Write to us</p>
-                <p className="font-body text-[13px] text-[#111111]/55 mt-0.5">Email</p>
-              </div>
-            </a>
-          </div>
-        </motion.div>
       </div>
-
-      <div className="gold-rule absolute bottom-0 inset-x-0" />
     </section>
   );
 }
