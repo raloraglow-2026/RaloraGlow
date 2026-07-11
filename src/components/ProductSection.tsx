@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { MessageCircle, Check } from "lucide-react";
+import { MessageCircle, Check, Star } from "lucide-react";
 import Image from "next/image";
 
 const up = (i: number) => ({
@@ -11,12 +11,21 @@ const up = (i: number) => ({
 });
 
 const benefits = [
-  "Helps gently exfoliate dead skin cells",
-  "Helps improve the appearance of tanning with regular use",
-  "Helps smooth rough, uneven skin texture",
-  "Leaves skin feeling soft, smooth and refreshed",
-  "Supports healthy-looking, naturally radiant skin",
-  "Suitable for all skin types — men and women",
+  "Gently exfoliates dead skin cells for renewed radiance",
+  "Visibly improves the appearance of tanning with regular use",
+  "Smooths rough, uneven skin texture to silk-like softness",
+  "Leaves skin feeling deeply refreshed and luminous",
+  "Supports healthy, naturally radiant skin over time",
+  "Universally formulated — perfect for all skin types",
+];
+
+const ingredients = [
+  ["Masoor Dal", "Natural exfoliant"],
+  ["Besan", "Skin brightening"],
+  ["Rice Flour", "Gentle polish"],
+  ["Multani Mitti", "Deep cleanse"],
+  ["Coffee", "Circulation boost"],
+  ["Turmeric", "Natural glow"],
 ];
 
 export default function ProductSection() {
@@ -31,84 +40,100 @@ export default function ProductSection() {
       <div ref={ref} className="wrap">
 
         {/* Header */}
-        <div className="text-center mb-16 max-w-2xl mx-auto">
-          <motion.span variants={up(0)} initial="hidden" animate={v ? "show" : "hidden"} className="eyebrow mb-7 inline-flex">Featured Product</motion.span>
+        <div className="text-center mb-20 max-w-2xl mx-auto">
+          <motion.span variants={up(0)} initial="hidden" animate={v ? "show" : "hidden"} className="eyebrow mb-8 inline-flex">Our Signature</motion.span>
           <motion.h2 variants={up(1)} initial="hidden" animate={v ? "show" : "hidden"} className="h2 mb-5">
             SPCL Tan Care<br /><span className="gold-text italic">Body Scrub</span>
           </motion.h2>
-          <motion.span variants={up(2)} initial="hidden" animate={v ? "show" : "hidden"} className="gold-rule-short mx-auto block mb-6" />
+          <motion.span variants={up(2)} initial="hidden" animate={v ? "show" : "hidden"} className="gold-rule-short mx-auto block mb-7" />
           <motion.p variants={up(3)} initial="hidden" animate={v ? "show" : "hidden"} className="body-lg mx-auto text-center">
-            A handcrafted exfoliating body scrub made with natural ingredients. Gently removes dead skin, improves the appearance of tanning, and leaves skin feeling refreshed and smooth.
+            A handcrafted luxury exfoliant powered by six natural ingredients. Gently dissolves dead skin, diminishes the appearance of tanning, and reveals the radiant skin beneath.
           </motion.p>
         </div>
 
-        {/* Two-col: visual + details */}
-        <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-center mb-14">
+        {/* Main product showcase — bigger card layout */}
+        <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center mb-20">
 
-          {/* Left: Product card — 2/5 */}
-          <motion.div variants={up(0)} initial="hidden" animate={v ? "show" : "hidden"} className="lg:col-span-2">
-            <div className="bg-[#FDFBF7] rounded-3xl p-10 md:p-12 border border-[#C9A86A]/10 shadow-[0_16px_64px_rgba(201,168,106,0.10)] flex flex-col items-center text-center">
-              {/* Logo as product image */}
-              <div className="relative w-36 h-36 md:w-44 md:h-44 rounded-2xl overflow-hidden shadow-[0_12px_40px_rgba(0,0,0,0.12)] mb-8">
+          {/* Left: Premium product card */}
+          <motion.div variants={up(0)} initial="hidden" animate={v ? "show" : "hidden"}>
+            <div className="bg-gradient-to-b from-[#FDFBF7] to-[#F8F5EF] rounded-[2rem] p-10 md:p-14 border border-[#C9A86A]/10 shadow-[0_24px_80px_rgba(201,168,106,0.12)] flex flex-col items-center text-center relative overflow-hidden">
+              {/* Decorative corner accent */}
+              <div className="absolute top-0 right-0 w-32 h-32 opacity-[0.04]" style={{ background: "radial-gradient(circle at top right, #C9A86A, transparent)" }} />
+
+              {/* Product image */}
+              <div className="relative w-44 h-44 md:w-56 md:h-56 rounded-[1.5rem] overflow-hidden shadow-[0_16px_60px_rgba(0,0,0,0.14)] mb-10 ring-1 ring-[#C9A86A]/10">
                 <Image src="/logo.png" alt="RALORA GLOW SPCL Tan Care Body Scrub" fill className="object-cover" />
               </div>
-              <p className="font-heading text-xl text-[#111111] mb-1">SPCL Tan Care</p>
-              <p className="font-body text-sm text-[#111111]/40 mb-5">Body Scrub · 200g</p>
-              <div className="flex flex-wrap justify-center gap-2 mb-6">
-                {["Natural", "Handcrafted", "Unisex"].map(t => (
-                  <span key={t} className="px-3 py-1 rounded-full border border-[#C9A86A]/20 font-body text-[10px] tracking-[0.18em] text-[#C9A86A] uppercase">{t}</span>
+
+              {/* Rating */}
+              <div className="flex items-center gap-1.5 mb-4">
+                {[1, 2, 3, 4, 5].map(s => <Star key={s} size={14} className="text-[#C9A86A] fill-[#C9A86A]" />)}
+                <span className="font-body text-[11px] text-[#111111]/35 ml-2">5.0 Rating</span>
+              </div>
+
+              <p className="font-heading text-[24px] md:text-[28px] text-[#111111] mb-1">SPCL Tan Care</p>
+              <p className="font-body text-[13px] text-[#111111]/40 mb-6 tracking-wide">Premium Body Scrub · 200g</p>
+
+              {/* Tags */}
+              <div className="flex flex-wrap justify-center gap-2.5 mb-8">
+                {["Natural", "Handcrafted", "Unisex", "Cruelty-Free"].map(t => (
+                  <span key={t} className="px-4 py-1.5 rounded-full border border-[#C9A86A]/20 font-body text-[9px] tracking-[0.2em] text-[#C9A86A] uppercase bg-white/60">{t}</span>
                 ))}
               </div>
-              <button onClick={wa} className="btn-gold w-full justify-center">
-                <MessageCircle size={14} /> Order Now
+
+              {/* CTA */}
+              <button onClick={wa} className="btn-gold w-full justify-center !py-4 !text-[11px]">
+                <MessageCircle size={15} /> Order on WhatsApp
               </button>
+              <p className="font-body text-[10px] text-[#111111]/30 mt-3 tracking-wider">Free premium packaging · Fast dispatch</p>
             </div>
           </motion.div>
 
-          {/* Right: Benefits + details — 3/5 */}
-          <motion.div variants={up(1)} initial="hidden" animate={v ? "show" : "hidden"} className="lg:col-span-3">
-            <h3 className="h3 mb-6">What It Does</h3>
-            <span className="gold-rule-short mb-7 block" />
+          {/* Right: Benefits */}
+          <motion.div variants={up(1)} initial="hidden" animate={v ? "show" : "hidden"}>
+            <h3 className="h3 mb-3">The Promise</h3>
+            <p className="body-sm mb-8 max-w-md">Six powerful benefits from nature&apos;s finest ingredients, working together for visibly radiant skin.</p>
+            <span className="gold-rule-short mb-8 block" />
 
-            <div className="space-y-4 mb-10">
+            <div className="space-y-5 mb-12">
               {benefits.map((b, i) => (
-                <div key={i} className="flex items-start gap-3">
-                  <div className="w-5 h-5 rounded-full bg-[#C9A86A]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Check size={11} className="text-[#C9A86A]" />
+                <div key={i} className="flex items-start gap-4 group">
+                  <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#C9A86A] to-[#D4B97E] flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm shadow-[#C9A86A]/20">
+                    <Check size={12} className="text-white" strokeWidth={3} />
                   </div>
-                  <p className="body-lg">{b}</p>
+                  <p className="font-body text-[14px] text-[#111111]/60 leading-[1.7] group-hover:text-[#111111]/75 transition-colors">{b}</p>
                 </div>
               ))}
             </div>
 
-            {/* Quick details */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8 p-6 bg-[#FDFBF7] rounded-2xl border border-[#111111]/5">
-              {[
-                ["200g", "Net Weight"],
-                ["All Types", "Skin Type"],
-                ["18 Months", "Shelf Life"],
-                ["India", "Made In"],
-              ].map(([val, lbl]) => (
-                <div key={lbl} className="text-center">
-                  <p className="font-heading text-lg text-[#111111]/80">{val}</p>
-                  <p className="font-body text-[10px] tracking-[0.2em] text-[#111111]/35 uppercase mt-1">{lbl}</p>
+            {/* Ingredients grid — luxury feel */}
+            <div className="grid grid-cols-3 gap-3">
+              {ingredients.map(([name, benefit]) => (
+                <div key={name} className="text-center p-4 bg-[#FDFBF7] rounded-xl border border-[#111111]/4 hover:border-[#C9A86A]/20 transition-all duration-300">
+                  <p className="font-heading text-[14px] text-[#111111]/75 mb-0.5">{name}</p>
+                  <p className="font-body text-[9px] tracking-[0.15em] text-[#C9A86A] uppercase">{benefit}</p>
                 </div>
               ))}
-            </div>
-
-            {/* Storage + Patch */}
-            <div className="grid sm:grid-cols-2 gap-4">
-              <div className="p-5 rounded-xl bg-[#FDFBF7] border border-[#111111]/5">
-                <p className="font-heading text-sm text-[#111111] mb-3">Storage</p>
-                <p className="body-sm">Keep in a cool, dry place. Use a dry spoon. Keep lid tightly closed. Avoid introducing water.</p>
-              </div>
-              <div className="p-5 rounded-xl bg-[#FFF8EC] border border-[#C9A86A]/12">
-                <p className="font-heading text-sm text-[#111111] mb-3">Patch Test</p>
-                <p className="body-sm">Apply to inner arm 24 hours before first use. Discontinue if irritation occurs. External use only.</p>
-              </div>
             </div>
           </motion.div>
         </div>
+
+        {/* Details strip */}
+        <motion.div variants={up(3)} initial="hidden" animate={v ? "show" : "hidden"}>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-5 p-8 bg-[#FDFBF7] rounded-2xl border border-[#111111]/4">
+            {[
+              ["200g", "Net Weight"],
+              ["All Skin Types", "Compatibility"],
+              ["18 Months", "Shelf Life"],
+              ["India", "Handcrafted In"],
+            ].map(([val, lbl]) => (
+              <div key={lbl} className="text-center">
+                <p className="font-heading text-[20px] text-[#111111]/80">{val}</p>
+                <p className="font-body text-[9px] tracking-[0.25em] text-[#C9A86A] uppercase mt-1.5">{lbl}</p>
+              </div>
+            ))}
+          </div>
+        </motion.div>
       </div>
 
       <div className="gold-rule absolute bottom-0 inset-x-0" />

@@ -10,12 +10,18 @@ const up = (i: number) => ({
 });
 
 const values = [
-  { icon: <Leaf size={20} />,     title: "Natural",      desc: "Carefully selected natural ingredients — no harsh chemicals, no artificial whitening." },
-  { icon: <Shield size={20} />,   title: "Gentle",       desc: "Formulated to be kind to all skin types while delivering visible results." },
-  { icon: <Heart size={20} />,    title: "Handcrafted",  desc: "Every batch made with attention to detail, quality, and consistency." },
-  { icon: <Sparkles size={20} />, title: "Premium",      desc: "A luxury self-care experience from the formula to the packaging." },
-  { icon: <Users size={20} />,    title: "For Everyone", desc: "Designed for men and women — one premium product for all." },
-  { icon: <Award size={20} />,    title: "Honest",       desc: "No exaggerated claims. Real ingredients, real care, real results over time." },
+  { icon: <Leaf size={22} />,     title: "100% Natural",      desc: "Carefully sourced botanical ingredients — free from harsh chemicals and synthetic agents." },
+  { icon: <Shield size={22} />,   title: "Derma-Gentle",      desc: "Formulated for every skin type — delivers visible results without irritation." },
+  { icon: <Heart size={22} />,    title: "Artisan Crafted",   desc: "Small-batch production ensures uncompromising quality in every single jar." },
+  { icon: <Sparkles size={22} />, title: "Luxury Grade",      desc: "From formulation to packaging — a premium experience at every touchpoint." },
+  { icon: <Users size={22} />,    title: "Universal",         desc: "One exceptional product designed for all — men, women, every skin tone." },
+  { icon: <Award size={22} />,    title: "Transparent",       desc: "No false promises. Real ingredients, honest claims, genuine results over time." },
+];
+
+const stats = [
+  { num: "6", label: "Natural Ingredients" },
+  { num: "200g", label: "Per Jar" },
+  { num: "100%", label: "Handcrafted" },
 ];
 
 export default function AboutSection() {
@@ -28,57 +34,75 @@ export default function AboutSection() {
 
       <div ref={ref} className="wrap">
 
-        {/* Two-column editorial */}
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start mb-20">
+        {/* Editorial intro */}
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-28 items-start mb-24">
 
-          {/* Left — story */}
+          {/* Left — brand narrative */}
           <motion.div variants={up(0)} initial="hidden" animate={v ? "show" : "hidden"}>
-            <span className="eyebrow mb-8 inline-flex">About RALORA GLOW</span>
+            <span className="eyebrow mb-8 inline-flex">The RALORA GLOW Story</span>
             <h2 className="h2 mb-7">
-              Where Nature<br />Meets <span className="gold-text italic">Luxury</span>
+              Where Nature<br />Meets <span className="gold-text italic">Elegance</span>
             </h2>
             <span className="gold-rule-short mb-8 block" />
             <p className="body-lg mb-6">
-              RALORA GLOW was born from a simple belief — premium skincare should be thoughtful, honest, and beautifully crafted. Not exclusive. Not overpriced. Just genuinely good.
+              RALORA GLOW was founded on an uncompromising principle — that truly premium skincare should be accessible, honest, and beautifully crafted. Not gatekept. Not overpriced. Simply exceptional.
             </p>
             <p className="body-lg mb-6">
-              Our SPCL Tan Care Body Scrub is handcrafted in India with a blend of natural ingredients — Masoor Dal, Besan, Rice Flour, Multani Mitti, Coffee, and Turmeric. No harsh bleaching agents. No artificial whitening chemicals.
+              Our signature SPCL Tan Care Body Scrub is handcrafted in India using six time-tested natural ingredients — Masoor Dal, Besan, Rice Flour, Multani Mitti, Coffee, and Turmeric. Zero harsh bleaching agents. Zero artificial whitening chemicals.
             </p>
-            <p className="body-lg">
-              Every jar is made with the same care we'd give our own skin. That's the RALORA GLOW promise.
+            <p className="body-lg mb-8">
+              Every jar carries the care we would give our own skin. That is the RALORA GLOW promise — nothing less.
             </p>
+
+            {/* Stats row */}
+            <div className="flex gap-8 pt-6 border-t border-[#111111]/6">
+              {stats.map((s, i) => (
+                <motion.div key={s.label} variants={up(i + 2)} initial="hidden" animate={v ? "show" : "hidden"}>
+                  <p className="stat-num text-[#C9A86A]">{s.num}</p>
+                  <p className="font-body text-[10px] tracking-[0.2em] text-[#111111]/35 uppercase mt-2">{s.label}</p>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
 
-          {/* Right — brand values */}
+          {/* Right — value cards grid */}
           <motion.div variants={up(1)} initial="hidden" animate={v ? "show" : "hidden"}>
             <div className="grid grid-cols-2 gap-4">
-              {values.map((v2, i) => (
+              {values.map((val) => (
                 <div
-                  key={v2.title}
-                  className="p-5 rounded-2xl bg-white border border-[#111111]/5 hover:border-[#C9A86A]/20 hover:shadow-[0_8px_32px_rgba(201,168,106,0.08)] transition-all duration-300"
+                  key={val.title}
+                  className="group p-6 rounded-2xl bg-white border border-[#111111]/4 hover:border-[#C9A86A]/25 hover:shadow-[0_12px_48px_rgba(201,168,106,0.10)] transition-all duration-400"
                 >
-                  <div className="text-[#C9A86A] mb-3">{v2.icon}</div>
-                  <p className="font-heading text-[16px] text-[#111111] mb-1.5">{v2.title}</p>
-                  <p className="font-body text-[12px] text-[#111111]/42 leading-[1.7]">{v2.desc}</p>
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#C9A86A]/8 to-[#C9A86A]/15 flex items-center justify-center mb-4 group-hover:from-[#C9A86A]/15 group-hover:to-[#C9A86A]/25 transition-all duration-400">
+                    <span className="text-[#C9A86A]">{val.icon}</span>
+                  </div>
+                  <p className="font-heading text-[17px] text-[#111111] mb-2">{val.title}</p>
+                  <p className="font-body text-[12px] text-[#111111]/40 leading-[1.75]">{val.desc}</p>
                 </div>
               ))}
             </div>
           </motion.div>
         </div>
 
-        {/* Quote banner */}
+        {/* Quote banner — editorial luxury */}
         <motion.div
           variants={up(2)} initial="hidden" animate={v ? "show" : "hidden"}
-          className="rounded-2xl bg-[#111111] px-8 py-14 md:px-16 text-center relative overflow-hidden"
+          className="rounded-3xl bg-[#0f0f0f] px-8 py-16 md:px-20 md:py-20 text-center relative overflow-hidden"
         >
-          <div className="pointer-events-none absolute inset-0 opacity-[0.03]"
-            style={{ backgroundImage: "radial-gradient(circle at 2px 2px,#C9A86A 1px,transparent 0)", backgroundSize: "28px 28px" }} />
+          {/* Subtle pattern overlay */}
+          <div className="pointer-events-none absolute inset-0 opacity-[0.025]"
+            style={{ backgroundImage: "radial-gradient(circle at 2px 2px,#C9A86A 1px,transparent 0)", backgroundSize: "32px 32px" }} />
+          {/* Gold glow accent */}
+          <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[400px] h-[200px] opacity-[0.06]"
+            style={{ background: "radial-gradient(ellipse, #C9A86A, transparent)" }} />
+
           <div className="relative z-10">
-            <p className="font-heading text-[22px] md:text-[28px] text-white/80 italic leading-[1.5] max-w-2xl mx-auto">
-              "Premium skincare should not be a privilege. It should be a daily joy — thoughtfully made, honestly presented, beautifully experienced."
+            <span className="font-heading text-[60px] md:text-[80px] text-[#C9A86A]/10 leading-none select-none block mb-4">&ldquo;</span>
+            <p className="font-heading text-[22px] md:text-[30px] text-white/80 italic leading-[1.5] max-w-2xl mx-auto -mt-8">
+              Luxury is not about price — it is about intention. Every ingredient chosen with purpose, every jar crafted with devotion.
             </p>
-            <div className="gold-rule w-12 mx-auto mt-8 mb-4" />
-            <p className="font-body text-[11px] tracking-[0.3em] text-[#C9A86A] uppercase">— RALORA GLOW</p>
+            <div className="w-12 h-[1px] bg-gradient-to-r from-transparent via-[#C9A86A] to-transparent mx-auto mt-10 mb-5" />
+            <p className="font-body text-[10px] tracking-[0.4em] text-[#C9A86A] uppercase">— The RALORA GLOW Philosophy</p>
           </div>
         </motion.div>
       </div>

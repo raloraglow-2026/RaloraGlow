@@ -5,16 +5,16 @@ import { useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const up = (i: number) => ({
-  hidden: { opacity: 0, y: 22 },
+  hidden: { opacity: 0, y: 24 },
   show: { opacity: 1, y: 0, transition: { delay: i * 0.1, duration: 0.6, ease: "easeOut" as const } },
 });
 
 const reviews = [
-  { name: "Priya S.", loc: "Mumbai", review: "After two weeks, my skin feels incredibly soft. The packaging is beautiful and it genuinely feels luxurious. Absolutely love this product." },
-  { name: "Arjun M.", loc: "Bangalore", review: "I was skeptical at first but this scrub is fantastic — gentle, effective, and the fragrance is subtle. My skin looks visibly healthier." },
-  { name: "Kavya R.", loc: "Hyderabad", review: "This has become my Sunday ritual. Leaves my skin feeling like I stepped out of a spa. Love that it's for everyone." },
-  { name: "Rohan K.", loc: "Delhi", review: "Beautifully packaged and premium quality. My tan from a beach trip has visibly improved. Already ordered again." },
-  { name: "Nisha P.", loc: "Chennai", review: "RALORA GLOW is everything a luxury skincare brand should be. Works beautifully. My skin feels soft for days." },
+  { name: "Lakshmi V.", loc: "Visakhapatnam", review: "I've tried so many scrubs over the years but nothing felt this luxurious. After just two weeks, the tan on my arms has lightened noticeably. My skin feels like silk every morning. Absolutely in love with this product." },
+  { name: "Ravi K.", loc: "Visakhapatnam", review: "Bought this for my wife but ended up using it myself too. The scrub is so gentle yet effective — my farmer's tan from daily commute has visibly reduced. The packaging is premium and the product smells earthy and natural." },
+  { name: "Divya P.", loc: "Vijayawada", review: "The SPCL Tan Care Scrub has completely transformed my weekend skincare routine. My elbows and knees that were always dark now look so much more even-toned. I love that it uses turmeric and multani mitti — ingredients my grandmother swore by." },
+  { name: "Suresh M.", loc: "Visakhapatnam", review: "I was skeptical about skincare products but a friend recommended RALORA GLOW. After a month of regular use, even my colleagues noticed the difference. Skin feels cleaner, brighter, and healthier. Worth every rupee." },
+  { name: "Anjali R.", loc: "Rajahmundry", review: "Finally a scrub that doesn't irritate my sensitive skin. The natural formula is so soothing and the results are gradual but real. My beach tan from last summer is almost gone. The quality of this product is genuinely premium." },
 ];
 
 export default function TestimonialsSection() {
@@ -27,9 +27,9 @@ export default function TestimonialsSection() {
   const next = () => { setDir(1); setCur(c => (c + 1) % reviews.length); };
 
   const slide = {
-    enter: (d: number) => ({ opacity: 0, x: d * 30 }),
-    center: { opacity: 1, x: 0, transition: { duration: 0.4, ease: "easeOut" as const } },
-    exit: (d: number) => ({ opacity: 0, x: -d * 30, transition: { duration: 0.2 } }),
+    enter: (d: number) => ({ opacity: 0, x: d * 40 }),
+    center: { opacity: 1, x: 0, transition: { duration: 0.45, ease: "easeOut" as const } },
+    exit: (d: number) => ({ opacity: 0, x: -d * 40, transition: { duration: 0.2 } }),
   };
 
   return (
@@ -39,32 +39,32 @@ export default function TestimonialsSection() {
       <div ref={ref} className="wrap">
 
         {/* Header */}
-        <div className="text-center mb-14">
-          <motion.span variants={up(0)} initial="hidden" animate={v ? "show" : "hidden"} className="eyebrow mb-7 inline-flex">Testimonials</motion.span>
+        <div className="text-center mb-16">
+          <motion.span variants={up(0)} initial="hidden" animate={v ? "show" : "hidden"} className="eyebrow mb-8 inline-flex">Real Stories</motion.span>
           <motion.h2 variants={up(1)} initial="hidden" animate={v ? "show" : "hidden"} className="h2 mb-5">
-            What Customers<br /><span className="gold-text italic">Are Saying</span>
+            Loved Across<br /><span className="gold-text italic">Andhra Pradesh</span>
           </motion.h2>
           <motion.span variants={up(2)} initial="hidden" animate={v ? "show" : "hidden"} className="gold-rule-short mx-auto block mb-6" />
-          <motion.div variants={up(3)} initial="hidden" animate={v ? "show" : "hidden"} className="flex items-center justify-center gap-1">
+          <motion.div variants={up(3)} initial="hidden" animate={v ? "show" : "hidden"} className="flex items-center justify-center gap-1.5">
             {[1, 2, 3, 4, 5].map(s => <span key={s} className="text-[#C9A86A] text-lg">★</span>)}
-            <span className="font-body text-xs text-[#111111]/30 ml-2 tracking-wider">5.0 Rated</span>
+            <span className="font-body text-[11px] text-[#111111]/30 ml-2.5 tracking-wider">5.0 from verified customers</span>
           </motion.div>
         </div>
 
-        {/* Review card */}
+        {/* Review card — premium design */}
         <motion.div variants={up(2)} initial="hidden" animate={v ? "show" : "hidden"} className="max-w-2xl mx-auto">
-          <div className="bg-[#FDFBF7] rounded-3xl p-8 md:p-12 border border-[#111111]/5 relative">
-            {/* Decorative quote */}
-            <span className="absolute top-6 left-8 font-heading text-[80px] text-[#C9A86A]/8 leading-none select-none">"</span>
+          <div className="bg-gradient-to-b from-[#FDFBF7] to-white rounded-[2rem] p-9 md:p-14 border border-[#C9A86A]/8 shadow-[0_16px_60px_rgba(201,168,106,0.06)] relative overflow-hidden">
+            {/* Decorative quote mark */}
+            <span className="absolute top-8 left-9 md:left-14 font-heading text-[100px] text-[#C9A86A]/6 leading-none select-none">&ldquo;</span>
 
             <div className="relative z-10">
               {/* Stars */}
-              <div className="flex gap-1 mb-7">
-                {[1, 2, 3, 4, 5].map(s => <span key={s} className="text-[#C9A86A]">★</span>)}
+              <div className="flex gap-1 mb-8">
+                {[1, 2, 3, 4, 5].map(s => <span key={s} className="text-[#C9A86A] text-[15px]">★</span>)}
               </div>
 
               {/* Review text */}
-              <div className="min-h-[80px]">
+              <div className="min-h-[100px]">
                 <AnimatePresence mode="wait" custom={dir}>
                   <motion.p
                     key={cur}
@@ -73,51 +73,57 @@ export default function TestimonialsSection() {
                     initial="enter"
                     animate="center"
                     exit="exit"
-                    className="font-heading text-[20px] md:text-[24px] text-[#111111]/65 italic leading-[1.55]"
+                    className="font-heading text-[19px] md:text-[23px] text-[#111111]/60 italic leading-[1.6]"
                   >
-                    "{reviews[cur].review}"
+                    &ldquo;{reviews[cur].review}&rdquo;
                   </motion.p>
                 </AnimatePresence>
               </div>
 
-              <div className="gold-rule my-8" />
+              <div className="w-16 h-[1px] bg-gradient-to-r from-[#C9A86A] to-transparent my-8" />
 
               {/* Author */}
               <AnimatePresence mode="wait">
                 <motion.div
                   key={`a-${cur}`}
-                  initial={{ opacity: 0, y: 6 }}
+                  initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.3 }}
                   className="flex items-center justify-between"
                 >
-                  <div>
-                    <p className="font-heading text-[16px] text-[#111111]">{reviews[cur].name}</p>
-                    <p className="font-body text-xs text-[#111111]/35 tracking-wider">{reviews[cur].loc}, India</p>
+                  <div className="flex items-center gap-4">
+                    {/* Avatar */}
+                    <div className="w-11 h-11 rounded-full bg-gradient-to-br from-[#C9A86A] to-[#D4B97E] flex items-center justify-center shadow-sm">
+                      <span className="font-body text-[11px] text-white font-medium">{reviews[cur].name.split(" ").map(n => n[0]).join("")}</span>
+                    </div>
+                    <div>
+                      <p className="font-heading text-[17px] text-[#111111]">{reviews[cur].name}</p>
+                      <p className="font-body text-[11px] text-[#111111]/35 tracking-wider">{reviews[cur].loc}, Andhra Pradesh</p>
+                    </div>
                   </div>
-                  <span className="px-3 py-1 rounded-full border border-[#C9A86A]/20 font-body text-[9px] tracking-[0.2em] text-[#C9A86A] uppercase">Verified</span>
+                  <span className="hidden sm:inline-flex px-3.5 py-1.5 rounded-full border border-[#C9A86A]/20 font-body text-[9px] tracking-[0.2em] text-[#C9A86A] uppercase bg-[#C9A86A]/4">Verified</span>
                 </motion.div>
               </AnimatePresence>
             </div>
           </div>
 
-          {/* Navigation */}
-          <div className="flex items-center justify-center gap-4 mt-6">
-            <button onClick={prev} className="w-9 h-9 rounded-full border border-[#111111]/8 flex items-center justify-center text-[#111111]/40 hover:bg-[#C9A86A] hover:text-white hover:border-[#C9A86A] transition-all duration-250">
-              <ChevronLeft size={15} />
+          {/* Navigation — refined */}
+          <div className="flex items-center justify-center gap-5 mt-8">
+            <button onClick={prev} className="w-10 h-10 rounded-full border border-[#111111]/8 flex items-center justify-center text-[#111111]/40 hover:bg-[#C9A86A] hover:text-white hover:border-[#C9A86A] hover:shadow-[0_4px_16px_rgba(201,168,106,0.25)] transition-all duration-300">
+              <ChevronLeft size={16} />
             </button>
-            <div className="flex gap-2">
+            <div className="flex gap-2.5">
               {reviews.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => { setDir(i > cur ? 1 : -1); setCur(i); }}
-                  className={`rounded-full transition-all duration-250 ${i === cur ? "w-5 h-2 bg-[#C9A86A]" : "w-2 h-2 bg-[#111111]/10"}`}
+                  className={`rounded-full transition-all duration-300 ${i === cur ? "w-6 h-2 bg-gradient-to-r from-[#C9A86A] to-[#D4B97E]" : "w-2 h-2 bg-[#111111]/10 hover:bg-[#C9A86A]/30"}`}
                 />
               ))}
             </div>
-            <button onClick={next} className="w-9 h-9 rounded-full border border-[#111111]/8 flex items-center justify-center text-[#111111]/40 hover:bg-[#C9A86A] hover:text-white hover:border-[#C9A86A] transition-all duration-250">
-              <ChevronRight size={15} />
+            <button onClick={next} className="w-10 h-10 rounded-full border border-[#111111]/8 flex items-center justify-center text-[#111111]/40 hover:bg-[#C9A86A] hover:text-white hover:border-[#C9A86A] hover:shadow-[0_4px_16px_rgba(201,168,106,0.25)] transition-all duration-300">
+              <ChevronRight size={16} />
             </button>
           </div>
         </motion.div>
