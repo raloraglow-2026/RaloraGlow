@@ -95,9 +95,9 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.25, ease: "easeOut" as const }}
-            className="fixed inset-x-0 top-[60px] z-[800] bg-white/99 backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.04)] lg:hidden"
+            className="fixed inset-x-0 top-[60px] bottom-0 z-[800] bg-white lg:hidden overflow-y-auto"
           >
-            <div className="max-w-[1200px] mx-auto px-6 sm:px-8 py-8 flex flex-col">
+            <div className="max-w-[1200px] mx-auto px-6 sm:px-8 py-10 flex flex-col min-h-full">
               {links.map((l, i) => (
                 <motion.button
                   key={l.label}
@@ -105,14 +105,14 @@ export default function Navbar() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.04 }}
                   onClick={() => go(l.href)}
-                  className="text-left py-4 border-b border-[#111111]/4 last:border-0 font-body text-[11px] tracking-[0.2em] uppercase text-[#111111]/45 hover:text-[#C9A86A] transition-colors"
+                  className="text-left py-4 border-b border-[#111111]/5 last:border-0 font-body text-[12px] tracking-[0.2em] uppercase text-[#111111]/50 hover:text-[#C9A86A] transition-colors"
                 >
                   {l.label}
                 </motion.button>
               ))}
               <button
                 onClick={() => { setOpen(false); window.open("https://wa.me/917416751547?text=Hi%20RALORA%20GLOW!%20I%20want%20to%20order%20the%20SPCL%20Tan%20Care%20Body%20Scrub.", "_blank"); }}
-                className="btn-gold mt-8 justify-center"
+                className="btn-gold mt-10 justify-center"
               >
                 Order on WhatsApp
               </button>
