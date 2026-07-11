@@ -4,10 +4,10 @@ import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Plus, Minus } from "lucide-react";
 
-const up = {
-  hidden: { opacity:0, y:22 },
-  show: (i:number) => ({ opacity:1, y:0, transition:{ delay:i*0.07, duration:0.55, ease:"easeOut" as const } }),
-};
+const up = (i:number) => ({
+  hidden:{ opacity:0, y:22 },
+  show:  { opacity:1, y:0, transition:{ delay:i*0.07, duration:0.55, ease:"easeOut" as const } }
+});
 
 const faqs = [
   { q:"How often should I use it?",          a:"Use 2–3 times per week for best results. For sensitive skin, start with once a week and gradually increase." },
@@ -21,50 +21,63 @@ const faqs = [
 ];
 
 export default function FAQSection() {
-  const ref  = useRef(null);
-  const v    = useInView(ref, { once:true, margin:"-80px" });
+  const ref = useRef(null);
+  const v   = useInView(ref, { once:true, margin:"-80px" });
   const [open, setOpen] = useState<number|null>(0);
 
   return (
-    <section id="faq" className="relative section bg-white overflow-hidden">
-      <div className="gold-line absolute top-0 inset-x-0" />
-      <div className="pointer-events-none absolute top-0 left-1/4 w-80 h-80 rounded-full bg-[#EFE8DD]/12 blur-[80px]" />
+    <section id="faq" className="sec bg-[#F8F5EF] relative overflow-hidden">
+      <div className="gold-rule absolute top-0 inset-x-0" />
 
-      <div ref={ref} className="container-xl">
+      <div ref={ref} className="wrap">
 
         {/* Header */}
         <div className="text-center mb-14">
-          <motion.span custom={0} variants={up} initial="hidden" animate={v?"show":"hidden"} className="section-label">Got Questions?</motion.span>
-          <motion.h2  custom={1} variants={up} initial="hidden" animate={v?"show":"hidden"} className="section-title">Frequently Asked<br /><span className="gold-text italic">Questions</span></motion.h2>
-          <motion.div custom={2} variants={up} initial="hidden" animate={v?"show":"hidden"} className="gold-line w-12 mx-auto mt-6" />
+          <motion.span variants={up(0)} initial="hidden" animate={v?"show":"hidden"} className="eyebrow mb-6 inline-flex">Got Questions?</motion.span>
+          <motion.h2 variants={up(1)} initial="hidden" animate={v?"show":"hidden"} className="h2">
+            Frequently Asked<br /><span className="gold-text italic">Questions</span>
+          </motion.h2>
+          <motion.span variants={up(2)} initial="hidden" animate={v?"show":"hidden"} className="gold-rule-short mx-auto mt-6 block" />
         </div>
 
         {/* Accordion */}
-        <div className="max-w-2xl mx-auto space-y-2 md:space-y-2.5">
+        <div className="max-w-3xl mx-auto space-y-3">
           {faqs.map((f,i)=>(
-            <motion.div key={i} custom={i+2} variants={up} initial="hidden" animate={v?"show":"hidden"}>
-              <div className={`rounded-xl border overflow-hidden transition-all duration-300 ${open===i?"border-[#C9A86A]/22 bg-[#FCFBF8] shadow-[0_6px_24px_rgba(201,168,106,0.06)]":"border-[#F0EDE8] bg-white hover:border-[#C9A86A]/14"}`}>
+            <motion.div key={i} variants={up(i+2)} initial="hidden" animate={v?"show":"hidden"}>
+              <div className={`rounded-2xl border overflow-hidden transition-all duration-300 ${
+                open===i
+                  ? "border-[#C9A86A]/25 bg-white shadow-[0_8px_32px_rgba(201,168,106,0.08)]"
+                  : "border-[#e8e0d8] bg-white hover:border-[#C9A86A]/15"
+              }`}>
                 <button
                   onClick={()=>setOpen(open===i?null:i)}
-                  className="w-full flex items-center justify-between gap-3 px-4 md:px-5 py-3 md:py-4 text-left focus:outline-none"
+                  className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left focus:outline-none"
                 >
-                  <div className="flex items-center gap-3">
-                    <span className={`font-body text-xs tracking-widest transition-colors duration-250 ${open===i?"text-[#C9A86A]":"text-[#111111]/25"}`}>{String(i+1).padStart(2,"0")}</span>
-                    <span className={`font-heading text-sm md:text-base transition-colors duration-250 ${open===i?"text-[#111111]":"text-[#111111]/60"}`}>{f.q}</span>
+                  <div className="flex items-start gap-4 min-w-0">
+                    <span className={`flex-shrink-0 font-body text-xs tracking-widest mt-0.5 transition-colors ${open===i?"text-[#C9A86A]":"text-[#111111]/22"}`}>
+                      {String(i+1).padStart(2,"0")}
+                    </span>
+                    <span className={`font-heading text-[16px] md:text-[17px] transition-colors leading-snug ${open===i?"text-[#111111]":"text-[#111111]/60"}`}>
+                      {f.q}
+                    </span>
                   </div>
-                  <span className={`w-5 h-5 md:w-6 md:h-6 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-250 ${open===i?"bg-gradient-to-br from-[#C9A86A] to-[#D4B97E] text-white shadow-sm":"bg-[#F4F4F4] text-[#111111]/35"}`}>
-                    {open===i ? <Minus size={11}/> : <Plus size={11}/>}
-                  </span>
+                  <div className={`flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-all ${
+                    open===i ? "bg-gradient-to-br from-[#C9A86A] to-[#D4B97E] text-white shadow-sm" : "bg-[#F4F4F4] text-[#111111]/30"
+                  }`}>
+                    {open===i ? <Minus size={13}/> : <Plus size={13}/>}
+                  </div>
                 </button>
                 <AnimatePresence>
                   {open===i && (
                     <motion.div
-                      initial={{ height:0, opacity:0 }} animate={{ height:"auto", opacity:1 }} exit={{ height:0, opacity:0 }}
-                      transition={{ duration:0.3, ease:"easeInOut" as const }}
+                      initial={{ height:0, opacity:0 }}
+                      animate={{ height:"auto", opacity:1 }}
+                      exit={{ height:0, opacity:0 }}
+                      transition={{ duration:0.35, ease:"easeInOut" as const }}
                     >
-                      <div className="px-5 pb-4 pl-12 md:pl-[52px]">
-                        <div className="h-[1px] bg-gradient-to-r from-[#C9A86A]/18 to-transparent mb-3" />
-                        <p className="font-body text-xs md:text-sm text-[#111111]/50 leading-[1.7]">{f.a}</p>
+                      <div className="px-6 pb-6 pl-[56px]">
+                        <span className="gold-rule-short mb-4 block" />
+                        <p className="body-sm leading-[1.85]">{f.a}</p>
                       </div>
                     </motion.div>
                   )}
@@ -75,18 +88,21 @@ export default function FAQSection() {
         </div>
 
         {/* CTA */}
-        <motion.div custom={11} variants={up} initial="hidden" animate={v?"show":"hidden"} className="mt-8 max-w-2xl mx-auto text-center p-6 bg-[#F8F5EF] rounded-xl border border-[#C9A86A]/12">
-          <p className="font-heading text-base md:text-lg text-[#111111] mb-1">Still have questions?</p>
-          <p className="font-body text-xs md:text-sm text-[#111111]/45 mb-4">We're here to help. Message us on WhatsApp.</p>
+        <motion.div variants={up(10)} initial="hidden" animate={v?"show":"hidden"}
+          className="mt-12 max-w-3xl mx-auto text-center bg-white p-8 rounded-2xl border border-[#e8e0d8]"
+        >
+          <p className="font-heading text-xl text-[#111111] mb-2">Still have questions?</p>
+          <p className="body-sm mb-6">We're here to help. Message us on WhatsApp for a quick personal response.</p>
           <button
             onClick={()=>window.open("https://wa.me/917416751547?text=Hi%20RALORA%20GLOW!%20I%20have%20a%20question.", "_blank")}
-            className="btn-shine inline-flex items-center gap-2 px-6 py-2 rounded-full bg-gradient-to-r from-[#C9A86A] to-[#D4B97E] text-white text-[9px] tracking-[0.2em] uppercase font-body hover:shadow-[0_6px_20px_rgba(201,168,106,0.3)] transition-all duration-300"
+            className="btn-gold"
           >
-            💬 Chat Now
+            💬 Chat on WhatsApp
           </button>
         </motion.div>
       </div>
-      <div className="gold-line absolute bottom-0 inset-x-0" />
+
+      <div className="gold-rule absolute bottom-0 inset-x-0" />
     </section>
   );
 }
