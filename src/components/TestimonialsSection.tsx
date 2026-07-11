@@ -10,11 +10,11 @@ const up = (i: number) => ({
 });
 
 const reviews = [
-  { name: "Lakshmi V.", loc: "Visakhapatnam", review: "After two weeks, my tan lightened noticeably. Skin feels like silk every day." },
-  { name: "Ravi K.", loc: "Visakhapatnam", review: "So gentle yet effective. The packaging is premium and it smells earthy and natural." },
-  { name: "Divya P.", loc: "Vijayawada", review: "My elbows and knees look even-toned now. Love the natural formulation." },
-  { name: "Suresh M.", loc: "Visakhapatnam", review: "Even my colleagues noticed the difference. Skin feels cleaner and brighter." },
-  { name: "Anjali R.", loc: "Rajahmundry", review: "Doesn't irritate my sensitive skin at all. The results are gradual but real." },
+  { name: "Lakshmi V.", loc: "Visakhapatnam", review: "This powder scrub is amazing! My skin feels so smooth after just one use on face and body." },
+  { name: "Ravi K.", loc: "Visakhapatnam", review: "Love mixing it with curd — the paste is gentle and my skin looks brighter every week." },
+  { name: "Divya P.", loc: "Vijayawada", review: "Finally a scrub I can use on both face and body. The powder format stays fresh longer too." },
+  { name: "Suresh M.", loc: "Visakhapatnam", review: "Great natural powder scrub. I mix with body wash and it works perfectly for my skin." },
+  { name: "Anjali R.", loc: "Rajahmundry", review: "So gentle on my sensitive skin. I use it once a week and the results are visible." },
 ];
 
 export default function TestimonialsSection() {

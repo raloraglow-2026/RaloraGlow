@@ -12,11 +12,11 @@ const up = (i: number) => ({
 
 const benefits = [
   "Gently exfoliates dead skin",
-  "Visibly reduces tan appearance",
-  "Smooths rough, uneven texture",
-  "Leaves skin refreshed and luminous",
-  "Supports healthy radiance over time",
-  "Perfect for all skin types",
+  "Detoxifies and refreshes skin",
+  "Suitable for face and body",
+  "Leaves skin smooth and radiant",
+  "For all skin types",
+  "100% natural formulation",
 ];
 
 export default function ProductSection() {
@@ -37,7 +37,7 @@ export default function ProductSection() {
           </motion.h2>
           <motion.span variants={up(2)} initial="hidden" animate={v ? "show" : "hidden"} className="gold-rule-short mx-auto block mb-7" />
           <motion.p variants={up(3)} initial="hidden" animate={v ? "show" : "hidden"} className="body-lg mx-auto text-center">
-            A luxury exfoliant for radiant, silky skin.
+            A natural detox scrub powder for face and body.
           </motion.p>
         </div>
 
@@ -64,7 +64,7 @@ export default function ProductSection() {
 
               {/* Tags */}
               <div className="flex flex-wrap justify-center gap-2 mb-8">
-                {["Natural", "Handcrafted", "Unisex"].map(t => (
+                {["Natural", "Handcrafted", "Unisex", "Face & Body"].map(t => (
                   <span key={t} className="px-4 py-1.5 rounded-full border border-[#C9A86A]/15 font-body text-[9px] tracking-[0.2em] text-[#C9A86A] uppercase">{t}</span>
                 ))}
               </div>

@@ -10,18 +10,18 @@ const up = (i: number) => ({
 });
 
 const values = [
-  { icon: <Leaf size={20} />,     title: "Natural",     desc: "Pure botanicals, zero chemicals" },
-  { icon: <Shield size={20} />,   title: "Gentle",      desc: "Safe for every skin type" },
-  { icon: <Heart size={20} />,    title: "Artisan",     desc: "Small-batch crafted with care" },
-  { icon: <Sparkles size={20} />, title: "Luxury",      desc: "Premium formula and finish" },
-  { icon: <Users size={20} />,    title: "Universal",   desc: "Designed for all, loved by all" },
-  { icon: <Award size={20} />,    title: "Transparent", desc: "Honest claims, real results" },
+  { icon: <Leaf size={20} />,     title: "100% Natural",  desc: "Pure natural formulations" },
+  { icon: <Heart size={20} />,    title: "Handmade",      desc: "Crafted with care" },
+  { icon: <Shield size={20} />,   title: "Cruelty Free",  desc: "Never tested on animals" },
+  { icon: <Sparkles size={20} />, title: "Eco Friendly",  desc: "Sustainable packaging" },
+  { icon: <Users size={20} />,    title: "Unisex",        desc: "For men and women" },
+  { icon: <Award size={20} />,    title: "Face & Body",   desc: "Complete skincare" },
 ];
 
 const stats = [
-  { num: "Premium", label: "Quality" },
-  { num: "200g", label: "Per Jar" },
-  { num: "100%", label: "Handcrafted" },
+  { num: "100%", label: "Natural" },
+  { num: "Unisex", label: "For All" },
+  { num: "Handmade", label: "Each Batch" },
 ];
 
 export default function AboutSection() {
@@ -44,10 +44,10 @@ export default function AboutSection() {
             </h2>
             <span className="gold-rule-short mb-8 block" />
             <p className="body-lg mb-5 max-w-[45ch]">
-              Premium skincare that is accessible, honest, and beautifully crafted.
+              A 100% natural scrub powder for face and body that gently exfoliates and detoxifies.
             </p>
             <p className="body-lg mb-10 max-w-[45ch]">
-              Handcrafted in India with time-tested natural formulations.
+              Handmade in India with care — for radiant, healthy skin.
             </p>
 
             {/* Stats */}
@@ -87,7 +87,7 @@ export default function AboutSection() {
         >
           <span className="font-heading text-[56px] md:text-[72px] text-[#C9A86A]/12 leading-none select-none block mb-2">&ldquo;</span>
           <p className="font-heading text-[20px] md:text-[26px] text-[#111111]/55 italic leading-[1.5] max-w-xl mx-auto -mt-6">
-            Luxury is not about price — it is about intention.
+            Pure by Nature. Made for You.
           </p>
           <div className="w-12 h-[1px] bg-gradient-to-r from-transparent via-[#C9A86A] to-transparent mx-auto mt-8 mb-4" />
           <p className="font-body text-[10px] tracking-[0.4em] text-[#C9A86A] uppercase">— The RALORA GLOW Philosophy</p>

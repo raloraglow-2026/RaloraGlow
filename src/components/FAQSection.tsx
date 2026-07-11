@@ -10,13 +10,13 @@ const up = (i: number) => ({
 });
 
 const faqs = [
-  { q: "How often should I use it?", a: "2–3 times per week for best results." },
-  { q: "Who can use this scrub?", a: "Everyone — men and women of all skin types." },
-  { q: "How do I use it?", a: "Mix with rose water, massage 2–3 minutes, rinse with cool water." },
-  { q: "How should I store it?", a: "Cool, dry place with the lid closed." },
-  { q: "How long does one jar last?", a: "4–6 weeks with regular use." },
-  { q: "Is it suitable for sensitive skin?", a: "Yes, it is gentle and non-irritating." },
-  { q: "Does it permanently remove tan?", a: "Consistent use visibly improves skin radiance over time." },
+  { q: "How do I use this scrub?", a: "Mix the powder with curd/milk or body wash + water to form a paste, then apply and massage gently." },
+  { q: "How often should I use it?", a: "2–3 times per week. Sensitive skin — once a week." },
+  { q: "Is it for face or body?", a: "Both! It's suitable for face and body use." },
+  { q: "How should I store it?", a: "Keep in a cool, dry place. Always use a dry spoon." },
+  { q: "Should I do a patch test?", a: "Yes — apply on a small area and wait 24 hours before first full use." },
+  { q: "When should I avoid using it?", a: "Avoid on active pimples, cuts, sunburned skin, or right after waxing." },
+  { q: "Who can use this scrub?", a: "Everyone — men and women, all skin types." },
   { q: "How do I place an order?", a: "Message us on WhatsApp — we respond within minutes." },
 ];
 

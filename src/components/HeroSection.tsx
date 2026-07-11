@@ -104,7 +104,7 @@ export default function HeroSection() {
 
             {/* Subtitle */}
             <motion.p variants={item} className="font-body text-[14px] md:text-[15px] text-[#111111]/40 leading-[2.0] max-w-[400px] mb-9">
-              Handcrafted natural formulations for radiant skin.
+              Pure by Nature. Made for You.
             </motion.p>
 
             {/* CTAs */}
