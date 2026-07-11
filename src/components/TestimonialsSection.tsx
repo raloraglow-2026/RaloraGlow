@@ -12,7 +12,7 @@ const up = (i: number) => ({
 const reviews = [
   { name: "Lakshmi V.", loc: "Visakhapatnam", review: "I've tried so many scrubs over the years but nothing felt this luxurious. After just two weeks, the tan on my arms has lightened noticeably. My skin feels like silk every morning. Absolutely in love with this product." },
   { name: "Ravi K.", loc: "Visakhapatnam", review: "Bought this for my wife but ended up using it myself too. The scrub is so gentle yet effective — my farmer's tan from daily commute has visibly reduced. The packaging is premium and the product smells earthy and natural." },
-  { name: "Divya P.", loc: "Vijayawada", review: "The SPCL Tan Care Scrub has completely transformed my weekend skincare routine. My elbows and knees that were always dark now look so much more even-toned. I love that it uses turmeric and multani mitti — ingredients my grandmother swore by." },
+  { name: "Divya P.", loc: "Vijayawada", review: "The SPCL Tan Care Scrub has completely transformed my weekend skincare routine. My elbows and knees that were always dark now look so much more even-toned. I love that it uses natural formulations — the kind my grandmother always believed in." },
   { name: "Suresh M.", loc: "Visakhapatnam", review: "I was skeptical about skincare products but a friend recommended RALORA GLOW. After a month of regular use, even my colleagues noticed the difference. Skin feels cleaner, brighter, and healthier. Worth every rupee." },
   { name: "Anjali R.", loc: "Rajahmundry", review: "Finally a scrub that doesn't irritate my sensitive skin. The natural formula is so soothing and the results are gradual but real. My beach tan from last summer is almost gone. The quality of this product is genuinely premium." },
 ];

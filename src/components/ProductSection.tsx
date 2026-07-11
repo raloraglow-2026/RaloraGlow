@@ -19,15 +19,6 @@ const benefits = [
   "Universally formulated — perfect for all skin types",
 ];
 
-const ingredients = [
-  ["Masoor Dal", "Natural exfoliant"],
-  ["Besan", "Skin brightening"],
-  ["Rice Flour", "Gentle polish"],
-  ["Multani Mitti", "Deep cleanse"],
-  ["Coffee", "Circulation boost"],
-  ["Turmeric", "Natural glow"],
-];
-
 export default function ProductSection() {
   const ref = useRef(null);
   const v = useInView(ref, { once: true, margin: "-80px" });
@@ -47,7 +38,7 @@ export default function ProductSection() {
           </motion.h2>
           <motion.span variants={up(2)} initial="hidden" animate={v ? "show" : "hidden"} className="gold-rule-short mx-auto block mb-7" />
           <motion.p variants={up(3)} initial="hidden" animate={v ? "show" : "hidden"} className="body-lg mx-auto text-center">
-            A handcrafted luxury exfoliant powered by six natural ingredients. Gently dissolves dead skin, diminishes the appearance of tanning, and reveals the radiant skin beneath.
+            A handcrafted luxury exfoliant that gently removes dead skin, diminishes the appearance of tanning, and reveals the radiant skin beneath.
           </motion.p>
         </div>
 
@@ -92,7 +83,7 @@ export default function ProductSection() {
           {/* Right: Benefits */}
           <motion.div variants={up(1)} initial="hidden" animate={v ? "show" : "hidden"}>
             <h3 className="h3 mb-3">The Promise</h3>
-            <p className="body-sm mb-8 max-w-md">Six powerful benefits from nature&apos;s finest ingredients, working together for visibly radiant skin.</p>
+            <p className="body-sm mb-8 max-w-md">Six powerful benefits working together for visibly radiant, smoother skin.</p>
             <span className="gold-rule-short mb-8 block" />
 
             <div className="space-y-5 mb-12">
@@ -102,16 +93,6 @@ export default function ProductSection() {
                     <Check size={12} className="text-white" strokeWidth={3} />
                   </div>
                   <p className="font-body text-[14px] text-[#111111]/60 leading-[1.7] group-hover:text-[#111111]/75 transition-colors">{b}</p>
-                </div>
-              ))}
-            </div>
-
-            {/* Ingredients grid — luxury feel */}
-            <div className="grid grid-cols-3 gap-3">
-              {ingredients.map(([name, benefit]) => (
-                <div key={name} className="text-center p-4 bg-[#FDFBF7] rounded-xl border border-[#111111]/4 hover:border-[#C9A86A]/20 transition-all duration-300">
-                  <p className="font-heading text-[14px] text-[#111111]/75 mb-0.5">{name}</p>
-                  <p className="font-body text-[9px] tracking-[0.15em] text-[#C9A86A] uppercase">{benefit}</p>
                 </div>
               ))}
             </div>

@@ -36,7 +36,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="font-body text-[13px] text-white/28 leading-[1.85] max-w-[260px] mb-7">
-              Premium handcrafted skincare — where nature&apos;s finest ingredients meet luxurious self-care rituals.
+              Premium handcrafted skincare — where nature&apos;s finest meets luxurious self-care rituals.
             </p>
             <div className="flex gap-3">
               {[

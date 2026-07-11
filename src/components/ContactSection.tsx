@@ -117,7 +117,7 @@ export default function ContactSection() {
                   ["📦", "Premium Packaging", "Your order arrives beautifully presented — ready to gift or enjoy yourself."],
                   ["⚡", "Instant Response", "We reply on WhatsApp within minutes — no chatbots, just personal care."],
                   ["🛡️", "Quality Guaranteed", "Every jar passes our quality check before it leaves. No exceptions."],
-                  ["🌿", "100% Natural", "Only carefully selected, skin-friendly botanical ingredients inside."],
+                  ["🌿", "100% Natural", "Only carefully selected, skin-friendly botanical formulations inside."],
                 ].map(([ic, ti, de]) => (
                   <div key={ti as string} className="flex items-start gap-5">
                     <div className="w-11 h-11 rounded-xl bg-[#FDFBF7] border border-[#C9A86A]/10 flex items-center justify-center flex-shrink-0 text-[18px]">{ic}</div>

@@ -10,16 +10,16 @@ const up = (i: number) => ({
 });
 
 const values = [
-  { icon: <Leaf size={22} />,     title: "100% Natural",      desc: "Carefully sourced botanical ingredients — free from harsh chemicals and synthetic agents." },
+  { icon: <Leaf size={22} />,     title: "100% Natural",      desc: "Carefully sourced botanicals — free from harsh chemicals and synthetic agents." },
   { icon: <Shield size={22} />,   title: "Derma-Gentle",      desc: "Formulated for every skin type — delivers visible results without irritation." },
   { icon: <Heart size={22} />,    title: "Artisan Crafted",   desc: "Small-batch production ensures uncompromising quality in every single jar." },
   { icon: <Sparkles size={22} />, title: "Luxury Grade",      desc: "From formulation to packaging — a premium experience at every touchpoint." },
   { icon: <Users size={22} />,    title: "Universal",         desc: "One exceptional product designed for all — men, women, every skin tone." },
-  { icon: <Award size={22} />,    title: "Transparent",       desc: "No false promises. Real ingredients, honest claims, genuine results over time." },
+  { icon: <Award size={22} />,    title: "Transparent",       desc: "No false promises. Honest claims, genuine results over time." },
 ];
 
 const stats = [
-  { num: "6", label: "Natural Ingredients" },
+  { num: "Premium", label: "Quality" },
   { num: "200g", label: "Per Jar" },
   { num: "100%", label: "Handcrafted" },
 ];
@@ -48,7 +48,7 @@ export default function AboutSection() {
               RALORA GLOW was founded on an uncompromising principle — that truly premium skincare should be accessible, honest, and beautifully crafted. Not gatekept. Not overpriced. Simply exceptional.
             </p>
             <p className="body-lg mb-6">
-              Our signature SPCL Tan Care Body Scrub is handcrafted in India using six time-tested natural ingredients — Masoor Dal, Besan, Rice Flour, Multani Mitti, Coffee, and Turmeric. Zero harsh bleaching agents. Zero artificial whitening chemicals.
+              Our signature SPCL Tan Care Body Scrub is handcrafted in India using time-tested natural formulations. Zero harsh bleaching agents. Zero artificial whitening chemicals.
             </p>
             <p className="body-lg mb-8">
               Every jar carries the care we would give our own skin. That is the RALORA GLOW promise — nothing less.
