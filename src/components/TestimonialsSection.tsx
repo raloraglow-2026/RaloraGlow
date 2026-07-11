@@ -4,72 +4,76 @@ import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-const up = (i:number) => ({
-  hidden:{ opacity:0, y:24 },
-  show:  { opacity:1, y:0, transition:{ delay:i*0.1, duration:0.6, ease:"easeOut" as const } }
+const up = (i: number) => ({
+  hidden: { opacity: 0, y: 22 },
+  show: { opacity: 1, y: 0, transition: { delay: i * 0.1, duration: 0.6, ease: "easeOut" as const } },
 });
 
 const reviews = [
-  { name:"Priya Sharma",  loc:"Mumbai",    init:"PS", review:"After two weeks of regular use, my skin feels incredibly soft. The packaging is beautiful and it genuinely feels luxurious. Love this product so much!" },
-  { name:"Arjun Mehta",   loc:"Bangalore", init:"AM", review:"I was skeptical at first but this scrub is fantastic — gentle, effective, and the fragrance is subtle. My skin looks visibly healthier now." },
-  { name:"Kavya Reddy",   loc:"Hyderabad", init:"KR", review:"This has become my Sunday ritual. Leaves my skin feeling like I just stepped out of a spa. Love that it's designed for everyone." },
-  { name:"Rohan Kapoor",  loc:"Delhi",     init:"RK", review:"Beautifully packaged and premium quality. My tan from a beach trip has visibly improved. Ordered again already. Highly recommended!" },
-  { name:"Nisha Patel",   loc:"Chennai",   init:"NP", review:"RALORA GLOW is everything a luxury skincare brand should be. Works beautifully, my skin feels soft for days. Ordering process was super quick." },
+  { name: "Priya S.", loc: "Mumbai", review: "After two weeks, my skin feels incredibly soft. The packaging is beautiful and it genuinely feels luxurious. Absolutely love this product." },
+  { name: "Arjun M.", loc: "Bangalore", review: "I was skeptical at first but this scrub is fantastic — gentle, effective, and the fragrance is subtle. My skin looks visibly healthier." },
+  { name: "Kavya R.", loc: "Hyderabad", review: "This has become my Sunday ritual. Leaves my skin feeling like I stepped out of a spa. Love that it's for everyone." },
+  { name: "Rohan K.", loc: "Delhi", review: "Beautifully packaged and premium quality. My tan from a beach trip has visibly improved. Already ordered again." },
+  { name: "Nisha P.", loc: "Chennai", review: "RALORA GLOW is everything a luxury skincare brand should be. Works beautifully. My skin feels soft for days." },
 ];
 
 export default function TestimonialsSection() {
   const ref = useRef(null);
-  const v   = useInView(ref, { once:true, margin:"-80px" });
+  const v = useInView(ref, { once: true, margin: "-80px" });
   const [cur, setCur] = useState(0);
   const [dir, setDir] = useState(0);
 
-  const prev = () => { setDir(-1); setCur(c=>(c-1+reviews.length)%reviews.length); };
-  const next = () => { setDir(1);  setCur(c=>(c+1)%reviews.length); };
+  const prev = () => { setDir(-1); setCur(c => (c - 1 + reviews.length) % reviews.length); };
+  const next = () => { setDir(1); setCur(c => (c + 1) % reviews.length); };
 
   const slide = {
-    enter:  (d:number) => ({ opacity:0, x:d*40 }),
-    center: { opacity:1, x:0, transition:{ duration:0.4, ease:"easeOut" as const } },
-    exit:   (d:number) => ({ opacity:0, x:-d*40, transition:{ duration:0.25 } }),
+    enter: (d: number) => ({ opacity: 0, x: d * 30 }),
+    center: { opacity: 1, x: 0, transition: { duration: 0.4, ease: "easeOut" as const } },
+    exit: (d: number) => ({ opacity: 0, x: -d * 30, transition: { duration: 0.2 } }),
   };
 
   return (
-    <section id="testimonials" className="sec bg-[#0f0f0f] relative overflow-hidden">
-      {/* Subtle background texture */}
-      <div className="pointer-events-none absolute inset-0 opacity-[0.04]"
-        style={{ backgroundImage:"radial-gradient(circle at 2px 2px,#C9A86A 1px,transparent 0)", backgroundSize:"32px 32px" }} />
-      <div className="pointer-events-none absolute right-0 top-0 w-96 h-96 rounded-full opacity-6"
-        style={{ background:"radial-gradient(circle,#C9A86A,transparent)" }} />
+    <section id="testimonials" className="sec bg-white relative overflow-hidden">
+      <div className="gold-rule absolute top-0 inset-x-0" />
 
-      <div ref={ref} className="wrap relative z-10">
+      <div ref={ref} className="wrap">
 
         {/* Header */}
         <div className="text-center mb-14">
-          <motion.span variants={up(0)} initial="hidden" animate={v?"show":"hidden"} className="eyebrow-dark mb-6 inline-flex">Client Reviews</motion.span>
-          <motion.h2 variants={up(1)} initial="hidden" animate={v?"show":"hidden"} className="h2-white">
-            What Our<br /><span className="gold-text-light italic">Customers Say</span>
+          <motion.span variants={up(0)} initial="hidden" animate={v ? "show" : "hidden"} className="eyebrow mb-7 inline-flex">Testimonials</motion.span>
+          <motion.h2 variants={up(1)} initial="hidden" animate={v ? "show" : "hidden"} className="h2 mb-5">
+            What Customers<br /><span className="gold-text italic">Are Saying</span>
           </motion.h2>
-          <motion.span variants={up(2)} initial="hidden" animate={v?"show":"hidden"} className="gold-rule-short mx-auto mt-6 block" />
-          {/* Stars */}
-          <motion.div variants={up(3)} initial="hidden" animate={v?"show":"hidden"} className="flex items-center justify-center gap-1 mt-5">
-            {[1,2,3,4,5].map(s=><span key={s} className="text-[#C9A86A] text-xl">★</span>)}
-            <span className="font-body text-xs text-white/30 ml-2 tracking-wider">5.0 Average Rating</span>
+          <motion.span variants={up(2)} initial="hidden" animate={v ? "show" : "hidden"} className="gold-rule-short mx-auto block mb-6" />
+          <motion.div variants={up(3)} initial="hidden" animate={v ? "show" : "hidden"} className="flex items-center justify-center gap-1">
+            {[1, 2, 3, 4, 5].map(s => <span key={s} className="text-[#C9A86A] text-lg">★</span>)}
+            <span className="font-body text-xs text-[#111111]/30 ml-2 tracking-wider">5.0 Rated</span>
           </motion.div>
         </div>
 
-        {/* Featured review */}
-        <motion.div variants={up(2)} initial="hidden" animate={v?"show":"hidden"} className="max-w-2xl mx-auto mb-10">
-          <div className="bg-[#161616] border border-white/6 rounded-3xl p-8 md:p-12 relative overflow-hidden">
-            {/* Quote mark */}
-            <p className="absolute top-6 left-8 font-heading text-8xl text-[#C9A86A]/8 leading-none select-none">"</p>
+        {/* Review card */}
+        <motion.div variants={up(2)} initial="hidden" animate={v ? "show" : "hidden"} className="max-w-2xl mx-auto">
+          <div className="bg-[#FDFBF7] rounded-3xl p-8 md:p-12 border border-[#111111]/5 relative">
+            {/* Decorative quote */}
+            <span className="absolute top-6 left-8 font-heading text-[80px] text-[#C9A86A]/8 leading-none select-none">"</span>
 
             <div className="relative z-10">
-              <div className="flex gap-1 mb-8">{[1,2,3,4,5].map(s=><span key={s} className="text-[#C9A86A] text-base">★</span>)}</div>
+              {/* Stars */}
+              <div className="flex gap-1 mb-7">
+                {[1, 2, 3, 4, 5].map(s => <span key={s} className="text-[#C9A86A]">★</span>)}
+              </div>
 
-              <div className="min-h-[90px]">
+              {/* Review text */}
+              <div className="min-h-[80px]">
                 <AnimatePresence mode="wait" custom={dir}>
                   <motion.p
-                    key={cur} custom={dir} variants={slide} initial="enter" animate="center" exit="exit"
-                    className="font-heading text-xl md:text-2xl text-white/75 italic leading-[1.55]"
+                    key={cur}
+                    custom={dir}
+                    variants={slide}
+                    initial="enter"
+                    animate="center"
+                    exit="exit"
+                    className="font-heading text-[20px] md:text-[24px] text-[#111111]/65 italic leading-[1.55]"
                   >
                     "{reviews[cur].review}"
                   </motion.p>
@@ -78,23 +82,21 @@ export default function TestimonialsSection() {
 
               <div className="gold-rule my-8" />
 
+              {/* Author */}
               <AnimatePresence mode="wait">
                 <motion.div
                   key={`a-${cur}`}
-                  initial={{ opacity:0, y:8 }} animate={{ opacity:1, y:0 }} exit={{ opacity:0 }}
-                  transition={{ duration:0.3 }}
-                  className="flex items-center justify-between flex-wrap gap-4"
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="flex items-center justify-between"
                 >
-                  <div className="flex items-center gap-3">
-                    <div className="w-11 h-11 rounded-full bg-gradient-to-br from-[#C9A86A] to-[#D4B97E] flex items-center justify-center shadow-md flex-shrink-0">
-                      <span className="font-body text-xs font-semibold text-white">{reviews[cur].init}</span>
-                    </div>
-                    <div>
-                      <p className="font-heading text-base text-white/80">{reviews[cur].name}</p>
-                      <p className="font-body text-xs text-white/30 tracking-wider">{reviews[cur].loc}, India</p>
-                    </div>
+                  <div>
+                    <p className="font-heading text-[16px] text-[#111111]">{reviews[cur].name}</p>
+                    <p className="font-body text-xs text-[#111111]/35 tracking-wider">{reviews[cur].loc}, India</p>
                   </div>
-                  <span className="px-3 py-1.5 rounded-full border border-[#C9A86A]/20 font-body text-[9px] tracking-[0.2em] text-[#C9A86A] uppercase">✓ Verified</span>
+                  <span className="px-3 py-1 rounded-full border border-[#C9A86A]/20 font-body text-[9px] tracking-[0.2em] text-[#C9A86A] uppercase">Verified</span>
                 </motion.div>
               </AnimatePresence>
             </div>
@@ -102,54 +104,26 @@ export default function TestimonialsSection() {
 
           {/* Navigation */}
           <div className="flex items-center justify-center gap-4 mt-6">
-            <button onClick={prev} className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/50 hover:bg-[#C9A86A] hover:text-white hover:border-[#C9A86A] transition-all duration-250">
-              <ChevronLeft size={15}/>
+            <button onClick={prev} className="w-9 h-9 rounded-full border border-[#111111]/8 flex items-center justify-center text-[#111111]/40 hover:bg-[#C9A86A] hover:text-white hover:border-[#C9A86A] transition-all duration-250">
+              <ChevronLeft size={15} />
             </button>
             <div className="flex gap-2">
-              {reviews.map((_,i)=>(
-                <button key={i} onClick={()=>{setDir(i>cur?1:-1);setCur(i);}}
-                  className={`rounded-full transition-all duration-250 ${i===cur?"w-5 h-2 bg-[#C9A86A]":"w-2 h-2 bg-white/15"}`}
+              {reviews.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => { setDir(i > cur ? 1 : -1); setCur(i); }}
+                  className={`rounded-full transition-all duration-250 ${i === cur ? "w-5 h-2 bg-[#C9A86A]" : "w-2 h-2 bg-[#111111]/10"}`}
                 />
               ))}
             </div>
-            <button onClick={next} className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/50 hover:bg-[#C9A86A] hover:text-white hover:border-[#C9A86A] transition-all duration-250">
-              <ChevronRight size={15}/>
+            <button onClick={next} className="w-9 h-9 rounded-full border border-[#111111]/8 flex items-center justify-center text-[#111111]/40 hover:bg-[#C9A86A] hover:text-white hover:border-[#C9A86A] transition-all duration-250">
+              <ChevronRight size={15} />
             </button>
           </div>
         </motion.div>
-
-        {/* Mini cards */}
-        <motion.div variants={up(4)} initial="hidden" animate={v?"show":"hidden"} className="grid sm:grid-cols-3 gap-4">
-          {reviews.slice(0,3).map((r,i)=>(
-            <div
-              key={r.name}
-              onClick={()=>{setDir(i>cur?1:-1);setCur(i);}}
-              className={`cursor-pointer p-5 rounded-2xl border transition-all duration-250 ${cur===i?"border-[#C9A86A]/30 bg-[#1a1510]":"border-white/6 bg-[#161616] hover:border-white/10"}`}
-            >
-              <div className="flex gap-0.5 mb-3">{[1,2,3,4,5].map(s=><span key={s} className="text-[#C9A86A] text-xs">★</span>)}</div>
-              <p className="font-body text-xs text-white/45 leading-[1.72] line-clamp-3 italic">"{r.review}"</p>
-              <div className="flex items-center gap-2 mt-4 pt-3 border-t border-white/6">
-                <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#C9A86A] to-[#D4B97E] flex items-center justify-center flex-shrink-0">
-                  <span className="font-body text-[7px] text-white">{r.init}</span>
-                </div>
-                <p className="font-body text-[10px] text-white/40">{r.name}</p>
-              </div>
-            </div>
-          ))}
-        </motion.div>
-
-        {/* Bottom stats */}
-        <motion.div variants={up(5)} initial="hidden" animate={v?"show":"hidden"}
-          className="mt-10 grid sm:grid-cols-3 gap-4 border-t border-white/6 pt-10"
-        >
-          {[["5.0","Google Rating"],["100%","Client Satisfaction"],["India","Trusted Brand"]].map(([n,l])=>(
-            <div key={l} className="text-center">
-              <p className="font-heading text-4xl text-[#D4B97E]">{n}</p>
-              <p className="font-body text-[10px] tracking-[0.28em] text-white/28 uppercase mt-2">{l}</p>
-            </div>
-          ))}
-        </motion.div>
       </div>
+
+      <div className="gold-rule absolute bottom-0 inset-x-0" />
     </section>
   );
 }
