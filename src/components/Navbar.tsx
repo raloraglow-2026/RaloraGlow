@@ -1,6 +1,5 @@
 "use client";
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 
@@ -31,17 +30,14 @@ export default function Navbar() {
 
   return (
     <>
-      <motion.nav
-        initial={{ y: -80, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 2.3, duration: 0.7, ease: "easeOut" as const }}
+      <nav
         className={`fixed inset-x-0 top-0 z-[900] transition-all duration-500 ${
           scrolled
             ? "bg-white/98 backdrop-blur-2xl shadow-[0_1px_16px_rgba(0,0,0,0.03)]"
             : "bg-transparent"
         }`}
       >
-        <div className="max-w-[1200px] mx-auto px-6 sm:px-8 flex items-center justify-between h-[72px] md:h-[80px]">
+        <div className="max-w-[1200px] mx-auto px-6 sm:px-8 flex items-center justify-between h-[68px] md:h-[80px]">
 
           {/* Logo */}
           <button onClick={() => go("#home")} aria-label="RALORA GLOW" className="focus:outline-none flex-shrink-0 group">
@@ -57,19 +53,19 @@ export default function Navbar() {
           </button>
 
           {/* Desktop links */}
-          <div className="hidden lg:flex items-center gap-9">
+          <div className="hidden lg:flex items-center gap-10">
             {links.map(l => (
               <button
                 key={l.label}
                 onClick={() => go(l.href)}
-                className="nav-link font-body text-[11px] tracking-[0.2em] uppercase text-[#111111]/45 hover:text-[#C9A86A] transition-colors duration-300 font-medium"
+                className="nav-link font-body text-[11px] tracking-[0.22em] uppercase text-[#111111]/45 hover:text-[#C9A86A] transition-colors duration-300 font-medium"
               >
                 {l.label}
               </button>
             ))}
             <button
-              onClick={() => window.open("https://wa.me/917416751547?text=Hi%20RALORA%20GLOW!%20I%20want%20to%20order%20the%20SPCL%20Tan%20Care%20Body%20Scrub.", "_blank")}
-              className="btn-gold ml-3 !py-[10px] !px-6 !text-[9px]"
+              onClick={() => window.open("https://wa.me/917416751547?text=Hi%20RALORA%20GLOW!%20I%20want%20to%20order.", "_blank")}
+              className="btn-primary ml-3 !py-[10px] !px-6 !text-[9px]"
             >
               Order Now
             </button>
@@ -77,50 +73,33 @@ export default function Navbar() {
 
           {/* Mobile menu btn */}
           <button className="lg:hidden p-2 focus:outline-none" onClick={() => setOpen(v => !v)} aria-label="Menu">
-            <AnimatePresence mode="wait">
-              {open
-                ? <motion.div key="x" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.15 }}><X size={22} className="text-[#111111]" /></motion.div>
-                : <motion.div key="m" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.15 }}><Menu size={22} className="text-[#111111]" /></motion.div>
-              }
-            </AnimatePresence>
+            {open ? <X size={22} className="text-[#111111]" /> : <Menu size={22} className="text-[#111111]" />}
           </button>
         </div>
-      </motion.nav>
+      </nav>
 
       {/* Mobile drawer */}
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.25, ease: "easeOut" as const }}
-            className="fixed inset-x-0 top-[72px] md:top-[80px] bottom-0 z-[800] bg-white lg:hidden overflow-y-auto"
-          >
-            <div className="max-w-[1200px] mx-auto px-6 sm:px-8 py-10 flex flex-col min-h-full">
-              {links.map((l, i) => (
-                <motion.button
-                  key={l.label}
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.04 }}
-                  onClick={() => go(l.href)}
-                  className="text-left py-5 border-b border-[#111111]/5 last:border-0 font-body text-[12px] tracking-[0.2em] uppercase text-[#111111]/50 hover:text-[#C9A86A] transition-colors"
-                >
-                  {l.label}
-                </motion.button>
-              ))}
+      {open && (
+        <div className="fixed inset-x-0 top-[68px] md:top-[80px] bottom-0 z-[800] bg-white lg:hidden overflow-y-auto">
+          <div className="max-w-[1200px] mx-auto px-6 sm:px-8 py-10 flex flex-col min-h-full">
+            {links.map((l) => (
               <button
-                onClick={() => { setOpen(false); window.open("https://wa.me/917416751547?text=Hi%20RALORA%20GLOW!%20I%20want%20to%20order%20the%20SPCL%20Tan%20Care%20Body%20Scrub.", "_blank"); }}
-                className="btn-gold mt-10 justify-center"
-
+                key={l.label}
+                onClick={() => go(l.href)}
+                className="text-left py-5 border-b border-[#111111]/5 last:border-0 font-body text-[12px] tracking-[0.2em] uppercase text-[#111111]/50 hover:text-[#C9A86A] transition-colors"
               >
-                Order on WhatsApp
+                {l.label}
               </button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            ))}
+            <button
+              onClick={() => { setOpen(false); window.open("https://wa.me/917416751547?text=Hi%20RALORA%20GLOW!%20I%20want%20to%20order.", "_blank"); }}
+              className="btn-primary mt-10 justify-center"
+            >
+              Order on WhatsApp
+            </button>
+          </div>
+        </div>
+      )}
     </>
   );
 }

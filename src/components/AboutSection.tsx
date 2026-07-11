@@ -1,13 +1,5 @@
 "use client";
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
 import { Leaf, Shield, Heart, Sparkles, Users, Award } from "lucide-react";
-
-const up = (i: number) => ({
-  hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { delay: i * 0.1, duration: 0.6, ease: "easeOut" as const } },
-});
 
 const values = [
   { icon: <Leaf size={20} />,     title: "100% Natural",  desc: "Pure natural formulations" },
@@ -25,19 +17,15 @@ const stats = [
 ];
 
 export default function AboutSection() {
-  const ref = useRef(null);
-  const v = useInView(ref, { once: true, margin: "-80px" });
-
   return (
     <section id="about" className="sec bg-[#FDFBF7] relative overflow-hidden">
-
-      <div ref={ref} className="wrap">
+      <div className="wrap">
 
         {/* Editorial grid */}
         <div className="grid lg:grid-cols-2 gap-20 lg:gap-32 items-start mb-36">
 
           {/* Left — narrative */}
-          <motion.div variants={up(0)} initial="hidden" animate={v ? "show" : "hidden"}>
+          <div>
             <span className="eyebrow mb-8 inline-flex">The RALORA GLOW Story</span>
             <h2 className="h2 mb-8">
               Where Nature<br />Meets <span className="gold-text italic">Elegance</span>
@@ -52,17 +40,17 @@ export default function AboutSection() {
 
             {/* Stats */}
             <div className="flex gap-12 pt-8 border-t border-[#111111]/5">
-              {stats.map((s, i) => (
-                <motion.div key={s.label} variants={up(i + 2)} initial="hidden" animate={v ? "show" : "hidden"}>
+              {stats.map((s) => (
+                <div key={s.label}>
                   <p className="stat-num text-[#C9A86A]">{s.num}</p>
                   <p className="font-body text-[10px] tracking-[0.2em] text-[#111111]/30 uppercase mt-2">{s.label}</p>
-                </motion.div>
+                </div>
               ))}
             </div>
-          </motion.div>
+          </div>
 
           {/* Right — value cards 2x3 grid */}
-          <motion.div variants={up(1)} initial="hidden" animate={v ? "show" : "hidden"}>
+          <div>
             <div className="grid grid-cols-2 gap-5">
               {values.map((val) => (
                 <div
@@ -77,21 +65,18 @@ export default function AboutSection() {
                 </div>
               ))}
             </div>
-          </motion.div>
+          </div>
         </div>
 
-        {/* Quote card — ivory, NOT dark */}
-        <motion.div
-          variants={up(2)} initial="hidden" animate={v ? "show" : "hidden"}
-          className="rounded-3xl bg-[#F8F5EF] px-10 py-16 md:px-20 md:py-24 text-center border border-[#C9A86A]/8"
-        >
+        {/* Quote card — ivory */}
+        <div className="rounded-3xl bg-[#F8F5EF] px-10 py-16 md:px-20 md:py-24 text-center border border-[#C9A86A]/8">
           <span className="font-heading text-[72px] md:text-[96px] text-[#C9A86A]/12 leading-none select-none block mb-2">&ldquo;</span>
           <p className="font-heading text-[22px] md:text-[30px] text-[#111111]/55 italic leading-[1.5] max-w-xl mx-auto -mt-6">
             Pure by Nature. Made for You.
           </p>
           <div className="w-12 h-[1px] bg-gradient-to-r from-transparent via-[#C9A86A] to-transparent mx-auto mt-8 mb-4" />
           <p className="font-body text-[10px] tracking-[0.4em] text-[#C9A86A] uppercase">— The RALORA GLOW Philosophy</p>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

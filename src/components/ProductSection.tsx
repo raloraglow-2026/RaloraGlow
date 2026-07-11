@@ -1,51 +1,42 @@
 "use client";
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
 import { MessageCircle, Check, Star } from "lucide-react";
 import Image from "next/image";
 
-const up = (i: number) => ({
-  hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { delay: i * 0.1, duration: 0.6, ease: "easeOut" as const } },
-});
-
 const benefits = [
-  "Gently exfoliates dead skin",
-  "Detoxifies and refreshes skin",
+  "Visible reduction in appearance of tan",
+  "Naturally radiant-looking skin",
+  "Smoother, softer skin texture",
+  "Brighter-looking complexion",
+  "Gentle exfoliation for healthy skin",
+  "Leaves skin feeling refreshed",
   "Suitable for face and body",
-  "Leaves skin smooth and radiant",
-  "For all skin types",
-  "100% natural formulation",
+  "Helps remove dead skin buildup",
 ];
 
 export default function ProductSection() {
-  const ref = useRef(null);
-  const v = useInView(ref, { once: true, margin: "-80px" });
-  const wa = () => window.open("https://wa.me/917416751547?text=Hi%20RALORA%20GLOW!%20I%20want%20to%20order%20the%20SPCL%20Tan%20Care%20Body%20Scrub.", "_blank");
+  const wa = () => window.open("https://wa.me/917416751547?text=Hi%20RALORA%20GLOW!%20I%20want%20to%20order.", "_blank");
 
   return (
     <section id="product" className="sec bg-white relative overflow-hidden">
-
-      <div ref={ref} className="wrap">
+      <div className="wrap">
 
         {/* Header */}
         <div className="text-center mb-24 max-w-2xl mx-auto">
-          <motion.span variants={up(0)} initial="hidden" animate={v ? "show" : "hidden"} className="eyebrow mb-8 inline-flex">Our Signature</motion.span>
-          <motion.h2 variants={up(1)} initial="hidden" animate={v ? "show" : "hidden"} className="h2 mb-5">
+          <span className="eyebrow mb-8 inline-flex">Our Signature</span>
+          <h2 className="h2 mb-5">
             SPCL Tan Care<br /><span className="gold-text italic">Body Scrub</span>
-          </motion.h2>
-          <motion.span variants={up(2)} initial="hidden" animate={v ? "show" : "hidden"} className="gold-rule-short mx-auto block mb-7" />
-          <motion.p variants={up(3)} initial="hidden" animate={v ? "show" : "hidden"} className="body-lg mx-auto text-center">
+          </h2>
+          <span className="gold-rule-short mx-auto block mb-7" />
+          <p className="body-lg mx-auto text-center">
             A natural detox scrub powder for face and body.
-          </motion.p>
+          </p>
         </div>
 
         {/* 2-col showcase */}
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
 
           {/* Left: Product card */}
-          <motion.div variants={up(0)} initial="hidden" animate={v ? "show" : "hidden"}>
+          <div>
             <div className="bg-[#FDFBF7] rounded-3xl p-12 md:p-16 border border-[#C9A86A]/8 flex flex-col items-center text-center">
 
               {/* Product image */}
@@ -70,21 +61,21 @@ export default function ProductSection() {
               </div>
 
               {/* CTA */}
-              <button onClick={wa} className="btn-gold w-full justify-center !py-4 !text-[10px]">
+              <button onClick={wa} className="btn-primary w-full justify-center">
                 <MessageCircle size={15} /> Order on WhatsApp
               </button>
             </div>
-          </motion.div>
+          </div>
 
           {/* Right: Benefits */}
-          <motion.div variants={up(1)} initial="hidden" animate={v ? "show" : "hidden"}>
+          <div>
             <h3 className="h3 mb-3">The Promise</h3>
             <span className="gold-rule-short mb-10 block" />
 
             <div className="space-y-7 mb-14">
               {benefits.map((b, i) => (
                 <div key={i} className="flex items-start gap-4 group">
-                  <div className="w-7 h-7 rounded-full bg-gradient-to-br from-[#C9A86A] to-[#D4B97E] flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm shadow-[#C9A86A]/20">
+                  <div className="w-7 h-7 rounded-full bg-[#3D5A40] flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
                     <Check size={12} className="text-white" strokeWidth={3} />
                   </div>
                   <p className="font-body text-[15px] text-[#111111]/55 leading-[1.8] group-hover:text-[#111111]/70 transition-colors">{b}</p>
@@ -97,7 +88,7 @@ export default function ProductSection() {
               {[
                 ["200g", "Net Weight"],
                 ["All Skin Types", "Compatibility"],
-                ["18 Months", "Shelf Life"],
+                ["3 Months", "Best Before"],
                 ["India", "Crafted In"],
               ].map(([val, lbl]) => (
                 <div key={lbl} className="text-center">
@@ -106,7 +97,7 @@ export default function ProductSection() {
                 </div>
               ))}
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

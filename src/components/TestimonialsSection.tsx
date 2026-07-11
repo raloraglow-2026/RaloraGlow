@@ -1,13 +1,7 @@
 "use client";
-import { motion, AnimatePresence } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-
-const up = (i: number) => ({
-  hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { delay: i * 0.1, duration: 0.6, ease: "easeOut" as const } },
-});
 
 const reviews = [
   { name: "Lakshmi V.", loc: "Visakhapatnam", review: "This powder scrub is amazing! My skin feels so smooth after just one use on face and body." },
@@ -18,8 +12,6 @@ const reviews = [
 ];
 
 export default function TestimonialsSection() {
-  const ref = useRef(null);
-  const v = useInView(ref, { once: true, margin: "-80px" });
   const [cur, setCur] = useState(0);
   const [dir, setDir] = useState(0);
 
@@ -34,22 +26,21 @@ export default function TestimonialsSection() {
 
   return (
     <section id="testimonials" className="sec bg-white relative overflow-hidden">
-
-      <div ref={ref} className="wrap">
+      <div className="wrap">
 
         {/* Header */}
         <div className="text-center mb-20">
-          <motion.span variants={up(0)} initial="hidden" animate={v ? "show" : "hidden"} className="eyebrow mb-8 inline-flex">Real Stories</motion.span>
-          <motion.h2 variants={up(1)} initial="hidden" animate={v ? "show" : "hidden"} className="h2 mb-5">
+          <span className="eyebrow mb-8 inline-flex">Real Stories</span>
+          <h2 className="h2 mb-5">
             What Customers<br /><span className="gold-text italic">Are Saying</span>
-          </motion.h2>
-          <motion.div variants={up(2)} initial="hidden" animate={v ? "show" : "hidden"} className="flex items-center justify-center gap-1.5 mt-4">
+          </h2>
+          <div className="flex items-center justify-center gap-1.5 mt-4">
             {[1, 2, 3, 4, 5].map(s => <span key={s} className="text-[#C9A86A] text-lg">★</span>)}
-          </motion.div>
+          </div>
         </div>
 
         {/* Single large review card */}
-        <motion.div variants={up(2)} initial="hidden" animate={v ? "show" : "hidden"} className="max-w-2xl mx-auto">
+        <div className="max-w-2xl mx-auto">
           <div className="bg-[#FDFBF7] rounded-3xl p-14 md:p-20 border border-[#C9A86A]/6 relative overflow-hidden">
 
             {/* Review text */}
@@ -105,7 +96,7 @@ export default function TestimonialsSection() {
               <ChevronRight size={16} />
             </button>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
